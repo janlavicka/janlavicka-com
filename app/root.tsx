@@ -16,7 +16,7 @@ import {
 import styles from "@/styles/app.css";
 import Layout from "@/components/layout";
 import { DynamicLinks } from "remix-utils";
-import Analytics from "./components/analytics";
+import Analytics from "@/components/analytics";
 
 declare global {
   interface Window {

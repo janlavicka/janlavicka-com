@@ -1,6 +1,6 @@
 import { useLoaderData, useLocation } from "@remix-run/react";
 import { useEffect } from "react";
-import * as gtag from "@/utils/gtags.client";
+import * as gtag from "@/utils/gtag.client";
 
 export default function Analytics() {
   const data = useLoaderData();
@@ -10,7 +10,7 @@ export default function Analytics() {
     gtag.pageview(location.pathname);
   }, [location]);
 
-  const renderAnalyticsGoogleCom = () => {
+  const renderGtag = () => {
     if (data.env.GA_UA_ID && data.env.GA_V4_ID) {
       return (
         <>
@@ -42,5 +42,5 @@ export default function Analytics() {
     }
   };
 
-  return <>{renderAnalyticsGoogleCom()}</>;
+  return <>{renderGtag()}</>;
 }
