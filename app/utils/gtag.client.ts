@@ -2,41 +2,12 @@ declare global {
   interface Window {
     gtag: (
       option: string,
-      gaTrackingId: string,
+      action: string,
       options: Record<string, unknown>,
     ) => void;
   }
 }
 
-/**
- * @example
- * https://developers.google.com/analytics/devguides/collection/gtagjs/pages
- */
-export const pageview = (url: string) => {
-  if (!window.gtag) {
-    console.warn(
-      "window.gtag is not defined. This could mean your google anylatics script has not loaded on the page yet.",
-    );
-    return;
-  }
-
-  if (window.env.GA_UA_ID) {
-    window.gtag("config", window.env.GA_UA_ID, {
-      page_path: url,
-    });
-  }
-
-  if (window.env.GA_V4_ID) {
-    window.gtag("config", window.env.GA_V4_ID, {
-      page_path: url,
-    });
-  }
-};
-
-/**
- * @example
- * https://developers.google.com/analytics/devguides/collection/gtagjs/events
- */
 export const event = ({
   action,
   category,

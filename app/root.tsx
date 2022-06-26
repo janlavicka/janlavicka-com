@@ -16,14 +16,12 @@ import {
 import styles from "@/styles/app.css";
 import Layout from "@/components/layout";
 import { DynamicLinks } from "remix-utils";
-import Analytics from "@/components/analytics";
 
 declare global {
   interface Window {
     env: {
+      NODE_ENV: string;
       APP_URL: string;
-      GA_UA_ID: string;
-      GA_V4_ID: string;
     };
   }
 }
@@ -57,9 +55,8 @@ export const links: LinksFunction = () => [
 export const loader: LoaderFunction = async () => {
   return json({
     env: {
+      NODE_ENV: process.env.NODE_ENV,
       APP_URL: process.env.APP_URL,
-      GA_UA_ID: process.env.GA_UA_ID,
-      GA_V4_ID: process.env.GA_V4_ID,
     },
   });
 };
@@ -75,7 +72,6 @@ export default function App() {
         <Links />
       </head>
       <body className="min-h-screen font-sans text-base antialiased text-gray-900 bg-gray-50">
-        <Analytics />
         <Layout>
           <Outlet />
         </Layout>
