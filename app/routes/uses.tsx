@@ -13,7 +13,7 @@ export const meta: MetaFunction = ({ parentsData }) => ({
 export default function Page() {
   return (
     <div className="space-y-6 md:space-y-8">
-      <h1 className="text-2xl md:text-3xl font-bold">Uses</h1>
+      <h1 className="text-2xl font-bold md:text-3xl">Uses</h1>
 
       <div className="mb-8">
         <Text>
@@ -54,6 +54,26 @@ export default function Page() {
               className="font-bold text-gray-900 underline hover:text-blue-500"
             >
               Spark
+            </a>
+          </p>
+        </Item>
+        <Item>
+          <p className="leading-normal">
+            <a
+              href="https://ticktick.com"
+              className="font-bold text-gray-900 underline hover:text-blue-500"
+            >
+              TickTick
+            </a>
+          </p>
+        </Item>
+        <Item>
+          <p className="leading-normal">
+            <a
+              href="https://www.postman.com"
+              className="font-bold text-gray-900 underline hover:text-blue-500"
+            >
+              Postman
             </a>
           </p>
         </Item>
@@ -180,6 +200,36 @@ export default function Page() {
               className="font-bold text-gray-900 underline hover:text-blue-500"
             >
               Cobalt2 Theme Official
+            </a>
+          </p>
+        </Item>
+        <Item>
+          <p className="leading-normal">
+            <a
+              href="https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces"
+              className="font-bold text-gray-900 underline hover:text-blue-500"
+            >
+              GitHub Codespaces
+            </a>
+          </p>
+        </Item>
+        <Item>
+          <p className="leading-normal">
+            <a
+              href="https://marketplace.visualstudio.com/items?itemName=GitHub.copilot"
+              className="font-bold text-gray-900 underline hover:text-blue-500"
+            >
+              GitHub Copilot
+            </a>
+          </p>
+        </Item>
+        <Item>
+          <p className="leading-normal">
+            <a
+              href="https://marketplace.visualstudio.com/items?itemName=wix.vscode-import-cost"
+              className="font-bold text-gray-900 underline hover:text-blue-500"
+            >
+              Import Cost
             </a>
           </p>
         </Item>

@@ -1,3 +1,5 @@
+import Layout from "@/components/layout";
+import styles from "@/styles/app.css";
 import type {
   LinksFunction,
   LoaderFunction,
@@ -11,10 +13,9 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useCatch,
   useLoaderData,
 } from "@remix-run/react";
-import styles from "@/styles/app.css";
-import Layout from "@/components/layout";
 import { DynamicLinks } from "remix-utils";
 
 declare global {
@@ -81,6 +82,48 @@ export default function App() {
             __html: `window.env = ${JSON.stringify(data.env)}`,
           }}
         />
+        <Scripts />
+        <LiveReload />
+      </body>
+    </html>
+  );
+}
+
+export function CatchBoundary() {
+  const caught = useCatch();
+
+  return (
+    <html lang="en">
+      <head>
+        <title>{`${caught.status} | Jan Lavička`}</title>
+        <meta name="robots" content="noindex, nofollow" />
+        <Meta />
+        <Links />
+      </head>
+      <body className="min-h-screen font-sans text-base antialiased text-gray-900 bg-white">
+        <h1 className="p-6 text-4xl font-bold text-gray-900 md:font-extrabold md:text-5xl lg:text-6xl">
+          {caught.status} {caught.statusText}
+        </h1>
+        <Scripts />
+        <LiveReload />
+      </body>
+    </html>
+  );
+}
+
+export function ErrorBoundary() {
+  return (
+    <html lang="en">
+      <head>
+        <title>500 | Jan Lavička</title>
+        <meta name="robots" content="noindex, nofollow" />
+        <Meta />
+        <Links />
+      </head>
+      <body className="min-h-screen font-sans text-base antialiased text-gray-900 bg-white">
+        <h1 className="p-6 text-4xl font-bold text-gray-900 md:font-extrabold md:text-5xl lg:text-6xl">
+          500 Internal Server Error
+        </h1>
         <Scripts />
         <LiveReload />
       </body>

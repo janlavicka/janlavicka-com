@@ -11,7 +11,7 @@ export const meta: MetaFunction = ({ parentsData }) => ({
 export default function Page() {
   return (
     <div className="space-y-6 md:space-y-8">
-      <h1 className="text-2xl md:text-3xl font-bold">Projects</h1>
+      <h1 className="text-2xl font-bold md:text-3xl">Projects</h1>
 
       <Text>
         <p>
@@ -22,13 +22,13 @@ export default function Page() {
 
       <h2 className="text-lg font-bold text-gray-900 hover:text-blue-500">
         <a href="https://filedash.co" className="hover:underline">
-          FileDash
+          Filedesh
         </a>
       </h2>
 
       <Text>
         <p>
-          FileDash helps you to receive large files from your clients with your
+          Filedash helps you to receive large files from your clients with your
           own custom upload link. Expired and lost share links are things of the
           past - receive files in the same way as you recieve e-mails. Customize
           your upload link, so it matches your company colors and texts.
@@ -52,7 +52,7 @@ export default function Page() {
 
       <Text>
         <p>
-          Jobs for developers is a job board strictly focusing on remove jobs
+          Jobs for Developers is a job board strictly focusing on remove jobs
           offering remote work. I found it hard to search for such a job myself
           and I have created this job board for this reason.
         </p>
