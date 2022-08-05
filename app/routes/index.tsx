@@ -1,9 +1,14 @@
 import Text from "@/components/text";
+import type { MetaFunction } from "@remix-run/node";
+
+export const meta: MetaFunction = () => ({
+  title: "Jan Lavička",
+});
 
 export default function Page() {
   return (
     <div className="space-y-6 md:space-y-8">
-      <h1 className="text-2xl md:text-3xl font-bold">Who am I?</h1>
+      <h1 className="text-2xl font-bold md:text-3xl">Who am I?</h1>
 
       <Text>
         <p>

@@ -30,7 +30,6 @@ declare global {
 export const meta: MetaFunction = ({ data }) => ({
   charset: "utf-8",
   viewport: "width=device-width,initial-scale=1",
-  title: "Jan Lavička",
   "og:title": "Jan Lavička",
   "twitter:title": "Jan Lavička",
   description:
@@ -40,11 +39,11 @@ export const meta: MetaFunction = ({ data }) => ({
   "twitter:description":
     "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
   "og:type": "website",
-  "og:image": `${data.env.APP_URL}/images/screen.jpg`,
-  "og:url": `${data.env.APP_URL}/`,
+  "og:image": `${data?.env?.APP_URL}/images/screen.jpg`,
+  "og:url": `${data?.env?.APP_URL}/`,
   "twitter:site": "@janlavicka",
   "twitter:card": "summary_large_image",
-  "twitter:image": `${data.env.APP_URL}/images/screen.jpg`,
+  "twitter:image": `${data?.env?.APP_URL}/images/screen.jpg`,
 });
 
 export const links: LinksFunction = () => [
@@ -115,7 +114,7 @@ export function ErrorBoundary() {
   return (
     <html lang="en">
       <head>
-        <title>500 | Jan Lavička</title>
+        <title>{`500 | Jan Lavička`}</title>
         <meta name="robots" content="noindex, nofollow" />
         <Meta />
         <Links />

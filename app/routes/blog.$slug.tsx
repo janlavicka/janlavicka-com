@@ -17,13 +17,13 @@ type LoaderData = {
 };
 
 export const meta: MetaFunction = ({ data, parentsData, params }) => ({
-  title: `${data.post.title} | Jan Lavička`,
-  "og:title": `${data.post.title} | Jan Lavička`,
-  "twitter:title": `${data.post.title} | Jan Lavička`,
-  description: data.post.description,
-  "og:description": data.post.description,
-  "twitter:description": data.post.description,
-  "og:url": `${parentsData.root.env.APP_URL}/blog/${params.slug}`,
+  title: `${data?.post?.title} | Jan Lavička`,
+  "og:title": `${data?.post?.title} | Jan Lavička`,
+  "twitter:title": `${data?.post?.title} | Jan Lavička`,
+  description: data?.post?.description,
+  "og:description": data?.post?.description,
+  "twitter:description": data?.post?.description,
+  "og:url": `${parentsData?.root?.env?.APP_URL}/blog/${params.slug}`,
 });
 
 export const loader: LoaderFunction = async ({ params }) => {
@@ -43,7 +43,7 @@ export default function Page() {
 
   return (
     <div className="space-y-6 md:space-y-8">
-      <h1 className="text-2xl md:text-3xl font-bold">{data.post.title}</h1>
+      <h1 className="text-2xl font-bold md:text-3xl">{data.post.title}</h1>
 
       <div className="prose">
         <Text>

@@ -5,7 +5,7 @@ export const meta: MetaFunction = ({ parentsData }) => ({
   title: "Projects | Jan Lavička",
   "og:title": "Projects | Jan Lavička",
   "twitter:title": "Projects | Jan Lavička",
-  "og:url": `${parentsData.root.env.APP_URL}/projects`,
+  "og:url": `${parentsData?.root?.env?.APP_URL}/projects`,
 });
 
 export default function Page() {

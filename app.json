@@ -3,15 +3,6 @@
   "description": "Source code of my personal website",
   "env": {
     "APP_URL": {
-      "description": "URL of the application",
-      "required": true
-    },
-    "GA_UA_ID": {
-      "description": "Google Analytics UA tracking ID",
-      "required": true
-    },
-    "GA_V4_ID": {
-      "description": "Google Analytics V4 tracking ID",
       "required": true
     }
   },

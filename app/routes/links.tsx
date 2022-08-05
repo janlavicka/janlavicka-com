@@ -7,13 +7,13 @@ export const meta: MetaFunction = ({ parentsData }) => ({
   title: "Links | Jan Lavička",
   "og:title": "Links | Jan Lavička",
   "twitter:title": "Links | Jan Lavička",
-  "og:url": `${parentsData.root.env.APP_URL}/links`,
+  "og:url": `${parentsData?.root?.env?.APP_URL}/links`,
 });
 
 export default function Page() {
   return (
     <div className="space-y-6 md:space-y-8">
-      <h1 className="text-2xl md:text-3xl font-bold">Links</h1>
+      <h1 className="text-2xl font-bold md:text-3xl">Links</h1>
 
       <div className="mb-8">
         <Text>
