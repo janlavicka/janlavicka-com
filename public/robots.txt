@@ -1,2 +1,4 @@
+Sitemap: https://janlavicka.com/sitemap.xml
+
 User-agent: *
 Allow: *
