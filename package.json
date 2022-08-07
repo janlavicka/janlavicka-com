@@ -25,6 +25,7 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
     "remix-utils": "^3.3.0",
+    "sitemap": "^7.1.1",
     "tiny-invariant": "^1.2.0"
   },
   "devDependencies": {

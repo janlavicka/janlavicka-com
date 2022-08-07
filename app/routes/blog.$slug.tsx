@@ -1,10 +1,10 @@
-import type { MetaFunction, LoaderFunction } from "@remix-run/node";
-import { json } from "@remix-run/node";
-import { getPost } from "@/models/post.server";
-import invariant from "tiny-invariant";
-import { useLoaderData } from "@remix-run/react";
 import Text from "@/components/text";
+import { getPost } from "@/models";
+import type { LoaderFunction, MetaFunction } from "@remix-run/node";
+import { json } from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
 import { notFound } from "remix-utils";
+import invariant from "tiny-invariant";
 
 type LoaderData = {
   post: {

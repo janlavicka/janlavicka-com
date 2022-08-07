@@ -1,6 +1,6 @@
 import Item from "@/components/item";
 import List from "@/components/list";
-import { getPosts } from "@/models/post.server";
+import { getPosts } from "@/models";
 import type { LoaderFunction, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
@@ -32,7 +32,7 @@ export default function Page() {
 
   return (
     <div className="space-y-6 md:space-y-8">
-      <h1 className="text-2xl md:text-3xl font-bold">Blog</h1>
+      <h1 className="text-2xl font-bold md:text-3xl">Blog</h1>
 
       <List>
         {data.posts.map((post) => (
