@@ -29,5 +29,11 @@ export async function getPost(slug: string) {
   const { content, data } = matter(file);
   const html = marked(content);
 
-  return { ...data, content: html };
+  return { ...data, content: html } as {
+    title: string;
+    description: string;
+    created: string;
+    slug: string;
+    content: string;
+  };
 }

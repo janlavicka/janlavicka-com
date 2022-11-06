@@ -6,7 +6,7 @@ created: "2021-06-05"
 
 Like many other developers, I tried to deploy [Heroku](https://heroku.com), and the whole process from setting up the database to push to deploy was a real wow moment. The only negative and quite crucial is the price, which is several times higher than the comparably powerful VPS servers at DigitalOcean, Vultr, Linode and others.
 
-Fortunately, there is a solution called [Dokku](https://dokku.com) that provides UX Heroku UX on its own server in docker containers.
+Fortunately, there is a solution called [Dokku](https://dokku.com) that provides UX of Heroku on its own server in docker containers.
 
 ## Main features
 

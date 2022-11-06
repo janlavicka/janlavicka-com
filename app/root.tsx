@@ -1,11 +1,11 @@
 import Layout from "@/components/layout";
 import styles from "@/styles/app.css";
-import type {
+import {
+  json,
   LinksFunction,
   LoaderFunction,
   MetaFunction,
 } from "@remix-run/node";
-import { json } from "@remix-run/node";
 import {
   Links,
   LiveReload,
@@ -19,6 +19,14 @@ import {
 import { DynamicLinks } from "remix-utils";
 
 declare global {
+  namespace NodeJS {
+    interface ProcessEnv {
+      APP_URL: string;
+    }
+  }
+}
+
+declare global {
   interface Window {
     env: {
       NODE_ENV: string;
@@ -27,24 +35,34 @@ declare global {
   }
 }
 
-export const meta: MetaFunction = ({ data }) => ({
-  charset: "utf-8",
-  viewport: "width=device-width,initial-scale=1",
-  "og:title": "Jan Lavička",
-  "twitter:title": "Jan Lavička",
-  description:
-    "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
-  "og:description":
-    "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
-  "twitter:description":
-    "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
-  "og:type": "website",
-  "og:image": `${data?.env?.APP_URL}/images/screen.jpg`,
-  "og:url": `${data?.env?.APP_URL}/`,
-  "twitter:site": "@janlavicka",
-  "twitter:card": "summary_large_image",
-  "twitter:image": `${data?.env?.APP_URL}/images/screen.jpg`,
-});
+export const meta: MetaFunction = ({ data }) => {
+  if (!data) return {};
+
+  return {
+    charset: "utf-8",
+    viewport: "width=device-width,initial-scale=1",
+    title: "Jan Lavička",
+    description:
+      "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
+
+    "og:title": "Jan Lavička",
+    "og:description":
+      "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
+    "og:type": "website",
+    "og:image": `${data.env.APP_URL}/images/social.jpg`,
+    "og:url": `${data.env.APP_URL}/`,
+    "twitter:title": "Jan Lavička",
+    "twitter:description":
+      "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
+    "twitter:site": "@janlavicka",
+    "twitter:card": "summary_large_image",
+    "twitter:image": `${data.env.APP_URL}/images/social.jpg`,
+
+    "format-detection": "telephone=no",
+    HandheldFriendly: "true",
+    "theme-color": "#111827",
+  };
+};
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: styles },

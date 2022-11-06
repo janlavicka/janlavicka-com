@@ -1,34 +1,30 @@
 import Item from "@/components/item";
 import List from "@/components/list";
 import { getPosts } from "@/models";
-import type { LoaderFunction, MetaFunction } from "@remix-run/node";
+import { createMeta } from "@/utils";
+import { MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
 
-type LoaderData = {
-  posts: {
-    title: string;
-    description: string;
-    created: string;
-    slug: string;
-  }[];
+type Loader = typeof loader;
+
+export const meta: MetaFunction = ({ parentsData }) => {
+  if (!parentsData.root) return {};
+
+  return createMeta({
+    canonical: `${parentsData.root.env.APP_URL}/blog`,
+    title: "Blog | Jan Lavička",
+  });
 };
 
-export const meta: MetaFunction = ({ parentsData }) => ({
-  title: "Blog | Jan Lavička",
-  "og:title": "Blog | Jan Lavička",
-  "twitter:title": "Blog | Jan Lavička",
-  "og:url": `${parentsData.root.env.APP_URL}/blog`,
-});
-
-export const loader: LoaderFunction = async () => {
+export const loader = async () => {
   const posts = await getPosts();
 
   return json({ posts });
 };
 
 export default function Page() {
-  const data = useLoaderData<LoaderData>();
+  const data = useLoaderData<Loader>();
 
   return (
     <div className="space-y-6 md:space-y-8">

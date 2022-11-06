@@ -1,8 +1,7 @@
 import { getPosts } from "@/models";
-import type { LoaderFunction } from "@remix-run/node";
 import { SitemapStream } from "sitemap";
 
-export const loader: LoaderFunction = async () => {
+export const loader = async () => {
   const result: string = await new Promise(async (resolve, reject) => {
     let chunks: Uint8Array[] = [];
 

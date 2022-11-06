@@ -1,32 +1,23 @@
 import Text from "@/components/text";
 import { getPost } from "@/models";
-import type { LoaderFunction, MetaFunction } from "@remix-run/node";
-import { json } from "@remix-run/node";
+import { createMeta } from "@/utils";
+import { json, LoaderArgs, MetaFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import { notFound } from "remix-utils";
 import invariant from "tiny-invariant";
 
-type LoaderData = {
-  post: {
-    title: string;
-    description: string;
-    created: string;
-    slug: string;
-    content: string;
-  };
+type Loader = typeof loader;
+
+export const meta: MetaFunction<Loader> = ({ data, parentsData }) => {
+  if (!data || !parentsData.root) return {};
+
+  return createMeta({
+    canonical: `${parentsData.root.env.APP_URL}/blog/${data.post.slug}`,
+    title: `${data.post.title} | Jan Lavička`,
+    description: data.post.description,
+  });
 };
 
-export const meta: MetaFunction = ({ data, parentsData, params }) => ({
-  title: `${data?.post?.title} | Jan Lavička`,
-  "og:title": `${data?.post?.title} | Jan Lavička`,
-  "twitter:title": `${data?.post?.title} | Jan Lavička`,
-  description: data?.post?.description,
-  "og:description": data?.post?.description,
-  "twitter:description": data?.post?.description,
-  "og:url": `${parentsData?.root?.env?.APP_URL}/blog/${params.slug}`,
-});
-
-export const loader: LoaderFunction = async ({ params }) => {
+export const loader = async ({ params }: LoaderArgs) => {
   invariant(params.slug);
 
   try {
@@ -34,12 +25,12 @@ export const loader: LoaderFunction = async ({ params }) => {
 
     return json({ post });
   } catch (e) {
-    throw notFound({});
+    throw new Response(null, { status: 404, statusText: "Not Found" });
   }
 };
 
 export default function Page() {
-  const data = useLoaderData<LoaderData>();
+  const data = useLoaderData<Loader>();
 
   return (
     <div className="space-y-6 md:space-y-8">

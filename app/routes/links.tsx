@@ -1,14 +1,17 @@
 import Item from "@/components/item";
 import List from "@/components/list";
 import Text from "@/components/text";
-import type { MetaFunction } from "@remix-run/node";
+import { createMeta } from "@/utils";
+import { MetaFunction } from "@remix-run/node";
 
-export const meta: MetaFunction = ({ parentsData }) => ({
-  title: "Links | Jan Lavička",
-  "og:title": "Links | Jan Lavička",
-  "twitter:title": "Links | Jan Lavička",
-  "og:url": `${parentsData?.root?.env?.APP_URL}/links`,
-});
+export const meta: MetaFunction = ({ parentsData }) => {
+  if (!parentsData.root) return {};
+
+  return createMeta({
+    canonical: `${parentsData.root.env.APP_URL}/links`,
+    title: "Links | Jan Lavička",
+  });
+};
 
 export default function Page() {
   return (
