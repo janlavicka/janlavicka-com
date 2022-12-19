@@ -1,19 +1,28 @@
-import { RiTwitterLine, RiProductHuntLine, RiGithubLine } from "react-icons/ri";
+import {
+  RiTwitterLine,
+  RiProductHuntLine,
+  RiGithubLine,
+  RiMastodonLine,
+} from "react-icons/ri";
 
 export default function Footer() {
   return (
     <div className="flex flex-col items-center justify-between py-8 space-y-4 md:space-y-0 md:flex-row">
       <div className="flex space-x-4">
         <a href="https://twitter.com/janlavicka" title="Twitter">
-          <RiTwitterLine className="h-6 w-6 text-gray-900 transition duration-200 hover:text-blue-500" />
+          <RiTwitterLine className="w-6 h-6 text-gray-900 transition duration-200 hover:text-blue-500" />
+        </a>
+
+        <a href="https://mastodon.world/@janlavicka" rel="me" title="Mastodon">
+          <RiMastodonLine className="w-6 h-6 text-gray-900 transition duration-200 hover:text-blue-500" />
         </a>
 
         <a href="https://producthunt.com/@janlavicka" title="Product Hunt">
-          <RiProductHuntLine className="h-6 w-6 text-gray-900 transition duration-200 hover:text-blue-500" />
+          <RiProductHuntLine className="w-6 h-6 text-gray-900 transition duration-200 hover:text-blue-500" />
         </a>
 
         <a href="https://github.com/janlavicka" title="GitHub">
-          <RiGithubLine className="h-6 w-6 text-gray-900 transition duration-200 hover:text-blue-500" />
+          <RiGithubLine className="w-6 h-6 text-gray-900 transition duration-200 hover:text-blue-500" />
         </a>
       </div>
 
