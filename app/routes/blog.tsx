@@ -1,20 +1,26 @@
 import Item from "@/components/item";
 import List from "@/components/list";
 import { getPosts } from "@/models";
-import { createMeta } from "@/utils";
-import { MetaFunction } from "@remix-run/node";
+import { createMeta, getMatchesData } from "@/utils";
+import { V2_MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
 
-type Loader = typeof loader;
+type LoaderData = typeof loader;
 
-export const meta: MetaFunction = ({ parentsData }) => {
-  if (!parentsData.root) return {};
+export const meta: V2_MetaFunction = (args) => {
+  const parentData = getMatchesData("root", args);
 
-  return createMeta({
-    canonical: `${parentsData.root.env.APP_URL}/blog`,
-    title: "Blog | Jan Lavička",
-  });
+  return createMeta(
+    [
+      {
+        name: "canonical",
+        content: `${parentData.env.APP_URL}/blog`,
+      },
+      { title: "Blog | Jan Lavička" },
+    ],
+    args,
+  );
 };
 
 export const loader = async () => {
@@ -24,7 +30,7 @@ export const loader = async () => {
 };
 
 export default function Page() {
-  const data = useLoaderData<Loader>();
+  const data = useLoaderData<LoaderData>();
 
   return (
     <div className="space-y-6 md:space-y-8">

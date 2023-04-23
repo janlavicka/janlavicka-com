@@ -1,16 +1,22 @@
 import Item from "@/components/item";
 import List from "@/components/list";
 import Text from "@/components/text";
-import { createMeta } from "@/utils";
-import { MetaFunction } from "@remix-run/node";
+import { createMeta, getMatchesData } from "@/utils";
+import { V2_MetaFunction } from "@remix-run/node";
 
-export const meta: MetaFunction = ({ parentsData }) => {
-  if (!parentsData.root) return {};
+export const meta: V2_MetaFunction = (args) => {
+  const parentData = getMatchesData("root", args);
 
-  return createMeta({
-    canonical: `${parentsData?.root?.env?.APP_URL}/uses`,
-    title: "Uses | Jan Lavička",
-  });
+  return createMeta(
+    [
+      {
+        name: "canonical",
+        content: `${parentData.env.APP_URL}/uses`,
+      },
+      { title: "Uses | Jan Lavička" },
+    ],
+    args,
+  );
 };
 
 export default function Page() {

@@ -4,19 +4,20 @@ import {
   json,
   LinksFunction,
   LoaderFunction,
-  MetaFunction,
+  V2_MetaFunction,
 } from "@remix-run/node";
 import {
+  isRouteErrorResponse,
   Links,
   LiveReload,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
-  useCatch,
   useLoaderData,
+  useRouteError,
 } from "@remix-run/react";
-import { DynamicLinks } from "remix-utils";
+import { useMemo } from "react";
 
 declare global {
   namespace NodeJS {
@@ -35,33 +36,66 @@ declare global {
   }
 }
 
-export const meta: MetaFunction = ({ data }) => {
-  if (!data) return {};
+export type LoaderData = typeof loader;
 
-  return {
-    charset: "utf-8",
-    viewport: "width=device-width,initial-scale=1",
-    title: "Jan Lavička",
-    description:
-      "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
+export const meta: V2_MetaFunction<LoaderData> = ({ data }) => {
+  if (!data) return [];
 
-    "og:title": "Jan Lavička",
-    "og:description":
-      "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
-    "og:type": "website",
-    "og:image": `${data.env.APP_URL}/images/social.jpg`,
-    "og:url": `${data.env.APP_URL}/`,
-    "twitter:title": "Jan Lavička",
-    "twitter:description":
-      "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
-    "twitter:site": "@janlavicka",
-    "twitter:card": "summary_large_image",
-    "twitter:image": `${data.env.APP_URL}/images/social.jpg`,
+  return [
+    { charSet: "utf-8" },
+    { name: "viewport", content: "width=device-width, initial-scale=1" },
+    { title: "Jan Lavička" },
+    {
+      name: "description",
+      content:
+        "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
+    },
 
-    "format-detection": "telephone=no",
-    HandheldFriendly: "true",
-    "theme-color": "#111827",
-  };
+    { property: "og:title", content: "Jan Lavička" },
+    {
+      property: "og:description",
+      content:
+        "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
+    },
+    {
+      property: "og:type",
+      content: "website",
+    },
+    {
+      property: "og:image",
+      content: `${data.env.APP_URL}/images/social.jpg`,
+    },
+    {
+      property: "og:url",
+      content: `${data.env.APP_URL}/`,
+    },
+
+    {
+      name: "twitter:title",
+      content: "Jan Lavička",
+    },
+    {
+      name: "twitter:description",
+      content:
+        "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
+    },
+    {
+      name: "twitter:site",
+      content: "@janlavicka",
+    },
+    {
+      name: "twitter:card",
+      content: "summary_large_image",
+    },
+    {
+      name: "twitter:image",
+      content: `${data.env.APP_URL}/images/social.jpg`,
+    },
+
+    { name: "format-detection", content: "telephone=no" },
+    { name: "HandheldFriendly", content: "true" },
+    { name: "theme-color", content: "#111827" },
+  ];
 };
 
 export const links: LinksFunction = () => [
@@ -80,13 +114,12 @@ export const loader: LoaderFunction = async () => {
 };
 
 export default function App() {
-  const data = useLoaderData();
+  const data = useLoaderData<LoaderData>();
 
   return (
     <html lang="en">
       <head>
         <Meta />
-        <DynamicLinks />
         <Links />
       </head>
       <body className="min-h-screen font-sans text-base antialiased text-gray-900 bg-gray-50">
@@ -106,40 +139,36 @@ export default function App() {
   );
 }
 
-export function CatchBoundary() {
-  const caught = useCatch();
-
-  return (
-    <html lang="en">
-      <head>
-        <title>{`${caught.status} | Jan Lavička`}</title>
-        <meta name="robots" content="noindex, nofollow" />
-        <Meta />
-        <Links />
-      </head>
-      <body className="min-h-screen font-sans text-base antialiased text-gray-900 bg-white">
-        <h1 className="p-6 text-4xl font-bold text-gray-900 md:font-extrabold md:text-5xl lg:text-6xl">
-          {caught.status} {caught.statusText}
-        </h1>
-        <Scripts />
-        <LiveReload />
-      </body>
-    </html>
-  );
-}
-
 export function ErrorBoundary() {
+  let error = useRouteError();
+
+  const title = useMemo(() => {
+    if (isRouteErrorResponse(error)) {
+      return error.status;
+    }
+
+    return "500";
+  }, [error]);
+
+  const description = useMemo(() => {
+    if (isRouteErrorResponse(error)) {
+      return `${error.status} ${error.statusText}`;
+    }
+
+    return "Internal Server Error";
+  }, [error]);
+
   return (
     <html lang="en">
       <head>
-        <title>{`500 | Jan Lavička`}</title>
+        <title>{`${title} | Jan Lavička`}</title>
         <meta name="robots" content="noindex, nofollow" />
         <Meta />
         <Links />
       </head>
       <body className="min-h-screen font-sans text-base antialiased text-gray-900 bg-white">
         <h1 className="p-6 text-4xl font-bold text-gray-900 md:font-extrabold md:text-5xl lg:text-6xl">
-          500 Internal Server Error
+          {description}
         </h1>
         <Scripts />
         <LiveReload />
