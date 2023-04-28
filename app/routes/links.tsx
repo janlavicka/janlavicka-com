@@ -1,17 +1,15 @@
 import Item from "@/components/item";
 import List from "@/components/list";
 import Text from "@/components/text";
-import { createMeta, getMatchesData } from "@/utils";
+import { createMeta } from "@/utils";
 import { V2_MetaFunction } from "@remix-run/node";
 
 export const meta: V2_MetaFunction = (args) => {
-  const parentData = getMatchesData("root", args);
-
   return createMeta(
     [
       {
         name: "canonical",
-        content: `${parentData.env.APP_URL}/links`,
+        content: `${process.env.APP_URL}/links`,
       },
       { title: "Links | Jan Lavička" },
     ],

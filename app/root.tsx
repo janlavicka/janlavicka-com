@@ -30,15 +30,14 @@ declare global {
 declare global {
   interface Window {
     env: {
-      NODE_ENV: string;
       APP_URL: string;
     };
   }
 }
 
-export type LoaderData = typeof loader;
+export type Loader = typeof loader;
 
-export const meta: V2_MetaFunction<LoaderData> = ({ data }) => {
+export const meta: V2_MetaFunction<Loader> = ({ data }) => {
   if (!data) return [];
 
   return [
@@ -63,11 +62,11 @@ export const meta: V2_MetaFunction<LoaderData> = ({ data }) => {
     },
     {
       property: "og:image",
-      content: `${data.env.APP_URL}/images/social.jpg`,
+      content: `${process.env.APP_URL}/images/social.jpg`,
     },
     {
       property: "og:url",
-      content: `${data.env.APP_URL}/`,
+      content: `${process.env.APP_URL}/`,
     },
 
     {
@@ -89,7 +88,7 @@ export const meta: V2_MetaFunction<LoaderData> = ({ data }) => {
     },
     {
       name: "twitter:image",
-      content: `${data.env.APP_URL}/images/social.jpg`,
+      content: `${process.env.APP_URL}/images/social.jpg`,
     },
 
     { name: "format-detection", content: "telephone=no" },
@@ -107,14 +106,13 @@ export const links: LinksFunction = () => [
 export const loader: LoaderFunction = async () => {
   return json({
     env: {
-      NODE_ENV: process.env.NODE_ENV,
       APP_URL: process.env.APP_URL,
     },
   });
 };
 
 export default function App() {
-  const data = useLoaderData<LoaderData>();
+  const data = useLoaderData<Loader>();
 
   return (
     <html lang="en">
