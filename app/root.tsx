@@ -62,11 +62,11 @@ export const meta: V2_MetaFunction<Loader> = ({ data }) => {
     },
     {
       property: "og:image",
-      content: `${process.env.APP_URL}/images/social.jpg`,
+      content: `${data.env.APP_URL}/images/social.jpg`,
     },
     {
       property: "og:url",
-      content: `${process.env.APP_URL}/`,
+      content: `${data.env.APP_URL}/`,
     },
 
     {
@@ -88,7 +88,7 @@ export const meta: V2_MetaFunction<Loader> = ({ data }) => {
     },
     {
       name: "twitter:image",
-      content: `${process.env.APP_URL}/images/social.jpg`,
+      content: `${data.env.APP_URL}/images/social.jpg`,
     },
 
     { name: "format-detection", content: "telephone=no" },

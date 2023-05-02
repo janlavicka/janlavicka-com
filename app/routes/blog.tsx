@@ -1,18 +1,20 @@
 import Item from "@/components/item";
 import List from "@/components/list";
 import { getPosts } from "@/models";
-import { createMeta } from "@/utils";
+import { createMeta, getMatchesData } from "@/utils";
 import { V2_MetaFunction, json } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
 
 type Loader = typeof loader;
 
 export const meta: V2_MetaFunction = (args) => {
+  const parentData = getMatchesData("root", args);
+
   return createMeta(
     [
       {
         name: "canonical",
-        content: `${process.env.APP_URL}/blog`,
+        content: `${parentData.env.APP_URL}/blog`,
       },
       { title: "Blog | Jan Lavička" },
     ],

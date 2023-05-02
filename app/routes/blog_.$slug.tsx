@@ -1,6 +1,6 @@
 import Text from "@/components/text";
 import { getPost } from "@/models";
-import { createMeta } from "@/utils";
+import { createMeta, getMatchesData } from "@/utils";
 import { LoaderArgs, V2_MetaFunction, json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import invariant from "tiny-invariant";
@@ -8,11 +8,13 @@ import invariant from "tiny-invariant";
 type Loader = typeof loader;
 
 export const meta: V2_MetaFunction<Loader> = (args) => {
+  const parentData = getMatchesData("root", args);
+
   return createMeta(
     [
       {
         name: "canonical",
-        content: `${process.env.APP_URL}/blog/${args.data.post.slug}`,
+        content: `${parentData.env.APP_URL}/blog/${args.data.post.slug}`,
       },
       { title: "Blog | Jan Lavička" },
       {
