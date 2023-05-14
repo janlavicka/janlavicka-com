@@ -8,8 +8,9 @@ export const meta: V2_MetaFunction = (args) => {
   return createMeta(
     [
       {
-        name: "canonical",
-        content: `${parentData.env.APP_URL}/projects`,
+        tagName: "link",
+        rel: "canonical",
+        href: `${parentData.env.APP_URL}/projects`,
       },
       { title: "Projects | Jan Lavička" },
     ],

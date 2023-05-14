@@ -13,8 +13,9 @@ export const meta: V2_MetaFunction = (args) => {
   return createMeta(
     [
       {
-        name: "canonical",
-        content: `${parentData.env.APP_URL}/blog`,
+        tagName: "link",
+        rel: "canonical",
+        href: `${parentData.env.APP_URL}/blog`,
       },
       { title: "Blog | Jan Lavička" },
     ],

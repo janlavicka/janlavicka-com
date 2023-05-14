@@ -8,15 +8,18 @@ import invariant from "tiny-invariant";
 type Loader = typeof loader;
 
 export const meta: V2_MetaFunction<Loader> = (args) => {
+  if (!args.data) return [];
+
   const parentData = getMatchesData("root", args);
 
   return createMeta(
     [
       {
-        name: "canonical",
-        content: `${parentData.env.APP_URL}/blog/${args.data.post.slug}`,
+        tagName: "link",
+        rel: "canonical",
+        href: `${parentData.env.APP_URL}/blog/${args.data.post.slug}`,
       },
-      { title: "Blog | Jan Lavička" },
+      { title: `${args.data.post.title} | Jan Lavička` },
       {
         name: "description",
         content: args.data.post.description,
