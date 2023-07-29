@@ -1,9 +1,10 @@
 import Text from "@/components/text";
-import { createMeta, getMatchesData } from "@/utils";
+import { Loader as RootLoader } from "@/root";
+import { createMeta, getRouteLoaderData } from "@/utils";
 import { V2_MetaFunction } from "@remix-run/node";
 
 export const meta: V2_MetaFunction = (args) => {
-  const parentData = getMatchesData("root", args);
+  const parentData = getRouteLoaderData<RootLoader>("root", args);
 
   return createMeta(
     [

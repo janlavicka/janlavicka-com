@@ -138,7 +138,7 @@ export default function App() {
 }
 
 export function ErrorBoundary() {
-  let error = useRouteError();
+  const error = useRouteError();
 
   const title = useMemo(() => {
     if (isRouteErrorResponse(error)) {

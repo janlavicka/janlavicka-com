@@ -1,6 +1,7 @@
 import Text from "@/components/text";
 import { getPost } from "@/models";
-import { createMeta, getMatchesData } from "@/utils";
+import { Loader as RootLoader } from "@/root";
+import { createMeta, getRouteLoaderData } from "@/utils";
 import { LoaderArgs, V2_MetaFunction, json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import invariant from "tiny-invariant";
@@ -10,7 +11,7 @@ type Loader = typeof loader;
 export const meta: V2_MetaFunction<Loader> = (args) => {
   if (!args.data) return [];
 
-  const parentData = getMatchesData("root", args);
+  const parentData = getRouteLoaderData<RootLoader>("root", args);
 
   return createMeta(
     [

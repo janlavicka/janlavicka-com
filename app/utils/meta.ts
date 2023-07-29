@@ -9,6 +9,10 @@ export function overriteMeta(
   overrides: V2_HtmlMetaDescriptor[],
 ) {
   return overrides.reduce((acc, meta) => {
+    if ("charSet" in meta && base.find((m) => "charSet" in m)) {
+      return acc;
+    }
+
     const index = acc.findIndex((m) => {
       if ("title" in meta && "title" in m) {
         return true;
@@ -93,7 +97,7 @@ export function createMeta(
   return overriteMeta(data, overrides);
 }
 
-export function getMatchesData<T = any>(
+export function getRouteLoaderData<T = any>(
   id: string,
   args: V2_MetaArgs,
 ): SerializeFrom<T> {
