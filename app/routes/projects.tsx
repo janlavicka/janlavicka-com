@@ -32,6 +32,29 @@ export default function Page() {
       </Text>
 
       <h2 className="text-lg font-bold text-gray-900 hover:text-blue-500">
+        <a href="https://jobsfordevelopers.com" className="hover:underline">
+          Jobs for Developers
+        </a>
+      </h2>
+
+      <Text>
+        <p>
+          Jobs for Developers is a job board strictly focusing on remove jobs
+          offering remote work. I found it hard to search for such a job myself
+          and I have created this job board for this reason.
+        </p>
+      </Text>
+
+      <div className="overflow-hidden rounded-md shadow-default">
+        <div className="-mb-2">
+          <img
+            src="/images/jobsfordevelopers-com.jpg"
+            alt="Jobs for Developers - job board with remote job opportunities for developers"
+          />
+        </div>
+      </div>
+
+      <h2 className="text-lg font-bold text-gray-900 hover:text-blue-500">
         <a href="https://filedash.co" className="hover:underline">
           Filedesh
         </a>
@@ -51,29 +74,6 @@ export default function Page() {
           <img
             src="/images/filedash-co.jpg"
             alt="FileDash - inbox for files from your clients"
-          />
-        </div>
-      </div>
-
-      <h2 className="text-lg font-bold text-gray-900 hover:text-blue-500">
-        <a href="https://jobsfordevelopers.com" className="hover:underline">
-          Jobs for Developers
-        </a>
-      </h2>
-
-      <Text>
-        <p>
-          Jobs for Developers is a job board strictly focusing on remove jobs
-          offering remote work. I found it hard to search for such a job myself
-          and I have created this job board for this reason.
-        </p>
-      </Text>
-
-      <div className="overflow-hidden rounded-md shadow-default">
-        <div className="-mb-2">
-          <img
-            src="/images/jobsfordevelopers-com.jpg"
-            alt="Jobs for Developers - job board with remote job opportunities for developers"
           />
         </div>
       </div>
