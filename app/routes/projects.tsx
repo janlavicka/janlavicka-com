@@ -32,6 +32,56 @@ export default function Page() {
       </Text>
 
       <h2 className="text-lg font-bold text-gray-900 hover:text-blue-500">
+        <a href="https://getjuiceable.com" className="hover:underline">
+          Juiceable
+        </a>
+      </h2>
+
+      <Text>
+        <p>
+          Coupons and cashback browser extension that scans the internet for the
+          best deals. Users can favorite products on the e-commerce website and
+          get price drop notifications.
+        </p>
+      </Text>
+
+      <a
+        href="https://getjuiceable.com"
+        target="_blank"
+        rel="noreferrer"
+        className="block overflow-hidden rounded-md shadow-default"
+      >
+        <div className="-mb-2">
+          <img src="/images/getjuiceable-com.jpg" alt="Juiceable" />
+        </div>
+      </a>
+
+      <h2 className="text-lg font-bold text-gray-900 hover:text-blue-500">
+        <a href="https://tripcutters.com" className="hover:underline">
+          Trip Cutters
+        </a>
+      </h2>
+
+      <Text>
+        <p>
+          Get inspired and travel across Europe for cheap while exploring the
+          beauties of the world. Website searches trips (flight + accommodation)
+          for best prices thanks to multiple travel hacking techniques.
+        </p>
+      </Text>
+
+      <a
+        href="https://tripcutters.com"
+        target="_blank"
+        rel="noreferrer"
+        className="block overflow-hidden rounded-md shadow-default"
+      >
+        <div className="-mb-2">
+          <img src="/images/tripcutters-com.jpg" alt="Trip Cutters" />
+        </div>
+      </a>
+
+      <h2 className="text-lg font-bold text-gray-900 hover:text-blue-500">
         <a href="https://jobsfordevelopers.com" className="hover:underline">
           Jobs for Developers
         </a>
@@ -45,14 +95,19 @@ export default function Page() {
         </p>
       </Text>
 
-      <div className="overflow-hidden rounded-md shadow-default">
+      <a
+        href="https://jobsfordevelopers.com"
+        target="_blank"
+        rel="noreferrer"
+        className="block overflow-hidden rounded-md shadow-default"
+      >
         <div className="-mb-2">
           <img
             src="/images/jobsfordevelopers-com.jpg"
-            alt="Jobs for Developers - job board with remote job opportunities for developers"
+            alt="Jobs for Developers"
           />
         </div>
-      </div>
+      </a>
 
       <h2 className="text-lg font-bold text-gray-900 hover:text-blue-500">
         <a href="https://filedash.co" className="hover:underline">
@@ -69,16 +124,16 @@ export default function Page() {
         </p>
       </Text>
 
-      <div className="overflow-hidden rounded-md shadow-default">
+      <a
+        href="https://filedash.co"
+        target="_blank"
+        rel="noreferrer"
+        className="block overflow-hidden rounded-md shadow-default"
+      >
         <div className="-mb-2">
-          <img
-            src="/images/filedash-co.jpg"
-            alt="FileDash - inbox for files from your clients"
-          />
+          <img src="/images/filedash-co.jpg" alt="FileDash" />
         </div>
-      </div>
-
-      <p className="text-lg font-bold text-gray-900">More coming soon...</p>
+      </a>
     </div>
   );
 }
