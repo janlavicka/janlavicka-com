@@ -1,12 +1,8 @@
-import {
-  SerializeFrom,
-  V2_HtmlMetaDescriptor,
-  V2_MetaArgs,
-} from "@remix-run/node";
+import { SerializeFrom, MetaDescriptor, MetaArgs } from "@remix-run/node";
 
 export function overriteMeta(
-  base: V2_HtmlMetaDescriptor[],
-  overrides: V2_HtmlMetaDescriptor[],
+  base: MetaDescriptor[],
+  overrides: MetaDescriptor[],
 ) {
   return overrides.reduce((acc, meta) => {
     if ("charSet" in meta && base.find((m) => "charSet" in m)) {
@@ -47,13 +43,10 @@ export function overriteMeta(
   }, base);
 }
 
-export function createMeta(
-  overrides: V2_HtmlMetaDescriptor[],
-  args: V2_MetaArgs,
-) {
+export function createMeta(overrides: MetaDescriptor[], args: MetaArgs) {
   const data = args.matches.reduce((acc, match) => {
     return overriteMeta(acc, (match as any).meta || []);
-  }, [] as V2_HtmlMetaDescriptor[]);
+  }, [] as MetaDescriptor[]);
 
   const canonical = overrides.find(
     (meta) => "rel" in meta && meta.rel === "canonical",
@@ -99,7 +92,7 @@ export function createMeta(
 
 export function getRouteLoaderData<T = any>(
   id: string,
-  args: V2_MetaArgs,
+  args: MetaArgs,
 ): SerializeFrom<T> {
   return args.matches.find((match) => match.id === id)
     ?.data as SerializeFrom<T>;

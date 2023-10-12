@@ -1,14 +1,14 @@
-import Item from "@/components/item";
-import List from "@/components/list";
+import Item from "@/components/Item";
+import List from "@/components/List";
 import { getPosts } from "@/models";
 import { Loader as RootLoader } from "@/root";
 import { createMeta, getRouteLoaderData } from "@/utils";
-import { V2_MetaFunction, json } from "@remix-run/node";
+import { MetaFunction, json } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
 
 type Loader = typeof loader;
 
-export const meta: V2_MetaFunction = (args) => {
+export const meta: MetaFunction = (args) => {
   const parentData = getRouteLoaderData<RootLoader>("root", args);
 
   return createMeta(

@@ -1,11 +1,6 @@
-import Layout from "@/components/layout";
-import styles from "@/styles/app.css";
-import {
-  json,
-  LinksFunction,
-  LoaderFunction,
-  V2_MetaFunction,
-} from "@remix-run/node";
+import Layout from "@/components/Layout";
+import styles from "./tailwind.css";
+import { json, LinksFunction, MetaFunction } from "@remix-run/node";
 import {
   isRouteErrorResponse,
   Links,
@@ -18,6 +13,7 @@ import {
   useRouteError,
 } from "@remix-run/react";
 import { useMemo } from "react";
+import { cssBundleHref } from "@remix-run/css-bundle";
 
 declare global {
   namespace NodeJS {
@@ -37,7 +33,7 @@ declare global {
 
 export type Loader = typeof loader;
 
-export const meta: V2_MetaFunction<Loader> = ({ data }) => {
+export const meta: MetaFunction<Loader> = ({ data }) => {
   if (!data) return [];
 
   return [
@@ -99,11 +95,12 @@ export const meta: V2_MetaFunction<Loader> = ({ data }) => {
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: styles },
+  { rel: "stylesheet", href: cssBundleHref ? cssBundleHref : "" },
   { rel: "stylesheet", href: "https://rsms.me/inter/inter.css" },
-  { rel: "icon", type: "image/png", href: "/images/favicon.png" },
+  { rel: "icon", type: "image/svg+xml", href: "/images/favicon.ico" },
 ];
 
-export const loader: LoaderFunction = async () => {
+export const loader = async () => {
   return json({
     env: {
       APP_URL: process.env.APP_URL,

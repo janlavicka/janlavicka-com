@@ -1,14 +1,14 @@
-import Text from "@/components/text";
+import Text from "@/components/Text";
 import { getPost } from "@/models";
 import { Loader as RootLoader } from "@/root";
 import { createMeta, getRouteLoaderData } from "@/utils";
-import { LoaderArgs, V2_MetaFunction, json } from "@remix-run/node";
+import { LoaderFunctionArgs, MetaFunction, json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import invariant from "tiny-invariant";
 
 type Loader = typeof loader;
 
-export const meta: V2_MetaFunction<Loader> = (args) => {
+export const meta: MetaFunction<Loader> = (args) => {
   if (!args.data) return [];
 
   const parentData = getRouteLoaderData<RootLoader>("root", args);
@@ -30,7 +30,7 @@ export const meta: V2_MetaFunction<Loader> = (args) => {
   );
 };
 
-export const loader = async ({ params }: LoaderArgs) => {
+export const loader = async ({ params }: LoaderFunctionArgs) => {
   invariant(params.slug);
 
   try {

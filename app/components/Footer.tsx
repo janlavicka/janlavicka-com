@@ -1,8 +1,8 @@
 import {
-  RiTwitterLine,
-  RiProductHuntLine,
   RiGithubLine,
   RiMastodonLine,
+  RiProductHuntLine,
+  RiTwitterXLine,
 } from "react-icons/ri";
 
 export default function Footer() {
@@ -10,7 +10,7 @@ export default function Footer() {
     <div className="flex flex-col items-center justify-between py-8 space-y-4 md:space-y-0 md:flex-row">
       <div className="flex space-x-4">
         <a href="https://twitter.com/janlavicka" title="Twitter">
-          <RiTwitterLine className="w-6 h-6 text-gray-900 transition duration-200 hover:text-blue-500" />
+          <RiTwitterXLine className="w-6 h-6 text-gray-900 transition duration-200 hover:text-blue-500" />
         </a>
 
         <a href="https://mastodon.world/@janlavicka" rel="me" title="Mastodon">
