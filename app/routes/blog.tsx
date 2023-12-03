@@ -1,8 +1,8 @@
-import Item from "@/components/Item";
-import List from "@/components/List";
-import { getPosts } from "@/models";
+import { Item } from "@/components/Item";
+import { List } from "@/components/List";
+import { getPosts } from "@/models/post.server";
 import { Loader as RootLoader } from "@/root";
-import { createMeta, getRouteLoaderData } from "@/utils";
+import { createMeta, getRouteLoaderData } from "@/utils/meta";
 import { MetaFunction, json } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
 

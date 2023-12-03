@@ -1,4 +1,4 @@
-import Layout from "@/components/Layout";
+import { Layout } from "@/components/Layout";
 import styles from "./tailwind.css";
 import { json, LinksFunction, MetaFunction } from "@remix-run/node";
 import {

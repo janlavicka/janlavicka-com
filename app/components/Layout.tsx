@@ -1,12 +1,12 @@
 import { ReactNode } from "react";
-import Footer from "./Footer";
-import Navigation from "./Navigation";
+import { Footer } from "./Footer";
+import { Navigation } from "./Navigation";
 
 type Props = {
   children: ReactNode;
 };
 
-export default function Layout({ children }: Props) {
+export function Layout({ children }: Props) {
   return (
     <div className="flex flex-col max-w-2xl min-h-screen px-4 mx-auto md:px-8">
       <Navigation />

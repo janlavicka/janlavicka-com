@@ -1,4 +1,4 @@
-import { getPosts } from "@/models";
+import { getPosts } from "@/models/post.server";
 import { SitemapStream } from "sitemap";
 
 export const loader = async () => {

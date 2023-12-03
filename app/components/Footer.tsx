@@ -5,7 +5,7 @@ import {
   RiTwitterXLine,
 } from "react-icons/ri";
 
-export default function Footer() {
+export function Footer() {
   return (
     <div className="flex flex-col items-center justify-between py-8 space-y-4 md:space-y-0 md:flex-row">
       <div className="flex space-x-4">

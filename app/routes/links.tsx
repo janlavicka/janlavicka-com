@@ -1,8 +1,8 @@
-import Item from "@/components/Item";
-import List from "@/components/List";
-import Text from "@/components/Text";
+import { Item } from "@/components/Item";
+import { List } from "@/components/List";
+import { Text } from "@/components/Text";
 import { Loader as RootLoader } from "@/root";
-import { createMeta, getRouteLoaderData } from "@/utils";
+import { createMeta, getRouteLoaderData } from "@/utils/meta";
 import { MetaFunction } from "@remix-run/node";
 
 export const meta: MetaFunction = (args) => {

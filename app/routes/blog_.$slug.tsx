@@ -1,7 +1,7 @@
-import Text from "@/components/Text";
-import { getPost } from "@/models";
+import { Text } from "@/components/Text";
+import { getPost } from "@/models/post.server";
 import { Loader as RootLoader } from "@/root";
-import { createMeta, getRouteLoaderData } from "@/utils";
+import { createMeta, getRouteLoaderData } from "@/utils/meta";
 import { LoaderFunctionArgs, MetaFunction, json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import invariant from "tiny-invariant";

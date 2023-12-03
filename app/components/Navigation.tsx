@@ -1,6 +1,6 @@
 import { NavLink } from "@remix-run/react";
 
-export default function Navigation() {
+export function Navigation() {
   const renderItem = (to: string, label: string) => {
     return (
       <NavLink
