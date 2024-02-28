@@ -11,11 +11,30 @@ export const loader = async () => {
     stream.on("error", (err) => reject(err));
     stream.on("end", () => resolve(Buffer.concat(chunks).toString("utf-8")));
 
-    stream.write({ url: "/", changefreq: "daily" });
-    stream.write({ url: "/projects", changefreq: "daily" });
-    stream.write({ url: "/blog", changefreq: "daily" });
-    stream.write({ url: "/links", changefreq: "daily" });
-    stream.write({ url: "/uses", changefreq: "daily" });
+    stream.write({
+      url: "/",
+      changefreq: "daily",
+    });
+
+    stream.write({
+      url: "/projects",
+      changefreq: "daily",
+    });
+
+    stream.write({
+      url: "/blog",
+      changefreq: "daily",
+    });
+
+    stream.write({
+      url: "/links",
+      changefreq: "daily",
+    });
+
+    stream.write({
+      url: "/uses",
+      changefreq: "daily",
+    });
 
     const posts = await getPosts();
 

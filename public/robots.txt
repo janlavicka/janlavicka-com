@@ -2,3 +2,4 @@ Sitemap: https://janlavicka.com/sitemap.xml
 
 User-agent: *
 Allow: *
+Disallow: /cdn-cgi/

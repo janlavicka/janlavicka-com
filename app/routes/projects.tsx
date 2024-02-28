@@ -13,7 +13,9 @@ export const meta: MetaFunction = (args) => {
         rel: "canonical",
         href: `${parentData.env.APP_URL}/projects`,
       },
-      { title: "Projects | Jan Lavička" },
+      {
+        title: "Projects | Jan Lavička",
+      },
     ],
     args,
   );

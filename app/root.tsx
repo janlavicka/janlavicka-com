@@ -37,16 +37,27 @@ export const meta: MetaFunction<Loader> = ({ data }) => {
   if (!data) return [];
 
   return [
-    { charSet: "utf-8" },
-    { name: "viewport", content: "width=device-width, initial-scale=1" },
-    { title: "Jan Lavička" },
+    {
+      charSet: "utf-8",
+    },
+    {
+      name: "viewport",
+      content: "width=device-width, initial-scale=1",
+    },
+    {
+      title: "Jan Lavička",
+    },
     {
       name: "description",
       content:
         "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
     },
 
-    { property: "og:title", content: "Jan Lavička" },
+    // Open Graph
+    {
+      property: "og:title",
+      content: "Jan Lavička",
+    },
     {
       property: "og:description",
       content:
@@ -65,6 +76,7 @@ export const meta: MetaFunction<Loader> = ({ data }) => {
       content: `${data.env.APP_URL}/`,
     },
 
+    // Twitter
     {
       name: "twitter:title",
       content: "Jan Lavička",
@@ -87,17 +99,44 @@ export const meta: MetaFunction<Loader> = ({ data }) => {
       content: `${data.env.APP_URL}/images/social.jpg`,
     },
 
-    { name: "format-detection", content: "telephone=no" },
-    { name: "HandheldFriendly", content: "true" },
-    { name: "theme-color", content: "#111827" },
+    // misc
+    {
+      name: "format-detection",
+      content: "telephone=no",
+    },
+    {
+      name: "HandheldFriendly",
+      content: "true",
+    },
+    {
+      name: "theme-color",
+      content: "#111827",
+    },
   ];
 };
 
 export const links: LinksFunction = () => [
-  { rel: "stylesheet", href: styles },
-  { rel: "stylesheet", href: cssBundleHref ? cssBundleHref : "" },
-  { rel: "stylesheet", href: "https://rsms.me/inter/inter.css" },
-  { rel: "icon", type: "image/svg+xml", href: "/images/favicon.ico" },
+  {
+    rel: "stylesheet",
+    href: styles,
+  },
+  ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
+  {
+    rel: "stylesheet",
+    href: "https://rsms.me/inter/inter.css",
+  },
+
+  // favicon
+  {
+    rel: "icon shortcut",
+    type: "image/x-icon",
+    href: "/images/favicon.ico",
+  },
+  {
+    rel: "icon",
+    type: "image/vnd.microsoft.icon",
+    href: "/images/favicon.ico",
+  },
 ];
 
 export const loader = async () => {

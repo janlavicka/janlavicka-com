@@ -20,7 +20,9 @@ export const meta: MetaFunction<Loader> = (args) => {
         rel: "canonical",
         href: `${parentData.env.APP_URL}/blog/${args.data.post.slug}`,
       },
-      { title: `${args.data.post.title} | Jan Lavička` },
+      {
+        title: `${args.data.post.title} | Jan Lavička`,
+      },
       {
         name: "description",
         content: args.data.post.description,
