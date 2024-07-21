@@ -1,4 +1,4 @@
-import { SerializeFrom, MetaDescriptor, MetaArgs } from "@remix-run/node";
+import { MetaDescriptor, MetaArgs } from "@remix-run/node";
 
 export function overriteMeta(
   base: MetaDescriptor[],
@@ -88,12 +88,4 @@ export function createMeta(overrides: MetaDescriptor[], args: MetaArgs) {
   }
 
   return overriteMeta(data, overrides);
-}
-
-export function getRouteLoaderData<T = any>(
-  id: string,
-  args: MetaArgs,
-): SerializeFrom<T> {
-  return args.matches.find((match) => match.id === id)
-    ?.data as SerializeFrom<T>;
 }

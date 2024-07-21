@@ -15,8 +15,8 @@ import styles from "./tailwind.css?url";
 
 export type Loader = typeof loader;
 
-export const meta: MetaFunction<Loader> = ({ data }) => {
-  if (!data) return [];
+export const meta: MetaFunction<Loader> = (args) => {
+  if (!args.data) return [];
 
   return [
     {
@@ -51,11 +51,11 @@ export const meta: MetaFunction<Loader> = ({ data }) => {
     },
     {
       property: "og:image",
-      content: `${data.env.APP_URL}/images/social.jpg`,
+      content: `${args.data.env.APP_URL}/images/social.jpg`,
     },
     {
       property: "og:url",
-      content: `${data.env.APP_URL}/`,
+      content: args.data.meta.url,
     },
 
     // Twitter
@@ -78,7 +78,7 @@ export const meta: MetaFunction<Loader> = ({ data }) => {
     },
     {
       name: "twitter:image",
-      content: `${data.env.APP_URL}/images/social.jpg`,
+      content: args.data.meta.image,
     },
 
     // misc
@@ -124,6 +124,10 @@ export const loader = async () => {
   return json({
     env: {
       APP_URL: process.env.APP_URL,
+    },
+    meta: {
+      url: process.env.APP_URL,
+      image: `${process.env.APP_URL}/images/social.jpg`,
     },
   });
 };
