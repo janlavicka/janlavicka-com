@@ -1,10 +1,8 @@
 import { Layout } from "@/components/Layout";
-import styles from "./tailwind.css";
 import { json, LinksFunction, MetaFunction } from "@remix-run/node";
 import {
   isRouteErrorResponse,
   Links,
-  LiveReload,
   Meta,
   Outlet,
   Scripts,
@@ -13,23 +11,7 @@ import {
   useRouteError,
 } from "@remix-run/react";
 import { useMemo } from "react";
-import { cssBundleHref } from "@remix-run/css-bundle";
-
-declare global {
-  namespace NodeJS {
-    interface ProcessEnv {
-      APP_URL: string;
-    }
-  }
-}
-
-declare global {
-  interface Window {
-    env: {
-      APP_URL: string;
-    };
-  }
-}
+import styles from "./tailwind.css?url";
 
 export type Loader = typeof loader;
 
@@ -120,7 +102,6 @@ export const links: LinksFunction = () => [
     rel: "stylesheet",
     href: styles,
   },
-  ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
   {
     rel: "stylesheet",
     href: "https://rsms.me/inter/inter.css",
@@ -167,7 +148,6 @@ export default function App() {
           }}
         />
         <Scripts />
-        <LiveReload />
       </body>
     </html>
   );
@@ -205,7 +185,6 @@ export function ErrorBoundary() {
           {description}
         </h1>
         <Scripts />
-        <LiveReload />
       </body>
     </html>
   );

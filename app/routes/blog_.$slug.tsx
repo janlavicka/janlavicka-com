@@ -1,7 +1,6 @@
 import { Text } from "@/components/Text";
 import { getPost } from "@/models/post.server";
-import { Loader as RootLoader } from "@/root";
-import { createMeta, getRouteLoaderData } from "@/utils/meta";
+import { createMeta } from "@/utils/meta";
 import { LoaderFunctionArgs, MetaFunction, json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import invariant from "tiny-invariant";
@@ -11,17 +10,15 @@ type Loader = typeof loader;
 export const meta: MetaFunction<Loader> = (args) => {
   if (!args.data) return [];
 
-  const parentData = getRouteLoaderData<RootLoader>("root", args);
-
   return createMeta(
     [
       {
         tagName: "link",
         rel: "canonical",
-        href: `${parentData.env.APP_URL}/blog/${args.data.post.slug}`,
+        href: args.data.meta.url,
       },
       {
-        title: `${args.data.post.title} | Jan Lavička`,
+        title: `${args.data.post.title} - Jan Lavička`,
       },
       {
         name: "description",
@@ -38,7 +35,12 @@ export const loader = async ({ params }: LoaderFunctionArgs) => {
   try {
     const post = await getPost(params.slug);
 
-    return json({ post });
+    return json({
+      post,
+      meta: {
+        url: `${process.env.APP_URL}/blog/${post.slug}`,
+      },
+    });
   } catch (e) {
     throw new Response(null, { status: 404, statusText: "Not Found" });
   }

@@ -1,26 +1,35 @@
 import { Item } from "@/components/Item";
 import { List } from "@/components/List";
 import { Text } from "@/components/Text";
-import { Loader as RootLoader } from "@/root";
-import { createMeta, getRouteLoaderData } from "@/utils/meta";
-import { MetaFunction } from "@remix-run/node";
+import { createMeta } from "@/utils/meta";
+import { json, MetaFunction } from "@remix-run/node";
 
-export const meta: MetaFunction = (args) => {
-  const parentData = getRouteLoaderData<RootLoader>("root", args);
+type Loader = typeof loader;
+
+export const meta: MetaFunction<Loader> = (args) => {
+  if (!args.data) return [];
 
   return createMeta(
     [
       {
         tagName: "link",
         rel: "canonical",
-        href: `${parentData.env.APP_URL}/uses`,
+        href: args.data.meta.url,
       },
       {
-        title: "Uses | Jan Lavička",
+        title: "Uses - Jan Lavička",
       },
     ],
     args,
   );
+};
+
+export const loader = async () => {
+  return json({
+    meta: {
+      url: `${process.env.APP_URL}/uses`,
+    },
+  });
 };
 
 export default function Page() {

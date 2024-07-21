@@ -1,17 +1,18 @@
 import { Text } from "@/components/Text";
-import { Loader as RootLoader } from "@/root";
-import { createMeta, getRouteLoaderData } from "@/utils/meta";
-import { MetaFunction } from "@remix-run/node";
+import { createMeta } from "@/utils/meta";
+import { json, MetaFunction } from "@remix-run/node";
 
-export const meta: MetaFunction = (args) => {
-  const parentData = getRouteLoaderData<RootLoader>("root", args);
+export type Loader = typeof loader;
+
+export const meta: MetaFunction<Loader> = (args) => {
+  if (!args.data) return [];
 
   return createMeta(
     [
       {
         tagName: "link",
         rel: "canonical",
-        href: `${parentData.env.APP_URL}/`,
+        href: args.data.meta.url,
       },
       {
         title: "Jan Lavička",
@@ -19,6 +20,14 @@ export const meta: MetaFunction = (args) => {
     ],
     args,
   );
+};
+
+export const loader = async () => {
+  return json({
+    meta: {
+      url: process.env.APP_URL,
+    },
+  });
 };
 
 export default function Page() {

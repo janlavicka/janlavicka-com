@@ -1,24 +1,33 @@
 import { Text } from "@/components/Text";
-import { Loader as RootLoader } from "@/root";
-import { createMeta, getRouteLoaderData } from "@/utils/meta";
-import { MetaFunction } from "@remix-run/node";
+import { createMeta } from "@/utils/meta";
+import { json, MetaFunction } from "@remix-run/node";
 
-export const meta: MetaFunction = (args) => {
-  const parentData = getRouteLoaderData<RootLoader>("root", args);
+type Loader = typeof loader;
+
+export const meta: MetaFunction<Loader> = (args) => {
+  if (!args.data) return [];
 
   return createMeta(
     [
       {
         tagName: "link",
         rel: "canonical",
-        href: `${parentData.env.APP_URL}/projects`,
+        href: args.data.meta.url,
       },
       {
-        title: "Projects | Jan Lavička",
+        title: "Projects - Jan Lavička",
       },
     ],
     args,
   );
+};
+
+export const loader = async () => {
+  return json({
+    meta: {
+      url: `${process.env.APP_URL}/projects`,
+    },
+  });
 };
 
 export default function Page() {
@@ -33,59 +42,35 @@ export default function Page() {
         </p>
       </Text>
 
-      <h2 className="text-lg font-bold text-gray-900 hover:text-blue-500">
-        <a href="https://getjuiceable.com" className="hover:underline">
-          Juiceable
+      <h2 className="text-lg font-bold text-gray-900 hover:text-blue-500 hover:underline">
+        <a href="https://refer.is">
+          refer.is - Link Shortener, Branded Links, QR Codes, and Link Tracking
         </a>
       </h2>
 
       <Text>
         <p>
-          Coupons and cashback browser extension that scans the internet for the
-          best deals. Users can favorite products on the e-commerce website and
-          get price drop notifications.
+          Refer.is a link management tool that provides URL shortening, branded
+          link creation, QR code generation, and link tracking analytics. It
+          also includes a browser extension for convenient link access and
+          management.
         </p>
       </Text>
 
       <a
-        href="https://getjuiceable.com"
+        href="https://refer.is"
         target="_blank"
         rel="noreferrer"
         className="block overflow-hidden rounded-md shadow-default"
       >
         <div className="-mb-2">
-          <img src="/images/getjuiceable-com.jpg" alt="Juiceable" />
+          <img src="/images/refer-is.jpg" alt="refer.is" />
         </div>
       </a>
 
-      <h2 className="text-lg font-bold text-gray-900 hover:text-blue-500">
-        <a href="https://tripcutters.com" className="hover:underline">
-          Trip Cutters
-        </a>
-      </h2>
-
-      <Text>
-        <p>
-          Get inspired and travel across Europe for cheap while exploring the
-          beauties of the world. Website searches trips (flight + accommodation)
-          for best prices thanks to multiple travel hacking techniques.
-        </p>
-      </Text>
-
-      <a
-        href="https://tripcutters.com"
-        target="_blank"
-        rel="noreferrer"
-        className="block overflow-hidden rounded-md shadow-default"
-      >
-        <div className="-mb-2">
-          <img src="/images/tripcutters-com.jpg" alt="Trip Cutters" />
-        </div>
-      </a>
-
-      <h2 className="text-lg font-bold text-gray-900 hover:text-blue-500">
-        <a href="https://jobsfordevelopers.com" className="hover:underline">
-          Jobs for Developers
+      <h2 className="text-lg font-bold text-gray-900 hover:text-blue-500 hover:underline">
+        <a href="https://jobsfordevelopers.com">
+          Jobs for Developers - jobs for software engineers
         </a>
       </h2>
 
@@ -111,9 +96,34 @@ export default function Page() {
         </div>
       </a>
 
-      <h2 className="text-lg font-bold text-gray-900 hover:text-blue-500">
-        <a href="https://filedash.co" className="hover:underline">
-          Filedesh
+      <h2 className="text-lg font-bold text-gray-900 hover:text-blue-500 hover:underline">
+        <a href="https://tripcutters.com">
+          Trip Cutters - travel deals for the modern traveler
+        </a>
+      </h2>
+
+      <Text>
+        <p>
+          Get inspired and travel across Europe for cheap while exploring the
+          beauties of the world. Website searches trips (flight + accommodation)
+          for best prices thanks to multiple travel hacking techniques.
+        </p>
+      </Text>
+
+      <a
+        href="https://tripcutters.com"
+        target="_blank"
+        rel="noreferrer"
+        className="block overflow-hidden rounded-md shadow-default"
+      >
+        <div className="-mb-2">
+          <img src="/images/tripcutters-com.jpg" alt="Trip Cutters" />
+        </div>
+      </a>
+
+      <h2 className="text-lg font-bold text-gray-900 hover:text-blue-500 hover:underline">
+        <a href="https://filedash.co">
+          Filedash - collect and receive files with upload link
         </a>
       </h2>
 
