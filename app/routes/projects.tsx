@@ -17,6 +17,22 @@ export const meta: MetaFunction<Loader> = (args) => {
       {
         title: "Projects - Jan Lavička",
       },
+
+      // Open Graph
+      {
+        property: "og:url",
+        content: args.data.meta.url,
+      },
+      {
+        property: "og:title",
+        content: "Projects",
+      },
+
+      // Twitter
+      {
+        name: "twitter:title",
+        content: "Projects",
+      },
     ],
     args,
   );

@@ -37,6 +37,14 @@ export const meta: MetaFunction<Loader> = (args) => {
 
     // Open Graph
     {
+      property: "og:type",
+      content: "website",
+    },
+    {
+      property: "og:url",
+      content: args.data.meta.url,
+    },
+    {
       property: "og:title",
       content: "Jan Lavička",
     },
@@ -46,19 +54,15 @@ export const meta: MetaFunction<Loader> = (args) => {
         "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
     },
     {
-      property: "og:type",
-      content: "website",
-    },
-    {
       property: "og:image",
-      content: `${args.data.env.APP_URL}/images/social.jpg`,
-    },
-    {
-      property: "og:url",
       content: args.data.meta.url,
     },
 
     // Twitter
+    {
+      name: "twitter:card",
+      content: "summary_large_image",
+    },
     {
       name: "twitter:title",
       content: "Jan Lavička",
@@ -71,10 +75,6 @@ export const meta: MetaFunction<Loader> = (args) => {
     {
       name: "twitter:site",
       content: "@janlavicka",
-    },
-    {
-      name: "twitter:card",
-      content: "summary_large_image",
     },
     {
       name: "twitter:image",

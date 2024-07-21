@@ -24,6 +24,30 @@ export const meta: MetaFunction<Loader> = (args) => {
         name: "description",
         content: args.data.post.description,
       },
+
+      // Open Graph
+      {
+        property: "og:url",
+        content: args.data.meta.url,
+      },
+      {
+        property: "og:title",
+        content: args.data.post.title,
+      },
+      {
+        property: "og:description",
+        content: args.data.post.description,
+      },
+
+      // Twitter
+      {
+        name: "twitter:title",
+        content: args.data.post.title,
+      },
+      {
+        name: "twitter:description",
+        content: args.data.post.description,
+      },
     ],
     args,
   );

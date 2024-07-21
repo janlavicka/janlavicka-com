@@ -1,4 +1,4 @@
-import { MetaDescriptor, MetaArgs } from "@remix-run/node";
+import { SerializeFrom, MetaDescriptor, MetaArgs } from "@remix-run/node";
 
 export function overriteMeta(
   base: MetaDescriptor[],
@@ -48,44 +48,13 @@ export function createMeta(overrides: MetaDescriptor[], args: MetaArgs) {
     return overriteMeta(acc, (match as any).meta || []);
   }, [] as MetaDescriptor[]);
 
-  const canonical = overrides.find(
-    (meta) => "rel" in meta && meta.rel === "canonical",
-  );
-
-  if (canonical) {
-    overrides.push({
-      property: "og:url",
-      content: "href" in canonical && canonical.href,
-    });
-  }
-
-  const title = overrides.find((meta) => "title" in meta);
-
-  if (title) {
-    overrides.push({
-      property: "og:title",
-      content: "title" in title && title.title,
-    });
-    overrides.push({
-      name: "twitter:title",
-      content: "title" in title && title.title,
-    });
-  }
-
-  const description = overrides.find(
-    (meta) => "name" in meta && meta.name === "description",
-  );
-
-  if (description) {
-    overrides.push({
-      property: "og:description",
-      content: "content" in description && description.content,
-    });
-    overrides.push({
-      name: "twitter:description",
-      content: "content" in description && description.content,
-    });
-  }
-
   return overriteMeta(data, overrides);
+}
+
+export function getRouteLoaderData<T = any>(
+  id: string,
+  args: MetaArgs,
+): SerializeFrom<T> {
+  return args.matches.find((match) => match.id === id)
+    ?.data as SerializeFrom<T>;
 }
