@@ -36,7 +36,7 @@ export const meta: MetaFunction<Loader> = (args) => {
         content: "Uses",
       },
     ],
-    args,
+    args
   );
 };
 
@@ -62,14 +62,14 @@ export default function Page() {
         </Text>
       </div>
 
-      <h2 className="text-lg font-bold text-gray-900">Desktop Apps</h2>
+      <h2 className="text-lg font-bold text-neutral-900">Desktop Apps</h2>
 
       <List>
         <Item>
           <p className="leading-normal">
             <a
               href="https://www.google.com/chrome/"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               Google Chrome
             </a>
@@ -79,7 +79,7 @@ export default function Page() {
           <p className="leading-normal">
             <a
               href="https://code.visualstudio.com"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               Visual Studio Code
             </a>
@@ -89,7 +89,7 @@ export default function Page() {
           <p className="leading-normal">
             <a
               href="https://sparkmailapp.com"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               Spark
             </a>
@@ -99,7 +99,7 @@ export default function Page() {
           <p className="leading-normal">
             <a
               href="https://ticktick.com"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               TickTick
             </a>
@@ -109,7 +109,7 @@ export default function Page() {
           <p className="leading-normal">
             <a
               href="https://www.postman.com"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               Postman
             </a>
@@ -119,7 +119,7 @@ export default function Page() {
           <p className="leading-normal">
             <a
               href="https://tableplus.com"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               TablePlus
             </a>
@@ -129,7 +129,7 @@ export default function Page() {
           <p className="leading-normal">
             <a
               href="https://filezilla-project.org"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               FileZilla
             </a>
@@ -139,14 +139,14 @@ export default function Page() {
           <p className="leading-normal">
             <a
               href="https://hyper.is"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               Hyper
             </a>{" "}
             with{" "}
             <a
               href="https://github.com/wesbos/hyperterm-cobalt2-theme"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               Cobalt2 theme
             </a>
@@ -156,7 +156,7 @@ export default function Page() {
           <p className="leading-normal">
             <a
               href="https://www.loom.com"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               Loom
             </a>
@@ -166,7 +166,7 @@ export default function Page() {
           <p className="leading-normal">
             <a
               href="https://www.pixelmator.com"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               Pixelmator
             </a>
@@ -176,7 +176,7 @@ export default function Page() {
           <p className="leading-normal">
             <a
               href="https://slack.com"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               Slack
             </a>
@@ -186,14 +186,14 @@ export default function Page() {
           <p className="leading-normal">
             <a
               href="https://slack.com"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               Sublime Text 3
             </a>{" "}
             with{" "}
             <a
               href="https://github.com/wesbos/cobalt2"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               Cobalt2 theme
             </a>
@@ -201,14 +201,14 @@ export default function Page() {
         </Item>
       </List>
 
-      <h2 className="text-lg font-bold text-gray-900">Terminal Tools</h2>
+      <h2 className="text-lg font-bold text-neutral-900">Terminal Tools</h2>
 
       <List>
         <Item>
           <p className="leading-normal">
             <a
               href="https://brew.sh"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               Homebrew
             </a>
@@ -218,7 +218,7 @@ export default function Page() {
           <p className="leading-normal">
             <a
               href="https://github.com/nvm-sh/nvm"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               NVM
             </a>
@@ -226,7 +226,7 @@ export default function Page() {
         </Item>
       </List>
 
-      <h2 className="text-lg font-bold text-gray-900">
+      <h2 className="text-lg font-bold text-neutral-900">
         Visual Studio Code Extensions
       </h2>
 
@@ -235,7 +235,7 @@ export default function Page() {
           <p className="leading-normal">
             <a
               href="https://marketplace.visualstudio.com/items?itemName=wesbos.theme-cobalt2"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               Cobalt2 Theme Official
             </a>
@@ -245,7 +245,7 @@ export default function Page() {
           <p className="leading-normal">
             <a
               href="https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               GitHub Codespaces
             </a>
@@ -255,7 +255,7 @@ export default function Page() {
           <p className="leading-normal">
             <a
               href="https://marketplace.visualstudio.com/items?itemName=GitHub.copilot"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               GitHub Copilot
             </a>
@@ -265,7 +265,7 @@ export default function Page() {
           <p className="leading-normal">
             <a
               href="https://marketplace.visualstudio.com/items?itemName=wix.vscode-import-cost"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               Import Cost
             </a>
@@ -275,7 +275,7 @@ export default function Page() {
           <p className="leading-normal">
             <a
               href="https://marketplace.visualstudio.com/items?itemName=emmanuelbeziat.vscode-great-icons"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               VSCode Great Icons
             </a>
@@ -285,7 +285,7 @@ export default function Page() {
           <p className="leading-normal">
             <a
               href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               Prettier - Code Formatter
             </a>
@@ -295,7 +295,7 @@ export default function Page() {
           <p className="leading-normal">
             <a
               href="https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               Tailwind CSS IntelliSense
             </a>
@@ -305,7 +305,7 @@ export default function Page() {
           <p className="leading-normal">
             <a
               href="https://marketplace.visualstudio.com/items?itemName=heybourn.headwind"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               Headwind
             </a>
@@ -315,7 +315,7 @@ export default function Page() {
           <p className="leading-normal">
             <a
               href="https://marketplace.visualstudio.com/items?itemName=steoates.autoimport"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               Auto Import
             </a>
@@ -325,7 +325,7 @@ export default function Page() {
           <p className="leading-normal">
             <a
               href="https://marketplace.visualstudio.com/items?itemName=eg2.vscode-npm-script"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               NPM
             </a>
@@ -335,7 +335,7 @@ export default function Page() {
           <p className="leading-normal">
             <a
               href="https://marketplace.visualstudio.com/items?itemName=Prisma.prisma"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               Prisma
             </a>
@@ -345,7 +345,7 @@ export default function Page() {
           <p className="leading-normal">
             <a
               href="https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               Git Graph
             </a>
@@ -355,7 +355,7 @@ export default function Page() {
           <p className="leading-normal">
             <a
               href="https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               GitLens — Git Supercharged
             </a>

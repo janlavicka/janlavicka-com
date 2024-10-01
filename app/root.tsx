@@ -141,7 +141,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="min-h-screen font-sans text-base antialiased text-gray-900 bg-gray-50">
+      <body className="min-h-screen font-sans text-base antialiased text-neutral-900">
         <Layout>
           <Outlet />
         </Layout>
@@ -184,8 +184,8 @@ export function ErrorBoundary() {
         <Meta />
         <Links />
       </head>
-      <body className="min-h-screen font-sans text-base antialiased text-gray-900 bg-white">
-        <h1 className="p-6 text-4xl font-bold text-gray-900 md:font-extrabold md:text-5xl lg:text-6xl">
+      <body className="min-h-screen font-sans text-base antialiased bg-white text-neutral-900">
+        <h1 className="p-6 text-4xl font-bold text-neutral-900 md:font-extrabold md:text-5xl lg:text-6xl">
           {description}
         </h1>
         <Scripts />

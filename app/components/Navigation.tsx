@@ -6,8 +6,8 @@ export function Navigation() {
       <NavLink
         to={to}
         className={({ isActive }) =>
-          `inline-block px-3 py-1 rounded-lg font-medium hover:bg-gray-100 ${
-            isActive ? "text-gray-900" : "text-gray-500"
+          `inline-block px-3 py-1 rounded-lg font-medium hover:bg-neutral-100 ${
+            isActive ? "text-neutral-900" : "text-neutral-500"
           }`
         }
       >

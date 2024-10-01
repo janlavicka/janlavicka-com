@@ -6,7 +6,7 @@ type Props = {
 
 export function Text({ children }: Props) {
   return (
-    <div className="space-y-6 text-base leading-relaxed text-gray-700">
+    <div className="space-y-6 text-base leading-relaxed text-neutral-700">
       {children}
     </div>
   );

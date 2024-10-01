@@ -34,7 +34,7 @@ export const meta: MetaFunction<Loader> = (args) => {
         content: "Projects",
       },
     ],
-    args,
+    args
   );
 };
 
@@ -58,9 +58,9 @@ export default function Page() {
         </p>
       </Text>
 
-      <h2 className="text-lg font-bold text-gray-900 hover:text-blue-500 hover:underline">
+      <h2 className="text-lg font-bold text-neutral-900 hover:text-blue-500 hover:underline">
         <a href="https://refer.is">
-          refer.is - Link Shortener, Branded Links, QR Codes, and Link Tracking
+          refer.is - link shortener, branded links, QR codes, and link tracking
         </a>
       </h2>
 
@@ -77,14 +77,14 @@ export default function Page() {
         href="https://refer.is"
         target="_blank"
         rel="noreferrer"
-        className="block overflow-hidden rounded-md shadow-default"
+        className="block overflow-hidden border-2 border-white rounded-md shadow-default"
       >
         <div className="-mb-2">
           <img src="/images/refer-is.jpg" alt="refer.is" />
         </div>
       </a>
 
-      <h2 className="text-lg font-bold text-gray-900 hover:text-blue-500 hover:underline">
+      <h2 className="text-lg font-bold text-neutral-900 hover:text-blue-500 hover:underline">
         <a href="https://jobsfordevelopers.com">
           Jobs for Developers - jobs for software engineers
         </a>
@@ -102,7 +102,7 @@ export default function Page() {
         href="https://jobsfordevelopers.com"
         target="_blank"
         rel="noreferrer"
-        className="block overflow-hidden rounded-md shadow-default"
+        className="block overflow-hidden border-2 border-white rounded-md shadow-default"
       >
         <div className="-mb-2">
           <img
@@ -112,7 +112,7 @@ export default function Page() {
         </div>
       </a>
 
-      <h2 className="text-lg font-bold text-gray-900 hover:text-blue-500 hover:underline">
+      <h2 className="text-lg font-bold text-neutral-900 hover:text-blue-500 hover:underline">
         <a href="https://tripcutters.com">
           Trip Cutters - travel deals for the modern traveler
         </a>
@@ -130,14 +130,14 @@ export default function Page() {
         href="https://tripcutters.com"
         target="_blank"
         rel="noreferrer"
-        className="block overflow-hidden rounded-md shadow-default"
+        className="block overflow-hidden border-2 border-white rounded-md shadow-default"
       >
         <div className="-mb-2">
           <img src="/images/tripcutters-com.jpg" alt="Trip Cutters" />
         </div>
       </a>
 
-      <h2 className="text-lg font-bold text-gray-900 hover:text-blue-500 hover:underline">
+      <h2 className="text-lg font-bold text-neutral-900 hover:text-blue-500 hover:underline">
         <a href="https://filedash.co">
           Filedash - collect and receive files with upload link
         </a>
@@ -156,7 +156,7 @@ export default function Page() {
         href="https://filedash.co"
         target="_blank"
         rel="noreferrer"
-        className="block overflow-hidden rounded-md shadow-default"
+        className="block overflow-hidden border-2 border-white rounded-md shadow-default"
       >
         <div className="-mb-2">
           <img src="/images/filedash-co.jpg" alt="FileDash" />

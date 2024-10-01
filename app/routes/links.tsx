@@ -36,7 +36,7 @@ export const meta: MetaFunction<Loader> = (args) => {
         content: "Links",
       },
     ],
-    args,
+    args
   );
 };
 
@@ -62,14 +62,14 @@ export default function Page() {
         </Text>
       </div>
 
-      <h2 className="text-lg font-bold text-gray-900">Posts</h2>
+      <h2 className="text-lg font-bold text-neutral-900">Posts</h2>
 
       <List>
         <Item>
           <p className="leading-normal">
             <a
               href="http://www.paulgraham.com/makersschedule.html"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               Maker&apos;s Schedule, Manager&apos;s Schedule
             </a>
@@ -80,7 +80,7 @@ export default function Page() {
           <p className="leading-normal">
             <a
               href="https://m.signalvnoise.com/its-always-your-fault/"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               It’s always your fault
             </a>
@@ -91,7 +91,7 @@ export default function Page() {
           <p className="leading-normal">
             <a
               href="https://m.signalvnoise.com/ive-never-had-a-goal/"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               I’ve never had a goal
             </a>
@@ -102,7 +102,7 @@ export default function Page() {
           <p className="leading-normal">
             <a
               href="http://paulgraham.com/ds.html"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               Do Things that Don&apos;t Scale
             </a>
@@ -111,14 +111,14 @@ export default function Page() {
         </Item>
       </List>
 
-      <h2 className="text-lg font-bold text-gray-900">Podcasts</h2>
+      <h2 className="text-lg font-bold text-neutral-900">Podcasts</h2>
 
       <List>
         <Item>
           <p className="leading-normal">
             <a
               href="https://www.indiehackers.com/podcasts"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               Indie Hackers
             </a>
@@ -128,7 +128,7 @@ export default function Page() {
           <p className="leading-normal">
             <a
               href="https://thehustle.co/my-first-million-podcast/"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               My First Million
             </a>
@@ -138,7 +138,7 @@ export default function Page() {
           <p className="leading-normal">
             <a
               href="https://productjourney.fm"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               Product Jurney
             </a>
@@ -148,7 +148,7 @@ export default function Page() {
           <p className="leading-normal">
             <a
               href="https://frontendfirst.fm"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               Frontend First
             </a>
@@ -158,7 +158,7 @@ export default function Page() {
           <p className="leading-normal">
             <a
               href="https://fullstackradio.com"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               Full Stack Radio
             </a>
@@ -168,7 +168,7 @@ export default function Page() {
           <p className="leading-normal">
             <a
               href="https://www.dancarlin.com/hardcore-history-series"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               Hardcore History
             </a>
@@ -178,7 +178,7 @@ export default function Page() {
           <p className="leading-normal">
             <a
               href="https://www.startupsfortherestofus.com"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               Startups For the Rest Of Us
             </a>
@@ -188,7 +188,7 @@ export default function Page() {
           <p className="leading-normal">
             <a
               href="https://open.spotify.com/show/5SSYyVWm0FaY8as96gE3EM"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               The Chernobyl Podcast
             </a>
@@ -196,14 +196,14 @@ export default function Page() {
         </Item>
       </List>
 
-      <h2 className="mb-4 text-lg font-bold text-gray-900">Books</h2>
+      <h2 className="mb-4 text-lg font-bold text-neutral-900">Books</h2>
 
       <List>
         <Item>
           <p className="leading-normal">
             <a
               href="https://basecamp.com/books/remote"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               REMOTE: Office Not Required
             </a>
@@ -216,7 +216,7 @@ export default function Page() {
           <p className="leading-normal">
             <a
               href="https://www.priceintelligently.com/developing-your-saas-pricing-strategy"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               The Anatomy of SaaS Pricing Strategy
             </a>
@@ -227,7 +227,7 @@ export default function Page() {
           <p className="leading-normal">
             <a
               href="https://basecamp.com/books/calme"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               It Doesn&apos;t Have to Be Crazy at Work
             </a>
@@ -240,7 +240,7 @@ export default function Page() {
           <p className="leading-normal">
             <a
               href="https://www.amazon.com/dp/B01CYKUC9C"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               Deep Work
             </a>
@@ -251,7 +251,7 @@ export default function Page() {
           <p className="leading-normal">
             <a
               href="https://www.amazon.com/dp/B00SHL3V8M"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               Getting Things Done
             </a>
@@ -262,7 +262,7 @@ export default function Page() {
           <p className="leading-normal">
             <a
               href="https://www.amazon.com/dp/0374533555"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               Thinking, Fast and Slow
             </a>
@@ -273,7 +273,7 @@ export default function Page() {
           <p className="leading-normal">
             <a
               href="https://basecamp.com/books/getting-real"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               Getting Real
             </a>
@@ -284,7 +284,7 @@ export default function Page() {
           <p className="leading-normal">
             <a
               href="https://basecamp.com/books/rework"
-              className="font-bold text-gray-900 underline hover:text-blue-500"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               Rework
             </a>

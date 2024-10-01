@@ -37,7 +37,7 @@ export const meta: MetaFunction<Loader> = (args) => {
         content: "Blog",
       },
     ],
-    args,
+    args
   );
 };
 
@@ -65,7 +65,7 @@ export default function Page() {
             <p className="leading-normal">
               <Link
                 to={`/blog/${post.slug}`}
-                className="font-bold text-gray-900 underline hover:text-blue-500"
+                className="font-bold underline text-neutral-900 hover:text-blue-500"
               >
                 {post.title}
               </Link>
