@@ -1,4 +1,5 @@
 import {
+  RiBlueskyLine,
   RiGithubLine,
   RiMastodonLine,
   RiProductHuntLine,
@@ -23,6 +24,10 @@ export function Footer() {
 
         <a href="https://github.com/janlavicka" title="GitHub">
           <RiGithubLine className="w-6 h-6 transition duration-200 text-neutral-900 hover:text-blue-500" />
+        </a>
+
+        <a href="https://bsky.app/profile/janlavicka.com" title="GitHub">
+          <RiBlueskyLine className="w-6 h-6 transition duration-200 text-neutral-900 hover:text-blue-500" />
         </a>
       </div>
 

@@ -1,5 +1,4 @@
-import { Text } from "@/components/Text";
-import { createMeta } from "@/utils/meta";
+import { Text } from "@/components";
 import { json, MetaFunction } from "@remix-run/node";
 
 type Loader = typeof loader;
@@ -7,41 +6,86 @@ type Loader = typeof loader;
 export const meta: MetaFunction<Loader> = (args) => {
   if (!args.data) return [];
 
-  return createMeta(
-    [
-      {
-        tagName: "link",
-        rel: "canonical",
-        href: args.data.meta.url,
-      },
-      {
-        title: "Projects - Jan Lavička",
-      },
+  return [
+    {
+      tagName: "link",
+      rel: "canonical",
+      content: args.data.meta.url,
+    },
+    {
+      name: "robots",
+      content: "index, follow",
+    },
+    {
+      title: "Projects • Jan Lavička",
+    },
+    {
+      name: "description",
+      content:
+        "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
+    },
 
-      // Open Graph
-      {
-        property: "og:url",
-        content: args.data.meta.url,
-      },
-      {
-        property: "og:title",
-        content: "Projects",
-      },
+    // Open Graph
+    {
+      property: "og:type",
+      content: "website",
+    },
+    {
+      property: "og:locale",
+      content: "en_US",
+    },
+    {
+      property: "og:site_name",
+      content: "Jan Lavička",
+    },
+    {
+      property: "og:url",
+      content: args.data.meta.url,
+    },
+    {
+      property: "og:title",
+      content: "Projects",
+    },
+    {
+      property: "og:description",
+      content:
+        "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
+    },
+    {
+      property: "og:image",
+      content: args.data.meta.image,
+    },
 
-      // Twitter
-      {
-        name: "twitter:title",
-        content: "Projects",
-      },
-    ],
-    args
-  );
+    // Twitter
+    {
+      name: "twitter:card",
+      content: "summary_large_image",
+    },
+    {
+      name: "twitter:site",
+      content: "@janlavicka",
+    },
+    {
+      name: "twitter:title",
+      content: "Projects",
+    },
+    {
+      name: "twitter:description",
+      content:
+        "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
+    },
+    {
+      name: "twitter:image",
+      content: args.data.meta.image,
+    },
+  ];
 };
 
 export const loader = async () => {
   return json({
     meta: {
       url: `${process.env.APP_URL}/projects`,
+      image: `${process.env.APP_URL}/images/social.jpg`,
     },
   });
 };

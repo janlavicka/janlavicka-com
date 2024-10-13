@@ -13,39 +13,38 @@ export const loader = async () => {
 
     stream.write({
       url: "/",
-      changefreq: "daily",
     });
 
     stream.write({
       url: "/projects",
-      changefreq: "daily",
     });
 
     stream.write({
       url: "/blog",
-      changefreq: "daily",
     });
 
     stream.write({
       url: "/links",
-      changefreq: "daily",
     });
 
     stream.write({
       url: "/uses",
-      changefreq: "daily",
     });
 
     const posts = await getPosts();
 
     for (const post of posts) {
-      stream.write({ url: `/blog/${post.slug}`, changefreq: "daily" });
+      stream.write({
+        url: `/blog/${post.slug}`,
+      });
     }
 
     stream.end();
   });
 
   return new Response(result, {
-    headers: { "Content-Type": "text-xml" },
+    headers: {
+      "Content-Type": "text-xml",
+    },
   });
 };

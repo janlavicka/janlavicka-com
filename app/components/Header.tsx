@@ -1,6 +1,6 @@
 import { NavLink } from "@remix-run/react";
 
-export function Navigation() {
+export function Header() {
   const renderItem = (to: string, label: string) => {
     return (
       <NavLink
@@ -17,7 +17,9 @@ export function Navigation() {
   };
 
   return (
-    <div className="pt-8 pb-8">
+    <div className="flex items-center justify-between pt-8 pb-8">
+      <div>👋</div>
+
       <div className="-ml-3">
         {renderItem("/", "Home")}
         {renderItem("/projects", "Projects")}

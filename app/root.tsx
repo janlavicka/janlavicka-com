@@ -1,5 +1,5 @@
 import { Layout } from "@/components/Layout";
-import { json, LinksFunction, MetaFunction } from "@remix-run/node";
+import { HeadersFunction, json, LinksFunction } from "@remix-run/node";
 import {
   isRouteErrorResponse,
   Links,
@@ -15,88 +15,6 @@ import styles from "./tailwind.css?url";
 
 export type Loader = typeof loader;
 
-export const meta: MetaFunction<Loader> = (args) => {
-  if (!args.data) return [];
-
-  return [
-    {
-      charSet: "utf-8",
-    },
-    {
-      name: "viewport",
-      content: "width=device-width, initial-scale=1",
-    },
-    {
-      title: "Jan Lavička",
-    },
-    {
-      name: "description",
-      content:
-        "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
-    },
-
-    // Open Graph
-    {
-      property: "og:type",
-      content: "website",
-    },
-    {
-      property: "og:url",
-      content: args.data.meta.url,
-    },
-    {
-      property: "og:title",
-      content: "Jan Lavička",
-    },
-    {
-      property: "og:description",
-      content:
-        "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
-    },
-    {
-      property: "og:image",
-      content: args.data.meta.url,
-    },
-
-    // Twitter
-    {
-      name: "twitter:card",
-      content: "summary_large_image",
-    },
-    {
-      name: "twitter:title",
-      content: "Jan Lavička",
-    },
-    {
-      name: "twitter:description",
-      content:
-        "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
-    },
-    {
-      name: "twitter:site",
-      content: "@janlavicka",
-    },
-    {
-      name: "twitter:image",
-      content: args.data.meta.image,
-    },
-
-    // misc
-    {
-      name: "format-detection",
-      content: "telephone=no",
-    },
-    {
-      name: "HandheldFriendly",
-      content: "true",
-    },
-    {
-      name: "theme-color",
-      content: "#111827",
-    },
-  ];
-};
-
 export const links: LinksFunction = () => [
   {
     rel: "stylesheet",
@@ -106,28 +24,25 @@ export const links: LinksFunction = () => [
     rel: "stylesheet",
     href: "https://rsms.me/inter/inter.css",
   },
-
-  // favicon
-  {
-    rel: "icon shortcut",
-    type: "image/x-icon",
-    href: "/images/favicon.ico",
-  },
   {
     rel: "icon",
-    type: "image/vnd.microsoft.icon",
-    href: "/images/favicon.ico",
+    href: "/images/favicon.png",
+  },
+  {
+    rel: "apple-touch-icon",
+    href: "/images/favicon.png",
   },
 ];
+
+export const headers: HeadersFunction = () => ({
+  "X-Frame-Options": "DENY",
+  "Content-Security-Policy": "frame-ancestors 'none'",
+});
 
 export const loader = async () => {
   return json({
     env: {
       APP_URL: process.env.APP_URL,
-    },
-    meta: {
-      url: process.env.APP_URL,
-      image: `${process.env.APP_URL}/images/social.jpg`,
     },
   });
 };
@@ -138,6 +53,10 @@ export default function App() {
   return (
     <html lang="en">
       <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="HandheldFriendly" content="true" />
+        <meta name="format-detection" content="telephone=no" />
         <Meta />
         <Links />
       </head>
@@ -179,8 +98,12 @@ export function ErrorBoundary() {
   return (
     <html lang="en">
       <head>
-        <title>{`${title} | Jan Lavička`}</title>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="HandheldFriendly" content="true" />
+        <meta name="format-detection" content="telephone=no" />
         <meta name="robots" content="noindex, nofollow" />
+        <title>{`${title} | Jan Lavička`}</title>
         <Meta />
         <Links />
       </head>

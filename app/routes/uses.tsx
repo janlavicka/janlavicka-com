@@ -1,7 +1,4 @@
-import { Item } from "@/components/Item";
-import { List } from "@/components/List";
-import { Text } from "@/components/Text";
-import { createMeta } from "@/utils/meta";
+import { Item, List, Text } from "@/components";
 import { json, MetaFunction } from "@remix-run/node";
 
 type Loader = typeof loader;
@@ -9,41 +6,86 @@ type Loader = typeof loader;
 export const meta: MetaFunction<Loader> = (args) => {
   if (!args.data) return [];
 
-  return createMeta(
-    [
-      {
-        tagName: "link",
-        rel: "canonical",
-        href: args.data.meta.url,
-      },
-      {
-        title: "Uses - Jan Lavička",
-      },
+  return [
+    {
+      tagName: "link",
+      rel: "canonical",
+      content: args.data.meta.url,
+    },
+    {
+      name: "robots",
+      content: "index, follow",
+    },
+    {
+      title: "Uses • Jan Lavička",
+    },
+    {
+      name: "description",
+      content:
+        "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
+    },
 
-      // Open Graph
-      {
-        property: "og:url",
-        content: args.data.meta.url,
-      },
-      {
-        property: "og:title",
-        content: "Uses",
-      },
+    // Open Graph
+    {
+      property: "og:type",
+      content: "website",
+    },
+    {
+      property: "og:locale",
+      content: "en_US",
+    },
+    {
+      property: "og:site_name",
+      content: "Jan Lavička",
+    },
+    {
+      property: "og:url",
+      content: args.data.meta.url,
+    },
+    {
+      property: "og:title",
+      content: "Uses",
+    },
+    {
+      property: "og:description",
+      content:
+        "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
+    },
+    {
+      property: "og:image",
+      content: args.data.meta.image,
+    },
 
-      // Twitter
-      {
-        name: "twitter:title",
-        content: "Uses",
-      },
-    ],
-    args
-  );
+    // Twitter
+    {
+      name: "twitter:card",
+      content: "summary_large_image",
+    },
+    {
+      name: "twitter:site",
+      content: "@janlavicka",
+    },
+    {
+      name: "twitter:title",
+      content: "Uses",
+    },
+    {
+      name: "twitter:description",
+      content:
+        "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
+    },
+    {
+      name: "twitter:image",
+      content: args.data.meta.image,
+    },
+  ];
 };
 
 export const loader = async () => {
   return json({
     meta: {
       url: `${process.env.APP_URL}/uses`,
+      image: `${process.env.APP_URL}/images/social.jpg`,
     },
   });
 };
@@ -328,16 +370,6 @@ export default function Page() {
               className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               NPM
-            </a>
-          </p>
-        </Item>
-        <Item>
-          <p className="leading-normal">
-            <a
-              href="https://marketplace.visualstudio.com/items?itemName=Prisma.prisma"
-              className="font-bold underline text-neutral-900 hover:text-blue-500"
-            >
-              Prisma
             </a>
           </p>
         </Item>

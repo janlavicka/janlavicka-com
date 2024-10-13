@@ -1,6 +1,5 @@
-import { Text } from "@/components/Text";
+import { Text } from "@/components";
 import { getPost } from "@/models/post.server";
-import { createMeta } from "@/utils/meta";
 import { LoaderFunctionArgs, MetaFunction, json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import invariant from "tiny-invariant";
@@ -10,47 +9,76 @@ type Loader = typeof loader;
 export const meta: MetaFunction<Loader> = (args) => {
   if (!args.data) return [];
 
-  return createMeta(
-    [
-      {
-        tagName: "link",
-        rel: "canonical",
-        href: args.data.meta.url,
-      },
-      {
-        title: `${args.data.post.title} - Jan Lavička`,
-      },
-      {
-        name: "description",
-        content: args.data.post.description,
-      },
+  return [
+    {
+      tagName: "link",
+      rel: "canonical",
+      content: args.data.meta.url,
+    },
+    {
+      name: "robots",
+      content: "index, follow",
+    },
+    {
+      title: `${args.data.post.title} • Jan Lavička`,
+    },
+    {
+      name: "description",
+      content: args.data.post.description,
+    },
 
-      // Open Graph
-      {
-        property: "og:url",
-        content: args.data.meta.url,
-      },
-      {
-        property: "og:title",
-        content: args.data.post.title,
-      },
-      {
-        property: "og:description",
-        content: args.data.post.description,
-      },
+    // Open Graph
+    {
+      property: "og:type",
+      content: "website",
+    },
+    {
+      property: "og:locale",
+      content: "en_US",
+    },
+    {
+      property: "og:site_name",
+      content: "Jan Lavička",
+    },
+    {
+      property: "og:url",
+      content: args.data.meta.url,
+    },
+    {
+      property: "og:title",
+      content: args.data.post.title,
+    },
+    {
+      property: "og:description",
+      content: args.data.post.description,
+    },
+    {
+      property: "og:image",
+      content: args.data.meta.image,
+    },
 
-      // Twitter
-      {
-        name: "twitter:title",
-        content: args.data.post.title,
-      },
-      {
-        name: "twitter:description",
-        content: args.data.post.description,
-      },
-    ],
-    args,
-  );
+    // Twitter
+    {
+      name: "twitter:card",
+      content: "summary_large_image",
+    },
+    {
+      name: "twitter:site",
+      content: "@janlavicka",
+    },
+    {
+      name: "twitter:title",
+      content: args.data.post.title,
+    },
+    {
+      name: "twitter:description",
+      content: args.data.post.description,
+    },
+    {
+      name: "twitter:image",
+      content: args.data.meta.image,
+    },
+  ];
 };
 
 export const loader = async ({ params }: LoaderFunctionArgs) => {
@@ -63,6 +91,7 @@ export const loader = async ({ params }: LoaderFunctionArgs) => {
       post,
       meta: {
         url: `${process.env.APP_URL}/blog/${post.slug}`,
+        image: `${process.env.APP_URL}/images/social.jpg`,
       },
     });
   } catch (e) {
