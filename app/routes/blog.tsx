@@ -1,6 +1,6 @@
 import { Item, List } from "@/components";
 import { getPosts } from "@/models/post.server";
-import { MetaFunction, json } from "@remix-run/node";
+import { MetaFunction } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
 
 type Loader = typeof loader;
@@ -86,13 +86,13 @@ export const meta: MetaFunction<Loader> = (args) => {
 export const loader = async () => {
   const posts = await getPosts();
 
-  return json({
+  return {
     posts,
     meta: {
       url: `${process.env.APP_URL}/blog`,
       image: `${process.env.APP_URL}/images/social.jpg`,
     },
-  });
+  };
 };
 
 export default function Page() {

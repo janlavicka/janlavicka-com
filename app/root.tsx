@@ -1,5 +1,5 @@
 import { Layout } from "@/components/Layout";
-import { HeadersFunction, json, LinksFunction } from "@remix-run/node";
+import { HeadersFunction, LinksFunction } from "@remix-run/node";
 import {
   isRouteErrorResponse,
   Links,
@@ -40,11 +40,11 @@ export const headers: HeadersFunction = () => ({
 });
 
 export const loader = async () => {
-  return json({
+  return {
     env: {
       APP_URL: process.env.APP_URL,
     },
-  });
+  };
 };
 
 export default function App() {

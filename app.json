@@ -1,22 +1,7 @@
 {
-  "name": "janlavicka-com",
-  "description": "Source code of my personal website",
-  "env": {
-    "APP_URL": {
-      "required": true
-    }
-  },
-  "cron": [],
   "formation": {
     "web": {
       "quantity": 1
     }
-  },
-  "image": "gliderlabs/herokuish",
-  "addons": [],
-  "buildpacks": [
-    {
-      "url": "https://github.com/heroku/heroku-buildpack-nodejs"
-    }
-  ]
+  }
 }

@@ -1,15 +1,11 @@
 import { getPosts } from "@/models/post.server";
-import { SitemapStream } from "sitemap";
+import { SitemapStream, streamToPromise } from "sitemap";
 
 export const loader = async () => {
   const result: string = await new Promise(async (resolve, reject) => {
-    let chunks: Uint8Array[] = [];
-
     const stream = new SitemapStream({ hostname: process.env.APP_URL });
 
-    stream.on("data", (chunk) => chunks.push(Buffer.from(chunk)));
-    stream.on("error", (err) => reject(err));
-    stream.on("end", () => resolve(Buffer.concat(chunks).toString("utf-8")));
+    streamToPromise(stream).then((result) => resolve(result.toString("utf-8")));
 
     stream.write({
       url: "/",

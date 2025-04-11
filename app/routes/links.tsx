@@ -1,5 +1,5 @@
 import { Item, List, Text } from "@/components";
-import { json, MetaFunction } from "@remix-run/node";
+import { MetaFunction } from "@remix-run/node";
 
 type Loader = typeof loader;
 
@@ -82,12 +82,12 @@ export const meta: MetaFunction<Loader> = (args) => {
 };
 
 export const loader = async () => {
-  return json({
+  return {
     meta: {
       url: `${process.env.APP_URL}/links`,
       image: `${process.env.APP_URL}/images/social.jpg`,
     },
-  });
+  };
 };
 
 export default function Page() {

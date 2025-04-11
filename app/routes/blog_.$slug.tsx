@@ -1,6 +1,6 @@
 import { Text } from "@/components";
 import { getPost } from "@/models/post.server";
-import { LoaderFunctionArgs, MetaFunction, json } from "@remix-run/node";
+import { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import invariant from "tiny-invariant";
 
@@ -87,15 +87,18 @@ export const loader = async ({ params }: LoaderFunctionArgs) => {
   try {
     const post = await getPost(params.slug);
 
-    return json({
+    return {
       post,
       meta: {
         url: `${process.env.APP_URL}/blog/${post.slug}`,
         image: `${process.env.APP_URL}/images/social.jpg`,
       },
-    });
+    };
   } catch (e) {
-    throw new Response(null, { status: 404, statusText: "Not Found" });
+    throw new Response(null, {
+      status: 404,
+      statusText: "Not Found",
+    });
   }
 };
 

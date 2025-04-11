@@ -1,9 +1,7 @@
 import { vitePlugin as remix } from "@remix-run/dev";
-import { installGlobals } from "@remix-run/node";
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
-
-installGlobals();
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   plugins: [
@@ -12,12 +10,14 @@ export default defineConfig({
         v3_fetcherPersist: true,
         v3_relativeSplatPath: true,
         v3_throwAbortReason: true,
+        v3_routeConfig: true,
         v3_singleFetch: true,
         v3_lazyRouteDiscovery: true,
         unstable_optimizeDeps: true,
       },
     }),
     tsconfigPaths(),
+    tailwindcss(),
   ],
   server: {
     port: 3000,
