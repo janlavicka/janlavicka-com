@@ -3,5 +3,13 @@
     "web": {
       "quantity": 1
     }
+  },
+  "healthchecks": {
+    "web": [
+      {
+        "type": "startup",
+        "attempts": 3
+      }
+    ]
   }
 }
