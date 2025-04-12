@@ -1,4 +1,4 @@
-import { NavLink } from "@remix-run/react";
+import { NavLink } from "react-router";
 
 export function Header() {
   const renderItem = (to: string, label: string) => {

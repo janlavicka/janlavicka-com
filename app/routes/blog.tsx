@@ -1,7 +1,7 @@
 import { Item, List } from "@/components";
 import { getPosts } from "@/models/post.server";
-import { MetaFunction } from "@remix-run/node";
-import { Link, useLoaderData } from "@remix-run/react";
+import { MetaFunction } from "react-router";
+import { Link, useLoaderData } from "react-router";
 
 type Loader = typeof loader;
 

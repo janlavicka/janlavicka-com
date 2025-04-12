@@ -1,5 +1,5 @@
 import { Layout } from "@/components/Layout";
-import { HeadersFunction, LinksFunction } from "@remix-run/node";
+import { HeadersFunction, LinksFunction } from "react-router";
 import {
   isRouteErrorResponse,
   Links,
@@ -9,7 +9,7 @@ import {
   ScrollRestoration,
   useLoaderData,
   useRouteError,
-} from "@remix-run/react";
+} from "react-router";
 import { useMemo } from "react";
 import styles from "./tailwind.css?url";
 

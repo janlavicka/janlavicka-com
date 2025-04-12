@@ -1,7 +1,7 @@
 import { Text } from "@/components";
 import { getPost } from "@/models/post.server";
-import { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { LoaderFunctionArgs, MetaFunction } from "react-router";
+import { useLoaderData } from "react-router";
 import invariant from "tiny-invariant";
 
 type Loader = typeof loader;
