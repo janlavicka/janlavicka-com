@@ -12,7 +12,7 @@
     "dev": "react-router dev",
     "build": "react-router build",
     "typecheck": "react-router typegen && tsc",
-    "postinstall": "patch-package && lefthook install"
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@react-router/fs-routes": "^7.5.0",
