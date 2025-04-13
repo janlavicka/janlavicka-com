@@ -1,16 +1,16 @@
 import { Layout } from "@/components/Layout";
-import { HeadersFunction, LinksFunction } from "react-router";
+import { useMemo } from "react";
+import type { HeadersFunction, LinksFunction } from "react-router";
 import {
-  isRouteErrorResponse,
   Links,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
+  isRouteErrorResponse,
   useLoaderData,
   useRouteError,
 } from "react-router";
-import { useMemo } from "react";
 import styles from "./tailwind.css?url";
 
 export type Loader = typeof loader;
@@ -66,6 +66,7 @@ export default function App() {
         </Layout>
         <ScrollRestoration />
         <script
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: env variables
           dangerouslySetInnerHTML={{
             __html: `window.env = ${JSON.stringify(data.env)}`,
           }}

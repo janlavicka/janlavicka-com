@@ -15,6 +15,12 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Setup biome
+        uses: biomejs/setup-biome@v2
+
+      - name: Run biome
+        run: biome ci
+
       - name: Push to dokku
         uses: dokku/github-action@master
         with:

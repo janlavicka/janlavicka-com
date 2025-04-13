@@ -1,9 +1,9 @@
-import fs from "fs";
-import path from "path";
+import fs from "node:fs";
+import path from "node:path";
 import matter from "gray-matter";
 import { marked } from "marked";
 
-export function getPosts() {
+export async function getPosts() {
   return fs
     .readdirSync(path.join(process.cwd(), "posts"))
     .filter((name) => name.includes(".md"))

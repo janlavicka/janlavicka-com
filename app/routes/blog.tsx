@@ -1,6 +1,6 @@
 import { Item, List } from "@/components";
 import { getPosts } from "@/models/post.server";
-import { MetaFunction } from "react-router";
+import type { MetaFunction } from "react-router";
 import { Link, useLoaderData } from "react-router";
 
 type Loader = typeof loader;

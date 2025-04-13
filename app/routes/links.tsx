@@ -1,5 +1,5 @@
 import { Item, List, Text } from "@/components";
-import { MetaFunction } from "react-router";
+import type { MetaFunction } from "react-router";
 
 type Loader = typeof loader;
 

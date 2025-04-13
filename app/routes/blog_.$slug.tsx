@@ -1,6 +1,6 @@
 import { Text } from "@/components";
 import { getPost } from "@/models/post.server";
-import { LoaderFunctionArgs, MetaFunction } from "react-router";
+import type { LoaderFunctionArgs, MetaFunction } from "react-router";
 import { useLoaderData } from "react-router";
 import invariant from "tiny-invariant";
 
@@ -111,6 +111,7 @@ export default function Page() {
 
       <div className="prose">
         <Text>
+          {/* biome-ignore lint/security/noDangerouslySetInnerHtml: parsed markdown */}
           <div dangerouslySetInnerHTML={{ __html: data.post.content }} />
         </Text>
       </div>
