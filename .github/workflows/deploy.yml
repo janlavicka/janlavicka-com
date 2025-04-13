@@ -1,4 +1,4 @@
-name: "deploy"
+name: "Deploy"
 
 on:
   push:
@@ -15,13 +15,13 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup biome
+      - name: Setup Biome
         uses: biomejs/setup-biome@v2
 
-      - name: Run biome
+      - name: Run Biome
         run: biome ci
 
-      - name: Push to dokku
+      - name: Push to Dokku
         uses: dokku/github-action@master
         with:
           git_remote_url: ${{ secrets.GIT_REMOTE }}
