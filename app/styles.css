@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --shadow-default: 0 0 12px 0 rgb(62 28 131 / 10%);
+}

@@ -11,7 +11,7 @@ import {
   useLoaderData,
   useRouteError,
 } from "react-router";
-import styles from "./tailwind.css?url";
+import styles from "./styles.css?url";
 
 export type Loader = typeof loader;
 
