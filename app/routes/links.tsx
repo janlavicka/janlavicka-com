@@ -1,5 +1,5 @@
-import { Item, List, Text } from "@/components";
 import type { MetaFunction } from "react-router";
+import { Item, List, Text } from "@/components";
 
 type Loader = typeof loader;
 
@@ -21,8 +21,7 @@ export const meta: MetaFunction<Loader> = (args) => {
     },
     {
       name: "description",
-      content:
-        "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
+      content: "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
     },
 
     // Open Graph
@@ -48,8 +47,7 @@ export const meta: MetaFunction<Loader> = (args) => {
     },
     {
       property: "og:description",
-      content:
-        "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
+      content: "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
     },
     {
       property: "og:image",
@@ -71,8 +69,7 @@ export const meta: MetaFunction<Loader> = (args) => {
     },
     {
       name: "twitter:description",
-      content:
-        "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
+      content: "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
     },
     {
       name: "twitter:image",
@@ -98,8 +95,8 @@ export default function Page() {
       <div className="mb-8">
         <Text>
           <p>
-            This is a list of articles, books, podcasts, and other content that
-            I found useful. Generally things worth sharing.
+            This is a list of articles, books, podcasts, and other content that I found useful. Generally things worth
+            sharing.
           </p>
         </Text>
       </div>
@@ -178,30 +175,21 @@ export default function Page() {
         </Item>
         <Item>
           <p className="leading-normal">
-            <a
-              href="https://productjourney.fm"
-              className="font-bold underline text-neutral-900 hover:text-blue-500"
-            >
+            <a href="https://productjourney.fm" className="font-bold underline text-neutral-900 hover:text-blue-500">
               Product Jurney
             </a>
           </p>
         </Item>
         <Item>
           <p className="leading-normal">
-            <a
-              href="https://frontendfirst.fm"
-              className="font-bold underline text-neutral-900 hover:text-blue-500"
-            >
+            <a href="https://frontendfirst.fm" className="font-bold underline text-neutral-900 hover:text-blue-500">
               Frontend First
             </a>
           </p>
         </Item>
         <Item>
           <p className="leading-normal">
-            <a
-              href="https://fullstackradio.com"
-              className="font-bold underline text-neutral-900 hover:text-blue-500"
-            >
+            <a href="https://fullstackradio.com" className="font-bold underline text-neutral-900 hover:text-blue-500">
               Full Stack Radio
             </a>
           </p>
@@ -250,9 +238,7 @@ export default function Page() {
               REMOTE: Office Not Required
             </a>
           </p>
-          <p className="leading-normal">
-            By Jason Fried and David Heinemeier Hansson
-          </p>
+          <p className="leading-normal">By Jason Fried and David Heinemeier Hansson</p>
         </Item>
         <Item>
           <p className="leading-normal">
@@ -274,9 +260,7 @@ export default function Page() {
               It Doesn&apos;t Have to Be Crazy at Work
             </a>
           </p>
-          <p className="leading-normal">
-            By Jason Fried and David Heinemeier Hansson
-          </p>
+          <p className="leading-normal">By Jason Fried and David Heinemeier Hansson</p>
         </Item>
         <Item>
           <p className="leading-normal">
@@ -331,9 +315,7 @@ export default function Page() {
               Rework
             </a>
           </p>
-          <p className="leading-normal">
-            By Jason Fried and David Heinemeier Hansson
-          </p>
+          <p className="leading-normal">By Jason Fried and David Heinemeier Hansson</p>
         </Item>
       </List>
     </div>

@@ -5,9 +5,5 @@ type Props = {
 };
 
 export function Text({ children }: Props) {
-  return (
-    <div className="space-y-6 text-base leading-relaxed text-neutral-700">
-      {children}
-    </div>
-  );
+  return <div className="space-y-6 text-base leading-relaxed text-neutral-700">{children}</div>;
 }

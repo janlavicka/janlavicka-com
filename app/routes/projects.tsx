@@ -1,5 +1,5 @@
-import { Text } from "@/components";
 import type { MetaFunction } from "react-router";
+import { Text } from "@/components";
 
 type Loader = typeof loader;
 
@@ -21,8 +21,7 @@ export const meta: MetaFunction<Loader> = (args) => {
     },
     {
       name: "description",
-      content:
-        "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
+      content: "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
     },
 
     // Open Graph
@@ -48,8 +47,7 @@ export const meta: MetaFunction<Loader> = (args) => {
     },
     {
       property: "og:description",
-      content:
-        "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
+      content: "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
     },
     {
       property: "og:image",
@@ -71,8 +69,7 @@ export const meta: MetaFunction<Loader> = (args) => {
     },
     {
       name: "twitter:description",
-      content:
-        "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
+      content: "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
     },
     {
       name: "twitter:image",
@@ -96,24 +93,17 @@ export default function Page() {
       <h1 className="text-2xl font-bold md:text-3xl">Projects</h1>
 
       <Text>
-        <p>
-          Those are projects I am actively working on or I worked on in the
-          past.
-        </p>
+        <p>Those are projects I am actively working on or I worked on in the past.</p>
       </Text>
 
       <h2 className="text-lg font-bold text-neutral-900 hover:text-blue-500 hover:underline">
-        <a href="https://refer.is">
-          refer.is - link shortener, branded links, QR codes, and link tracking
-        </a>
+        <a href="https://refer.is">refer.is - link shortener, branded links, QR codes, and link tracking</a>
       </h2>
 
       <Text>
         <p>
-          Refer.is a link management tool that provides URL shortening, branded
-          link creation, QR code generation, and link tracking analytics. It
-          also includes a browser extension for convenient link access and
-          management.
+          Refer.is a link management tool that provides URL shortening, branded link creation, QR code generation, and
+          link tracking analytics. It also includes a browser extension for convenient link access and management.
         </p>
       </Text>
 
@@ -129,16 +119,13 @@ export default function Page() {
       </a>
 
       <h2 className="text-lg font-bold text-neutral-900 hover:text-blue-500 hover:underline">
-        <a href="https://jobsfordevelopers.com">
-          Jobs for Developers - jobs for software engineers
-        </a>
+        <a href="https://jobsfordevelopers.com">Jobs for Developers - jobs for software engineers</a>
       </h2>
 
       <Text>
         <p>
-          Jobs for Developers is a job board strictly focusing on remove jobs
-          offering remote work. I found it hard to search for such a job myself
-          and I have created this job board for this reason.
+          Jobs for Developers is a job board strictly focusing on remove jobs offering remote work. I found it hard to
+          search for such a job myself and I have created this job board for this reason.
         </p>
       </Text>
 
@@ -149,24 +136,18 @@ export default function Page() {
         className="block overflow-hidden border-2 border-white rounded-md shadow-default"
       >
         <div className="-mb-2">
-          <img
-            src="/images/jobsfordevelopers-com.jpg"
-            alt="Jobs for Developers"
-          />
+          <img src="/images/jobsfordevelopers-com.jpg" alt="Jobs for Developers" />
         </div>
       </a>
 
       <h2 className="text-lg font-bold text-neutral-900 hover:text-blue-500 hover:underline">
-        <a href="https://tripcutters.com">
-          Trip Cutters - travel deals for the modern traveler
-        </a>
+        <a href="https://tripcutters.com">Trip Cutters - travel deals for the modern traveler</a>
       </h2>
 
       <Text>
         <p>
-          Get inspired and travel across Europe for cheap while exploring the
-          beauties of the world. Website searches trips (flight + accommodation)
-          for best prices thanks to multiple travel hacking techniques.
+          Get inspired and travel across Europe for cheap while exploring the beauties of the world. Website searches
+          trips (flight + accommodation) for best prices thanks to multiple travel hacking techniques.
         </p>
       </Text>
 
@@ -182,17 +163,14 @@ export default function Page() {
       </a>
 
       <h2 className="text-lg font-bold text-neutral-900 hover:text-blue-500 hover:underline">
-        <a href="https://filedash.co">
-          Filedash - collect and receive files with upload link
-        </a>
+        <a href="https://filedash.co">Filedash - collect and receive files with upload link</a>
       </h2>
 
       <Text>
         <p>
-          Filedash helps you to receive large files from your clients with your
-          own custom upload link. Expired and lost share links are things of the
-          past - receive files in the same way as you recieve e-mails. Customize
-          your upload link, so it matches your company colors and texts.
+          Filedash helps you to receive large files from your clients with your own custom upload link. Expired and lost
+          share links are things of the past - receive files in the same way as you recieve e-mails. Customize your
+          upload link, so it matches your company colors and texts.
         </p>
       </Text>
 

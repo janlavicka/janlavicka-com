@@ -1,10 +1,4 @@
-import {
-  RiBlueskyLine,
-  RiGithubLine,
-  RiMastodonLine,
-  RiProductHuntLine,
-  RiTwitterXLine,
-} from "react-icons/ri";
+import { RiBlueskyLine, RiGithubLine, RiMastodonLine, RiProductHuntLine, RiTwitterXLine } from "react-icons/ri";
 
 export function Footer() {
   return (
@@ -31,9 +25,7 @@ export function Footer() {
         </a>
       </div>
 
-      <div className="text-sm text-neutral-700">
-        Copyright © 2010 - {new Date().getFullYear()} Jan Lavička
-      </div>
+      <div className="text-sm text-neutral-700">Copyright © 2010 - {new Date().getFullYear()} Jan Lavička</div>
     </div>
   );
 }

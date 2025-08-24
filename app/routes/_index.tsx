@@ -1,5 +1,5 @@
-import { Text } from "@/components";
 import type { MetaFunction } from "react-router";
+import { Text } from "@/components";
 
 export type Loader = typeof loader;
 
@@ -21,8 +21,7 @@ export const meta: MetaFunction<Loader> = (args) => {
     },
     {
       name: "description",
-      content:
-        "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
+      content: "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
     },
 
     // Open Graph
@@ -48,8 +47,7 @@ export const meta: MetaFunction<Loader> = (args) => {
     },
     {
       property: "og:description",
-      content:
-        "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
+      content: "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
     },
     {
       property: "og:image",
@@ -71,8 +69,7 @@ export const meta: MetaFunction<Loader> = (args) => {
     },
     {
       name: "twitter:description",
-      content:
-        "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
+      content: "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
     },
     {
       name: "twitter:image",
@@ -98,30 +95,20 @@ export default function Page() {
       <Text>
         <p>
           Hi, I&apos;m{" "}
-          <a
-            href="https://x.com/JanLavicka"
-            className="font-medium underline text-neutral-900 hover:text-blue-500"
-          >
+          <a href="https://x.com/JanLavicka" className="font-medium underline text-neutral-900 hover:text-blue-500">
             @janlavicka
           </a>
           , a creator, full-stack software developer, and indie hacker.
         </p>
 
         <p>
-          I&apos;m working on several projects on the side as an indie hacker.
-          Every application is written in JavaScript, TypeScript and the
-          technology stack looks like this:{" "}
-          <a
-            href="https://remix.run"
-            className="font-medium underline text-neutral-900 hover:text-blue-500"
-          >
+          I&apos;m working on several projects on the side as an indie hacker. Every application is written in
+          JavaScript, TypeScript and the technology stack looks like this:{" "}
+          <a href="https://remix.run" className="font-medium underline text-neutral-900 hover:text-blue-500">
             Remix
           </a>{" "}
           (main frontend application with{" "}
-          <a
-            href="https://reactjs.org"
-            className="font-medium underline text-neutral-900 hover:text-blue-500"
-          >
+          <a href="https://reactjs.org" className="font-medium underline text-neutral-900 hover:text-blue-500">
             React
           </a>{" "}
           under the hood),{" "}
@@ -139,10 +126,7 @@ export default function Page() {
             URQL
           </a>{" "}
           (
-          <a
-            href="https://graphql.org"
-            className="font-medium underline text-neutral-900 hover:text-blue-500"
-          >
+          <a href="https://graphql.org" className="font-medium underline text-neutral-900 hover:text-blue-500">
             GraphQL
           </a>{" "}
           client - I have also used{" "}
@@ -160,49 +144,29 @@ export default function Page() {
             URQL
           </a>{" "}
           is much more straight forward),{" "}
-          <a
-            href="https://www.prisma.io"
-            className="font-medium underline text-neutral-900 hover:text-blue-500"
-          >
+          <a href="https://www.prisma.io" className="font-medium underline text-neutral-900 hover:text-blue-500">
             Prisma
           </a>{" "}
           (SQL client),{" "}
-          <a
-            href="https://tailwindcss.com"
-            className="font-medium underline text-neutral-900 hover:text-blue-500"
-          >
+          <a href="https://tailwindcss.com" className="font-medium underline text-neutral-900 hover:text-blue-500">
             Tailwind CSS
           </a>{" "}
-          (styling), and finally whatever queue job background process is needed
-          is written in{" "}
-          <a
-            href="https://nodejs.org"
-            className="font-medium underline text-neutral-900 hover:text-blue-500"
-          >
+          (styling), and finally whatever queue job background process is needed is written in{" "}
+          <a href="https://nodejs.org" className="font-medium underline text-neutral-900 hover:text-blue-500">
             Node.js
           </a>{" "}
           and deployed with{" "}
-          <a
-            href="https://dokku.com"
-            className="font-medium underline text-neutral-900 hover:text-blue-500"
-          >
+          <a href="https://dokku.com" className="font-medium underline text-neutral-900 hover:text-blue-500">
             Dokku
           </a>
           .
         </p>
 
-        <p>
-          I&apos;m a fullstack software engineer in my day job at a private
-          equity firm.
-        </p>
+        <p>I&apos;m a fullstack software engineer in my day job at a private equity firm.</p>
 
         <p>
-          So if you have something interesting where I can help with my skill
-          set shoot me an email at{" "}
-          <a
-            href="mailto:iam@janlavicka.com"
-            className="font-medium underline text-neutral-900 hover:text-blue-500"
-          >
+          So if you have something interesting where I can help with my skill set shoot me an email at{" "}
+          <a href="mailto:iam@janlavicka.com" className="font-medium underline text-neutral-900 hover:text-blue-500">
             iam@janlavicka.com
           </a>
           .

@@ -1,7 +1,7 @@
-import { Item, List } from "@/components";
-import { getPosts } from "@/models/post.server";
 import type { MetaFunction } from "react-router";
 import { Link, useLoaderData } from "react-router";
+import { Item, List } from "@/components";
+import { getPosts } from "@/models/post.server";
 
 type Loader = typeof loader;
 
@@ -23,8 +23,7 @@ export const meta: MetaFunction<Loader> = (args) => {
     },
     {
       name: "description",
-      content:
-        "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
+      content: "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
     },
 
     // Open Graph
@@ -50,8 +49,7 @@ export const meta: MetaFunction<Loader> = (args) => {
     },
     {
       property: "og:description",
-      content:
-        "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
+      content: "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
     },
     {
       property: "og:image",
@@ -73,8 +71,7 @@ export const meta: MetaFunction<Loader> = (args) => {
     },
     {
       name: "twitter:description",
-      content:
-        "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
+      content: "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
     },
     {
       name: "twitter:image",
@@ -106,10 +103,7 @@ export default function Page() {
         {data.posts.map((post) => (
           <Item key={post.slug}>
             <p className="leading-normal">
-              <Link
-                to={`/blog/${post.slug}`}
-                className="font-bold underline text-neutral-900 hover:text-blue-500"
-              >
+              <Link to={`/blog/${post.slug}`} className="font-bold underline text-neutral-900 hover:text-blue-500">
                 {post.title}
               </Link>
             </p>

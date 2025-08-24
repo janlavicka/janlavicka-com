@@ -8,10 +8,7 @@ export async function getPosts() {
     .readdirSync(path.join(process.cwd(), "posts"))
     .filter((name) => name.includes(".md"))
     .map((name) => {
-      const file = fs.readFileSync(
-        path.join(process.cwd(), "posts", name),
-        "utf8",
-      );
+      const file = fs.readFileSync(path.join(process.cwd(), "posts", name), "utf8");
       const { data } = matter(file);
 
       data.slug = name.replace(".md", "");
@@ -21,10 +18,7 @@ export async function getPosts() {
 }
 
 export async function getPost(slug: string) {
-  const file = fs.readFileSync(
-    path.join(process.cwd(), "posts", `${slug}.md`),
-    "utf8",
-  );
+  const file = fs.readFileSync(path.join(process.cwd(), "posts", `${slug}.md`), "utf8");
 
   const { content, data } = matter(file);
   const html = marked(content);

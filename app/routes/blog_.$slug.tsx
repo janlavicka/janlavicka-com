@@ -1,8 +1,8 @@
-import { Text } from "@/components";
-import { getPost } from "@/models/post.server";
 import type { LoaderFunctionArgs, MetaFunction } from "react-router";
 import { useLoaderData } from "react-router";
 import invariant from "tiny-invariant";
+import { Text } from "@/components";
+import { getPost } from "@/models/post.server";
 
 type Loader = typeof loader;
 
@@ -94,7 +94,7 @@ export const loader = async ({ params }: LoaderFunctionArgs) => {
         image: `${process.env.APP_URL}/images/social.jpg`,
       },
     };
-  } catch (e) {
+  } catch (_e) {
     throw new Response(null, {
       status: 404,
       statusText: "Not Found",

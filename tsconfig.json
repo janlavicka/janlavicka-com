@@ -1,6 +1,4 @@
 {
-  "include": ["env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["tsconfig.json"],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "types": ["@react-router/node", "vite/client"],
@@ -23,5 +21,7 @@
     "skipLibCheck": true,
     "allowImportingTsExtensions": true,
     "noEmit": true
-  }
+  },
+  "include": ["env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["tsconfig.json"]
 }

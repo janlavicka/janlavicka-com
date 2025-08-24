@@ -1,5 +1,5 @@
-import { getPosts } from "@/models/post.server";
 import { SitemapStream, streamToPromise } from "sitemap";
+import { getPosts } from "@/models/post.server";
 
 export const loader = async () => {
   const result: string = await new Promise((resolve, reject) => {

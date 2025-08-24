@@ -1,5 +1,5 @@
-import { Item, List, Text } from "@/components";
 import type { MetaFunction } from "react-router";
+import { Item, List, Text } from "@/components";
 
 type Loader = typeof loader;
 
@@ -21,8 +21,7 @@ export const meta: MetaFunction<Loader> = (args) => {
     },
     {
       name: "description",
-      content:
-        "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
+      content: "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
     },
 
     // Open Graph
@@ -48,8 +47,7 @@ export const meta: MetaFunction<Loader> = (args) => {
     },
     {
       property: "og:description",
-      content:
-        "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
+      content: "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
     },
     {
       property: "og:image",
@@ -71,8 +69,7 @@ export const meta: MetaFunction<Loader> = (args) => {
     },
     {
       name: "twitter:description",
-      content:
-        "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
+      content: "Jan Lavička's personal website. I'm a creator, full-stack software developer, and indie hacker.",
     },
     {
       name: "twitter:image",
@@ -98,8 +95,8 @@ export default function Page() {
       <div className="mb-8">
         <Text>
           <p>
-            If is someone intrested in my setup, and what tools I use, here is a
-            list organized by type of tool/app in my toolbelt.
+            If is someone intrested in my setup, and what tools I use, here is a list organized by type of tool/app in
+            my toolbelt.
           </p>
         </Text>
       </div>
@@ -129,40 +126,28 @@ export default function Page() {
         </Item>
         <Item>
           <p className="leading-normal">
-            <a
-              href="https://sparkmailapp.com"
-              className="font-bold underline text-neutral-900 hover:text-blue-500"
-            >
+            <a href="https://sparkmailapp.com" className="font-bold underline text-neutral-900 hover:text-blue-500">
               Spark
             </a>
           </p>
         </Item>
         <Item>
           <p className="leading-normal">
-            <a
-              href="https://ticktick.com"
-              className="font-bold underline text-neutral-900 hover:text-blue-500"
-            >
+            <a href="https://ticktick.com" className="font-bold underline text-neutral-900 hover:text-blue-500">
               TickTick
             </a>
           </p>
         </Item>
         <Item>
           <p className="leading-normal">
-            <a
-              href="https://www.postman.com"
-              className="font-bold underline text-neutral-900 hover:text-blue-500"
-            >
+            <a href="https://www.postman.com" className="font-bold underline text-neutral-900 hover:text-blue-500">
               Postman
             </a>
           </p>
         </Item>
         <Item>
           <p className="leading-normal">
-            <a
-              href="https://tableplus.com"
-              className="font-bold underline text-neutral-900 hover:text-blue-500"
-            >
+            <a href="https://tableplus.com" className="font-bold underline text-neutral-900 hover:text-blue-500">
               TablePlus
             </a>
           </p>
@@ -179,10 +164,7 @@ export default function Page() {
         </Item>
         <Item>
           <p className="leading-normal">
-            <a
-              href="https://hyper.is"
-              className="font-bold underline text-neutral-900 hover:text-blue-500"
-            >
+            <a href="https://hyper.is" className="font-bold underline text-neutral-900 hover:text-blue-500">
               Hyper
             </a>{" "}
             with{" "}
@@ -196,40 +178,28 @@ export default function Page() {
         </Item>
         <Item>
           <p className="leading-normal">
-            <a
-              href="https://www.loom.com"
-              className="font-bold underline text-neutral-900 hover:text-blue-500"
-            >
+            <a href="https://www.loom.com" className="font-bold underline text-neutral-900 hover:text-blue-500">
               Loom
             </a>
           </p>
         </Item>
         <Item>
           <p className="leading-normal">
-            <a
-              href="https://www.pixelmator.com"
-              className="font-bold underline text-neutral-900 hover:text-blue-500"
-            >
+            <a href="https://www.pixelmator.com" className="font-bold underline text-neutral-900 hover:text-blue-500">
               Pixelmator
             </a>
           </p>
         </Item>
         <Item>
           <p className="leading-normal">
-            <a
-              href="https://slack.com"
-              className="font-bold underline text-neutral-900 hover:text-blue-500"
-            >
+            <a href="https://slack.com" className="font-bold underline text-neutral-900 hover:text-blue-500">
               Slack
             </a>
           </p>
         </Item>
         <Item>
           <p className="leading-normal">
-            <a
-              href="https://slack.com"
-              className="font-bold underline text-neutral-900 hover:text-blue-500"
-            >
+            <a href="https://slack.com" className="font-bold underline text-neutral-900 hover:text-blue-500">
               Sublime Text 3
             </a>{" "}
             with{" "}
@@ -248,10 +218,7 @@ export default function Page() {
       <List>
         <Item>
           <p className="leading-normal">
-            <a
-              href="https://brew.sh"
-              className="font-bold underline text-neutral-900 hover:text-blue-500"
-            >
+            <a href="https://brew.sh" className="font-bold underline text-neutral-900 hover:text-blue-500">
               Homebrew
             </a>
           </p>
@@ -268,9 +235,7 @@ export default function Page() {
         </Item>
       </List>
 
-      <h2 className="text-lg font-bold text-neutral-900">
-        Visual Studio Code Extensions
-      </h2>
+      <h2 className="text-lg font-bold text-neutral-900">Visual Studio Code Extensions</h2>
 
       <List>
         <Item>
