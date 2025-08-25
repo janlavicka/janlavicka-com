@@ -1,10 +1,11 @@
 import { SitemapStream, streamToPromise } from "sitemap";
 import { getPosts } from "@/models/post.server";
+import type { Route } from "./+types/sitemap[.xml]";
 
-export const loader = async () => {
+export async function loader({}: Route.LoaderArgs) {
   const result: string = await new Promise((resolve, reject) => {
     try {
-      const stream = new SitemapStream({ hostname: process.env.APP_URL });
+      const stream = new SitemapStream({ hostname: import.meta.env.VITE_APP_URL });
 
       streamToPromise(stream).then(
         (result) => resolve(result.toString("utf-8")),
@@ -55,4 +56,4 @@ export const loader = async () => {
       "Content-Type": "text-xml",
     },
   });
-};
+}

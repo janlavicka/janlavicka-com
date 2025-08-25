@@ -1,55 +1,46 @@
 import { useMemo } from "react";
-import type { HeadersFunction, LinksFunction } from "react-router";
-import {
-  isRouteErrorResponse,
-  Links,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-  useLoaderData,
-  useRouteError,
-} from "react-router";
+import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration, useRouteError } from "react-router";
 import { Layout } from "@/components/Layout";
+import type { Route } from "./+types/root";
 import styles from "./styles.css?url";
 
-export type Loader = typeof loader;
+export function links() {
+  return [
+    {
+      rel: "stylesheet",
+      href: styles,
+    },
+    {
+      rel: "stylesheet",
+      href: "https://rsms.me/inter/inter.css",
+    },
+    {
+      rel: "icon",
+      href: "/images/favicon.png",
+    },
+    {
+      rel: "apple-touch-icon",
+      href: "/images/favicon.png",
+    },
+  ];
+}
 
-export const links: LinksFunction = () => [
-  {
-    rel: "stylesheet",
-    href: styles,
-  },
-  {
-    rel: "stylesheet",
-    href: "https://rsms.me/inter/inter.css",
-  },
-  {
-    rel: "icon",
-    href: "/images/favicon.png",
-  },
-  {
-    rel: "apple-touch-icon",
-    href: "/images/favicon.png",
-  },
-];
+export function headers() {
+  return {
+    "X-Frame-Options": "DENY",
+    "Content-Security-Policy": "frame-ancestors 'none'",
+  };
+}
 
-export const headers: HeadersFunction = () => ({
-  "X-Frame-Options": "DENY",
-  "Content-Security-Policy": "frame-ancestors 'none'",
-});
-
-export const loader = async () => {
+export function loader() {
   return {
     env: {
-      APP_URL: process.env.APP_URL,
+      APP_URL: import.meta.env.VITE_APP_URL,
     },
   };
-};
+}
 
 export default function App() {
-  const data = useLoaderData<Loader>();
-
   return (
     <html lang="en">
       <head>
@@ -65,12 +56,6 @@ export default function App() {
           <Outlet />
         </Layout>
         <ScrollRestoration />
-        <script
-          // biome-ignore lint/security/noDangerouslySetInnerHtml: env variables
-          dangerouslySetInnerHTML={{
-            __html: `window.env = ${JSON.stringify(data.env)}`,
-          }}
-        />
         <Scripts />
       </body>
     </html>

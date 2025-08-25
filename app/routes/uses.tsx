@@ -1,16 +1,11 @@
-import type { MetaFunction } from "react-router";
 import { Item, List, Text } from "@/components";
 
-type Loader = typeof loader;
-
-export const meta: MetaFunction<Loader> = (args) => {
-  if (!args.data) return [];
-
+export function meta() {
   return [
     {
       tagName: "link",
       rel: "canonical",
-      content: args.data.meta.url,
+      content: `${import.meta.env.VITE_APP_URL}/uses`,
     },
     {
       name: "robots",
@@ -39,7 +34,7 @@ export const meta: MetaFunction<Loader> = (args) => {
     },
     {
       property: "og:url",
-      content: args.data.meta.url,
+      content: `${import.meta.env.VITE_APP_URL}/uses`,
     },
     {
       property: "og:title",
@@ -51,7 +46,7 @@ export const meta: MetaFunction<Loader> = (args) => {
     },
     {
       property: "og:image",
-      content: args.data.meta.image,
+      content: `${import.meta.env.VITE_APP_URL}/images/social.jpg`,
     },
 
     // Twitter
@@ -73,19 +68,11 @@ export const meta: MetaFunction<Loader> = (args) => {
     },
     {
       name: "twitter:image",
-      content: args.data.meta.image,
+      content: `${import.meta.env.VITE_APP_URL}/images/social.jpg`,
     },
   ];
-};
+}
 
-export const loader = async () => {
-  return {
-    meta: {
-      url: `${process.env.APP_URL}/uses`,
-      image: `${process.env.APP_URL}/images/social.jpg`,
-    },
-  };
-};
 
 export default function Page() {
   return (
@@ -121,20 +108,6 @@ export default function Page() {
               className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               Visual Studio Code
-            </a>
-          </p>
-        </Item>
-        <Item>
-          <p className="leading-normal">
-            <a href="https://sparkmailapp.com" className="font-bold underline text-neutral-900 hover:text-blue-500">
-              Spark
-            </a>
-          </p>
-        </Item>
-        <Item>
-          <p className="leading-normal">
-            <a href="https://ticktick.com" className="font-bold underline text-neutral-900 hover:text-blue-500">
-              TickTick
             </a>
           </p>
         </Item>
@@ -185,13 +158,6 @@ export default function Page() {
         </Item>
         <Item>
           <p className="leading-normal">
-            <a href="https://www.pixelmator.com" className="font-bold underline text-neutral-900 hover:text-blue-500">
-              Pixelmator
-            </a>
-          </p>
-        </Item>
-        <Item>
-          <p className="leading-normal">
             <a href="https://slack.com" className="font-bold underline text-neutral-900 hover:text-blue-500">
               Slack
             </a>
@@ -233,6 +199,16 @@ export default function Page() {
             </a>
           </p>
         </Item>
+        <Item>
+          <p className="leading-normal">
+            <a
+              href="https://www.anthropic.com/claude-code"
+              className="font-bold underline text-neutral-900 hover:text-blue-500"
+            >
+              Cloude Code
+            </a>
+          </p>
+        </Item>
       </List>
 
       <h2 className="text-lg font-bold text-neutral-900">Visual Studio Code Extensions</h2>
@@ -245,16 +221,6 @@ export default function Page() {
               className="font-bold underline text-neutral-900 hover:text-blue-500"
             >
               Cobalt2 Theme Official
-            </a>
-          </p>
-        </Item>
-        <Item>
-          <p className="leading-normal">
-            <a
-              href="https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces"
-              className="font-bold underline text-neutral-900 hover:text-blue-500"
-            >
-              GitHub Codespaces
             </a>
           </p>
         </Item>

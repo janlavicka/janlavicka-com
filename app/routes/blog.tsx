@@ -1,18 +1,14 @@
-import type { MetaFunction } from "react-router";
-import { Link, useLoaderData } from "react-router";
+import { Link } from "react-router";
 import { Item, List } from "@/components";
 import { getPosts } from "@/models/post.server";
+import type { Route } from "./+types/blog";
 
-type Loader = typeof loader;
-
-export const meta: MetaFunction<Loader> = (args) => {
-  if (!args.data) return [];
-
+export function meta() {
   return [
     {
       tagName: "link",
       rel: "canonical",
-      content: args.data.meta.url,
+      content: `${import.meta.env.VITE_APP_URL}/blog`,
     },
     {
       name: "robots",
@@ -41,7 +37,7 @@ export const meta: MetaFunction<Loader> = (args) => {
     },
     {
       property: "og:url",
-      content: args.data.meta.url,
+      content: `${import.meta.env.VITE_APP_URL}/blog`,
     },
     {
       property: "og:title",
@@ -53,7 +49,7 @@ export const meta: MetaFunction<Loader> = (args) => {
     },
     {
       property: "og:image",
-      content: args.data.meta.image,
+      content: `${import.meta.env.VITE_APP_URL}/images/social.jpg`,
     },
 
     // Twitter
@@ -75,32 +71,24 @@ export const meta: MetaFunction<Loader> = (args) => {
     },
     {
       name: "twitter:image",
-      content: args.data.meta.image,
+      content: `${import.meta.env.VITE_APP_URL}/images/social.jpg`,
     },
   ];
-};
+}
 
-export const loader = async () => {
-  const posts = await getPosts();
-
+export async function loader() {
   return {
-    posts,
-    meta: {
-      url: `${process.env.APP_URL}/blog`,
-      image: `${process.env.APP_URL}/images/social.jpg`,
-    },
+    posts: await getPosts(),
   };
-};
+}
 
-export default function Page() {
-  const data = useLoaderData<Loader>();
-
+export default function Page({ loaderData }: Route.ComponentProps) {
   return (
     <div className="space-y-6 md:space-y-8">
       <h1 className="text-2xl font-bold md:text-3xl">Blog</h1>
 
       <List>
-        {data.posts.map((post) => (
+        {loaderData.posts.map((post) => (
           <Item key={post.slug}>
             <p className="leading-normal">
               <Link to={`/blog/${post.slug}`} className="font-bold underline text-neutral-900 hover:text-blue-500">

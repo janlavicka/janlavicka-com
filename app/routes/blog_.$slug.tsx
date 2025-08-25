@@ -1,30 +1,25 @@
-import type { LoaderFunctionArgs, MetaFunction } from "react-router";
-import { useLoaderData } from "react-router";
 import invariant from "tiny-invariant";
 import { Text } from "@/components";
 import { getPost } from "@/models/post.server";
+import type { Route } from "./+types/blog_.$slug";
 
-type Loader = typeof loader;
-
-export const meta: MetaFunction<Loader> = (args) => {
-  if (!args.data) return [];
-
+export function meta({ loaderData }: Route.MetaArgs) {
   return [
     {
       tagName: "link",
       rel: "canonical",
-      content: args.data.meta.url,
+      content: `${import.meta.env.VITE_APP_URL}/blog/${loaderData.post.slug}`,
     },
     {
       name: "robots",
       content: "index, follow",
     },
     {
-      title: `${args.data.post.title} • Jan Lavička`,
+      title: `${loaderData.post.title} • Jan Lavička`,
     },
     {
       name: "description",
-      content: args.data.post.description,
+      content: loaderData.post.description,
     },
 
     // Open Graph
@@ -42,19 +37,19 @@ export const meta: MetaFunction<Loader> = (args) => {
     },
     {
       property: "og:url",
-      content: args.data.meta.url,
+      content: `${import.meta.env.VITE_APP_URL}/blog/${loaderData.post.slug}`,
     },
     {
       property: "og:title",
-      content: args.data.post.title,
+      content: loaderData.post.title,
     },
     {
       property: "og:description",
-      content: args.data.post.description,
+      content: loaderData.post.description,
     },
     {
       property: "og:image",
-      content: args.data.meta.image,
+      content: `${import.meta.env.VITE_APP_URL}/images/social.jpg`,
     },
 
     // Twitter
@@ -68,31 +63,25 @@ export const meta: MetaFunction<Loader> = (args) => {
     },
     {
       name: "twitter:title",
-      content: args.data.post.title,
+      content: loaderData.post.title,
     },
     {
       name: "twitter:description",
-      content: args.data.post.description,
+      content: loaderData.post.description,
     },
     {
       name: "twitter:image",
-      content: args.data.meta.image,
+      content: `${import.meta.env.VITE_APP_URL}/images/social.jpg`,
     },
   ];
-};
+}
 
-export const loader = async ({ params }: LoaderFunctionArgs) => {
+export async function loader({ params }: Route.LoaderArgs) {
   invariant(params.slug);
 
   try {
-    const post = await getPost(params.slug);
-
     return {
-      post,
-      meta: {
-        url: `${process.env.APP_URL}/blog/${post.slug}`,
-        image: `${process.env.APP_URL}/images/social.jpg`,
-      },
+      post: await getPost(params.slug),
     };
   } catch (_e) {
     throw new Response(null, {
@@ -100,19 +89,17 @@ export const loader = async ({ params }: LoaderFunctionArgs) => {
       statusText: "Not Found",
     });
   }
-};
+}
 
-export default function Page() {
-  const data = useLoaderData<Loader>();
-
+export default function Page({ loaderData }: Route.ComponentProps) {
   return (
     <div className="space-y-6 md:space-y-8">
-      <h1 className="text-2xl font-bold md:text-3xl">{data.post.title}</h1>
+      <h1 className="text-2xl font-bold md:text-3xl">{loaderData.post.title}</h1>
 
       <div className="prose">
         <Text>
           {/* biome-ignore lint/security/noDangerouslySetInnerHtml: parsed markdown */}
-          <div dangerouslySetInnerHTML={{ __html: data.post.content }} />
+          <div dangerouslySetInnerHTML={{ __html: loaderData.post.content }} />
         </Text>
       </div>
     </div>

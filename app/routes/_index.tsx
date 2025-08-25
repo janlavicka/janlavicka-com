@@ -1,16 +1,11 @@
-import type { MetaFunction } from "react-router";
 import { Text } from "@/components";
 
-export type Loader = typeof loader;
-
-export const meta: MetaFunction<Loader> = (args) => {
-  if (!args.data) return [];
-
+export function meta() {
   return [
     {
       tagName: "link",
       rel: "canonical",
-      content: args.data.meta.url,
+      content: import.meta.env.VITE_APP_URL,
     },
     {
       name: "robots",
@@ -39,7 +34,7 @@ export const meta: MetaFunction<Loader> = (args) => {
     },
     {
       property: "og:url",
-      content: args.data.meta.url,
+      content: import.meta.env.VITE_APP_URL,
     },
     {
       property: "og:title",
@@ -51,7 +46,7 @@ export const meta: MetaFunction<Loader> = (args) => {
     },
     {
       property: "og:image",
-      content: args.data.meta.image,
+      content: `${import.meta.env.VITE_APP_URL}/images/social.jpg`,
     },
 
     // Twitter
@@ -73,19 +68,10 @@ export const meta: MetaFunction<Loader> = (args) => {
     },
     {
       name: "twitter:image",
-      content: args.data.meta.image,
+      content: `${import.meta.env.VITE_APP_URL}/images/social.jpg`,
     },
   ];
-};
-
-export const loader = async () => {
-  return {
-    meta: {
-      url: process.env.APP_URL,
-      image: `${process.env.APP_URL}/images/social.jpg`,
-    },
-  };
-};
+}
 
 export default function Page() {
   return (
