@@ -4,7 +4,6 @@
   "repositories": ["janlavicka/janlavicka-com"],
   "labels": ["dependencies"],
   "automerge": false,
-  "autodiscover": true,
   "dependencyDashboard": false,
   "lockFileMaintenance": {
     "enabled": true
