@@ -1,6 +1,9 @@
 node_modules
 
+.wrangler
 .react-router
 .cache
 .env
 build
+
+worker-configuration.d.ts

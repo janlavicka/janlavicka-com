@@ -1,26 +1,24 @@
-import fs from "node:fs";
-import path from "node:path";
 import matter from "gray-matter";
 import { marked } from "marked";
 
+const posts = import.meta.glob("/posts/*.md", { query: "?raw", eager: true }) as Record<string, { default: string }>;
+
 export async function getPosts() {
-  return fs
-    .readdirSync(path.join(process.cwd(), "posts"))
-    .filter((name) => name.includes(".md"))
-    .map((name) => {
-      const file = fs.readFileSync(path.join(process.cwd(), "posts", name), "utf8");
-      const { data } = matter(file);
-
-      data.slug = name.replace(".md", "");
-
-      return data;
-    });
+  return Object.entries(posts).map(([path, module]) => {
+    const { data } = matter(module.default);
+    data.slug = path.replace("/posts/", "").replace(".md", "");
+    return data;
+  });
 }
 
 export async function getPost(slug: string) {
-  const file = fs.readFileSync(path.join(process.cwd(), "posts", `${slug}.md`), "utf8");
+  const module = posts[`/posts/${slug}.md`];
 
-  const { content, data } = matter(file);
+  if (!module) {
+    throw new Response("Not Found", { status: 404 });
+  }
+
+  const { content, data } = matter(module.default);
   const html = marked(content);
 
   return { ...data, content: html } as {

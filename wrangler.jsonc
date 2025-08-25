@@ -1,0 +1,23 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "janlavicka-com",
+  "main": "workers/app.ts",
+  "compatibility_date": "2024-09-23",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+  "vars": {
+    "VITE_APP_URL": "https://janlavicka.com"
+  },
+  "routes": [
+    {
+      "pattern": "janlavicka.com/*",
+      "zone_name": "janlavicka.com"
+    }
+  ],
+  "placement": {
+    "mode": "smart"
+  }
+}
