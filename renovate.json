@@ -1,6 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended", "group:monorepos"],
+  "repositories": ["janlavicka/janlavicka-com"],
   "labels": ["dependencies"],
   "automerge": false,
   "autodiscover": true,
