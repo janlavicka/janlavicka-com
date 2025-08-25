@@ -1,7 +1,6 @@
 import { useMemo } from "react";
 import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration, useRouteError } from "react-router";
 import { Layout } from "@/components/Layout";
-import type { Route } from "./+types/root";
 import styles from "./styles.css?url";
 
 export function links() {

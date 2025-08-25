@@ -73,7 +73,6 @@ export function meta() {
   ];
 }
 
-
 export default function Page() {
   return (
     <div className="space-y-6 md:space-y-8">

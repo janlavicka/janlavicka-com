@@ -1,8 +1,7 @@
 import { SitemapStream, streamToPromise } from "sitemap";
 import { getPosts } from "@/models/post.server";
-import type { Route } from "./+types/sitemap[.xml]";
 
-export async function loader({}: Route.LoaderArgs) {
+export async function loader() {
   const result: string = await new Promise((resolve, reject) => {
     try {
       const stream = new SitemapStream({ hostname: import.meta.env.VITE_APP_URL });
