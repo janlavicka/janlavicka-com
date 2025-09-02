@@ -10,8 +10,8 @@
   "scripts": {
     "dev": "react-router dev",
     "build": "react-router build",
-    "deploy": "react-router build && wrangler deploy",
-    "typecheck": "wrangler types && react-router typegen && tsc --noEmit"
+    "deploy": "npm run build && wrangler deploy",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@cloudflare/vite-plugin": "^1.11.7",

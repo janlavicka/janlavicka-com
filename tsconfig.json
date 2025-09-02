@@ -8,7 +8,6 @@
     "skipLibCheck": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "verbatimModuleSyntax": true,
     "rootDirs": [".", "./.react-router/types"],
     "baseUrl": ".",
     "paths": {
@@ -16,5 +15,5 @@
     }
   },
   "include": ["env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["tsconfig.json"]
+  "exclude": ["node_modules"]
 }
