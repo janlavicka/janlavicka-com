@@ -1,4 +1,12 @@
-import { Text } from "@/components";
+import {
+  RiBlueskyLine,
+  RiGithubLine,
+  RiLinkedinBoxLine,
+  RiMailLine,
+  RiMastodonLine,
+  RiProductHuntLine,
+  RiTwitterXLine,
+} from "react-icons/ri";
 
 export function meta() {
   return [
@@ -75,89 +83,46 @@ export function meta() {
 
 export default function Page() {
   return (
-    <div className="space-y-6 md:space-y-8">
-      <h1 className="text-2xl font-bold md:text-3xl">Who am I?</h1>
+    <div className="flex justify-center items-center flex-grow">
+      <div className="flex items-center flex-col">
+        <img src="/images/me.jpg" alt="jan Lavička" loading="lazy" className="rounded-full w-30 mb-4" />
 
-      <Text>
-        <p>
-          Hi, I&apos;m{" "}
-          <a href="https://x.com/JanLavicka" className="font-medium underline text-neutral-900 hover:text-blue-500">
-            @janlavicka
-          </a>
-          , a creator, full-stack software developer, and indie hacker.
-        </p>
+        <h1 className="text-3xl font-extrabold md:text-4xl">Jan Lavička</h1>
 
-        <p>
-          I&apos;m working on several projects on the side as an indie hacker. Every application is written in
-          JavaScript, TypeScript and the technology stack looks like this:{" "}
-          <a href="https://remix.run" className="font-medium underline text-neutral-900 hover:text-blue-500">
-            Remix
-          </a>{" "}
-          (main frontend application with{" "}
-          <a href="https://reactjs.org" className="font-medium underline text-neutral-900 hover:text-blue-500">
-            React
-          </a>{" "}
-          under the hood),{" "}
-          <a
-            href="https://react-query.tanstack.com/"
-            className="font-medium underline text-neutral-900 hover:text-blue-500"
-          >
-            React Query
-          </a>
-          ,{" "}
-          <a
-            href="https://formidable.com/open-source/urql/"
-            className="font-medium underline text-neutral-900 hover:text-blue-500"
-          >
-            URQL
-          </a>{" "}
-          (
-          <a href="https://graphql.org" className="font-medium underline text-neutral-900 hover:text-blue-500">
-            GraphQL
-          </a>{" "}
-          client - I have also used{" "}
-          <a
-            href="https://www.apollographql.com"
-            className="font-medium underline text-neutral-900 hover:text-blue-500"
-          >
-            Apollo
-          </a>
-          , but{" "}
-          <a
-            href="https://formidable.com/open-source/urql/"
-            className="font-medium underline text-neutral-900 hover:text-blue-500"
-          >
-            URQL
-          </a>{" "}
-          is much more straight forward),{" "}
-          <a href="https://www.prisma.io" className="font-medium underline text-neutral-900 hover:text-blue-500">
-            Prisma
-          </a>{" "}
-          (SQL client),{" "}
-          <a href="https://tailwindcss.com" className="font-medium underline text-neutral-900 hover:text-blue-500">
-            Tailwind CSS
-          </a>{" "}
-          (styling), and finally whatever queue job background process is needed is written in{" "}
-          <a href="https://nodejs.org" className="font-medium underline text-neutral-900 hover:text-blue-500">
-            Node.js
-          </a>{" "}
-          and deployed with{" "}
-          <a href="https://dokku.com" className="font-medium underline text-neutral-900 hover:text-blue-500">
-            Dokku
-          </a>
-          .
-        </p>
+        <h2 className="text-lg text-gray-500 text-center text-balance mt-1">
+          Creator&nbsp;✨ Full&#8209;Stack&nbsp;Software&nbsp;Developer&nbsp;🛠️ Indie&nbsp;Hacker&nbsp;💡
+        </h2>
 
-        <p>I&apos;m a fullstack software engineer in my day job at a private equity firm.</p>
-
-        <p>
-          So if you have something interesting where I can help with my skill set shoot me an email at{" "}
-          <a href="mailto:iam@janlavicka.com" className="font-medium underline text-neutral-900 hover:text-blue-500">
-            iam@janlavicka.com
+        <div className="flex gap-2 mt-2">
+          <a href="mailto:info@janlavicka.com" title="Email">
+            <RiMailLine className="w-6 h-6 transition duration-200 text-neutral-700 hover:text-blue-500" />
           </a>
-          .
-        </p>
-      </Text>
+
+          <a href="https://twitter.com/janlavicka" title="Twitter">
+            <RiTwitterXLine className="w-6 h-6 transition duration-200 text-neutral-700 hover:text-blue-500" />
+          </a>
+
+          <a href="https://mastodon.world/@janlavicka" rel="me" title="Mastodon">
+            <RiMastodonLine className="w-6 h-6 transition duration-200 text-neutral-700 hover:text-blue-500" />
+          </a>
+
+          <a href="https://producthunt.com/@janlavicka" title="Product Hunt">
+            <RiProductHuntLine className="w-6 h-6 transition duration-200 text-neutral-700 hover:text-blue-500" />
+          </a>
+
+          <a href="https://bsky.app/profile/janlavicka.com" title="Bluesky">
+            <RiBlueskyLine className="w-6 h-6 transition duration-200 text-neutral-700 hover:text-blue-500" />
+          </a>
+
+          <a href="https://github.com/janlavicka" title="GitHub">
+            <RiGithubLine className="w-6 h-6 transition duration-200 text-neutral-700 hover:text-blue-500" />
+          </a>
+
+          <a href="https://www.linkedin.com/in/janlavicka/" title="LinkedIn">
+            <RiLinkedinBoxLine className="w-6 h-6 transition duration-200 text-neutral-700 hover:text-blue-500" />
+          </a>
+        </div>
+      </div>
     </div>
   );
 }

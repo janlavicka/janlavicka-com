@@ -1,14 +1,17 @@
 import { NavLink } from "react-router";
+import { twMerge } from "tailwind-merge";
 
 export function Header() {
-  const renderItem = (to: string, label: string) => {
+  const renderItem = (to: string, label: string, hide = false) => {
     return (
       <NavLink
         to={to}
         className={({ isActive }) =>
-          `inline-block px-3 py-1 rounded-lg font-medium hover:bg-neutral-100 ${
-            isActive ? "text-neutral-900" : "text-neutral-500"
-          }`
+          twMerge(
+            "px-3 py-1 rounded-lg font-medium hover:bg-neutral-100",
+            isActive ? "text-neutral-900" : "text-neutral-500",
+            hide ? "hidden md:inline-block" : "inline-block",
+          )
         }
       >
         {label}
@@ -24,7 +27,7 @@ export function Header() {
         {renderItem("/", "Home")}
         {renderItem("/projects", "Projects")}
         {renderItem("/blog", "Blog")}
-        {renderItem("/links", "Links")}
+        {renderItem("/links", "Links", true)}
         {renderItem("/uses", "Uses")}
       </div>
     </div>

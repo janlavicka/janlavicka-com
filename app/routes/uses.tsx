@@ -164,6 +164,13 @@ export default function Page() {
         </Item>
         <Item>
           <p className="leading-normal">
+            <a href="https://ollama.com/" className="font-bold underline text-neutral-900 hover:text-blue-500">
+              Ollama
+            </a>
+          </p>
+        </Item>
+        <Item>
+          <p className="leading-normal">
             <a href="https://slack.com" className="font-bold underline text-neutral-900 hover:text-blue-500">
               Sublime Text 3
             </a>{" "}

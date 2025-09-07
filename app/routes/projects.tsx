@@ -148,7 +148,7 @@ export default function Page() {
         </div>
       </a>
 
-      <h2 className="text-lg font-bold text-neutral-900 hover:text-blue-500 hover:underline">
+      {/*<h2 className="text-lg font-bold text-neutral-900 hover:text-blue-500 hover:underline">
         <a href="https://filedash.co">Filedash - collect and receive files with upload link</a>
       </h2>
 
@@ -169,7 +169,7 @@ export default function Page() {
         <div className="-mb-2">
           <img src="/images/filedash-co.jpg" alt="FileDash" />
         </div>
-      </a>
+      </a>*/}
     </div>
   );
 }
