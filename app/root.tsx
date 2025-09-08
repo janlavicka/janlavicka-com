@@ -1,6 +1,5 @@
 import { useMemo } from "react";
 import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration, useRouteError } from "react-router";
-import { Layout } from "@/components/Layout";
 import styles from "./styles.css?url";
 
 export function links() {
@@ -31,14 +30,6 @@ export function headers() {
   };
 }
 
-export function loader() {
-  return {
-    env: {
-      APP_URL: import.meta.env.VITE_APP_URL,
-    },
-  };
-}
-
 export default function App() {
   return (
     <html lang="en">
@@ -51,9 +42,7 @@ export default function App() {
         <Links />
       </head>
       <body className="flex min-h-dvh font-sans text-base antialiased text-neutral-900">
-        <Layout>
-          <Outlet />
-        </Layout>
+        <Outlet />
         <ScrollRestoration />
         <Scripts />
       </body>

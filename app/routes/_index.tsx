@@ -7,6 +7,7 @@ import {
   RiProductHuntLine,
   RiTwitterXLine,
 } from "react-icons/ri";
+import { Layout } from "@/components";
 
 export function meta() {
   return [
@@ -83,7 +84,7 @@ export function meta() {
 
 export default function Page() {
   return (
-    <div className="flex justify-center items-center flex-grow">
+    <Layout className="items-center justify-center">
       <div className="flex items-center flex-col">
         <img src="/images/me.jpg" alt="jan Lavička" loading="lazy" className="rounded-full w-30 mb-4" />
 
@@ -123,6 +124,6 @@ export default function Page() {
           </a>
         </div>
       </div>
-    </div>
+    </Layout>
   );
 }

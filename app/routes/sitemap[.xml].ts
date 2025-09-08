@@ -1,5 +1,5 @@
 import { SitemapStream, streamToPromise } from "sitemap";
-import { getPosts } from "@/models/post.server";
+import { Post } from "@/models/post.server";
 
 export async function loader() {
   const result: string = await new Promise((resolve, reject) => {
@@ -31,20 +31,13 @@ export async function loader() {
         url: "/uses",
       });
 
-      getPosts().then(
-        (posts) => {
-          for (const post of posts) {
-            stream.write({
-              url: `/blog/${post.slug}`,
-            });
-          }
-          stream.end();
-        },
-        (error: Error) => {
-          stream.destroy(error);
-          reject(error);
-        },
-      );
+      for (const post of Post.findAll()) {
+        stream.write({
+          url: `/blog/${post.slug}`,
+        });
+      }
+
+      stream.end();
     } catch (error) {
       reject(error);
     }

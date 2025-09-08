@@ -1,6 +1,6 @@
 import invariant from "tiny-invariant";
-import { Text } from "@/components";
-import { getPost } from "@/models/post.server";
+import { Layout, Text } from "@/components";
+import { Post } from "@/models/post.server";
 import type { Route } from "./+types/blog_.$slug";
 
 export function meta({ loaderData }: Route.MetaArgs) {
@@ -81,7 +81,7 @@ export async function loader({ params }: Route.LoaderArgs) {
 
   try {
     return {
-      post: await getPost(params.slug),
+      post: await Post.findBySlug(params.slug),
     };
   } catch (_e) {
     throw new Response(null, {
@@ -93,15 +93,17 @@ export async function loader({ params }: Route.LoaderArgs) {
 
 export default function Page({ loaderData }: Route.ComponentProps) {
   return (
-    <div className="space-y-6 md:space-y-8">
-      <h1 className="text-2xl font-bold md:text-3xl">{loaderData.post.title}</h1>
+    <Layout>
+      <div className="space-y-6 md:space-y-8">
+        <h1 className="text-2xl font-bold md:text-3xl">{loaderData.post.title}</h1>
 
-      <div className="prose">
-        <Text>
-          {/* biome-ignore lint/security/noDangerouslySetInnerHtml: parsed markdown */}
-          <div dangerouslySetInnerHTML={{ __html: loaderData.post.content }} />
-        </Text>
+        <div className="prose">
+          <Text>
+            {/* biome-ignore lint/security/noDangerouslySetInnerHtml: parsed markdown */}
+            <div dangerouslySetInnerHTML={{ __html: loaderData.post.content }} />
+          </Text>
+        </div>
       </div>
-    </div>
+    </Layout>
   );
 }
