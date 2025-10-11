@@ -1,9 +1,20 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
 node_modules
 
+# wrangler
 .wrangler
-.react-router
-.cache
-.env
-build
 
+# react router
+.react-router
+
+# cloudflare
 worker-configuration.d.ts
+
+# outputs
+build
+temp
+
+# env variables
+.env
