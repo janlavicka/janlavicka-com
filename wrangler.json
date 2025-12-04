@@ -2,7 +2,7 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "janlavicka-com",
   "main": "workers/app.ts",
-  "compatibility_date": "2024-09-23",
+  "compatibility_date": "2025-09-15",
   "compatibility_flags": ["nodejs_compat"],
   "observability": {
     "enabled": true,
