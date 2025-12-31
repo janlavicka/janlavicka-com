@@ -1,7 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "janlavicka-com",
-  "main": "workers/app.ts",
+  "main": "src/worker.ts",
   "compatibility_date": "2025-09-15",
   "compatibility_flags": ["nodejs_compat"],
   "observability": {

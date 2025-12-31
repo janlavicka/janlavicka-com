@@ -1,7 +1,7 @@
 import type { Config } from "@react-router/dev/config";
 
 export default {
-  ssr: true,
+  appDirectory: "src",
   future: {
     unstable_optimizeDeps: true,
     unstable_subResourceIntegrity: true,
@@ -9,4 +9,5 @@ export default {
     v8_splitRouteModules: true,
     v8_viteEnvironmentApi: true,
   },
+  ssr: true,
 } satisfies Config;
