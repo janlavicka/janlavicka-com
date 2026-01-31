@@ -8,6 +8,7 @@ import {
   RiTwitterXLine,
 } from "react-icons/ri";
 import { Layout } from "@/components";
+import { PageContext } from "@/contexts";
 
 export function meta() {
   return [
@@ -84,46 +85,48 @@ export function meta() {
 
 export default function Page() {
   return (
-    <Layout className="items-center justify-center">
-      <div className="flex items-center flex-col">
-        <img src="/images/me.jpg" alt="jan Lavička" loading="lazy" className="rounded-full w-30 mb-4" />
+    <PageContext.Provider value={{ routeFile: "_index.tsx" }}>
+      <Layout className="items-center justify-center">
+        <div className="flex items-center flex-col">
+          <img src="/images/me.jpg" alt="jan Lavička" loading="lazy" className="rounded-full w-30 mb-4" />
 
-        <h1 className="text-3xl font-extrabold md:text-4xl">Jan Lavička</h1>
+          <h1 className="text-3xl font-extrabold md:text-4xl">Jan Lavička</h1>
 
-        <h2 className="text-lg text-gray-500 text-center text-balance mt-1">
-          Creator&nbsp;✨ Full&#8209;Stack&nbsp;Software&nbsp;Developer&nbsp;🛠️ Indie&nbsp;Hacker&nbsp;💡
-        </h2>
+          <h2 className="text-lg text-gray-500 text-center text-balance mt-1">
+            Creator&nbsp;✨ Full&#8209;Stack&nbsp;Software&nbsp;Developer&nbsp;🛠️ Indie&nbsp;Hacker&nbsp;💡
+          </h2>
 
-        <div className="flex gap-2 mt-2">
-          <a href="mailto:info@janlavicka.com" title="Email">
-            <RiMailLine className="w-6 h-6 transition duration-200 text-neutral-700 hover:text-blue-500" />
-          </a>
+          <div className="flex gap-2 mt-2">
+            <a href="mailto:info@janlavicka.com" title="Email">
+              <RiMailLine className="w-6 h-6 transition duration-200 text-neutral-700 hover:text-blue-500" />
+            </a>
 
-          <a href="https://twitter.com/janlavicka" title="Twitter">
-            <RiTwitterXLine className="w-6 h-6 transition duration-200 text-neutral-700 hover:text-blue-500" />
-          </a>
+            <a href="https://twitter.com/janlavicka" title="Twitter">
+              <RiTwitterXLine className="w-6 h-6 transition duration-200 text-neutral-700 hover:text-blue-500" />
+            </a>
 
-          <a href="https://mastodon.world/@janlavicka" rel="me" title="Mastodon">
-            <RiMastodonLine className="w-6 h-6 transition duration-200 text-neutral-700 hover:text-blue-500" />
-          </a>
+            <a href="https://mastodon.world/@janlavicka" rel="me" title="Mastodon">
+              <RiMastodonLine className="w-6 h-6 transition duration-200 text-neutral-700 hover:text-blue-500" />
+            </a>
 
-          <a href="https://producthunt.com/@janlavicka" title="Product Hunt">
-            <RiProductHuntLine className="w-6 h-6 transition duration-200 text-neutral-700 hover:text-blue-500" />
-          </a>
+            <a href="https://producthunt.com/@janlavicka" title="Product Hunt">
+              <RiProductHuntLine className="w-6 h-6 transition duration-200 text-neutral-700 hover:text-blue-500" />
+            </a>
 
-          <a href="https://bsky.app/profile/janlavicka.com" title="Bluesky">
-            <RiBlueskyLine className="w-6 h-6 transition duration-200 text-neutral-700 hover:text-blue-500" />
-          </a>
+            <a href="https://bsky.app/profile/janlavicka.com" title="Bluesky">
+              <RiBlueskyLine className="w-6 h-6 transition duration-200 text-neutral-700 hover:text-blue-500" />
+            </a>
 
-          <a href="https://github.com/janlavicka" title="GitHub">
-            <RiGithubLine className="w-6 h-6 transition duration-200 text-neutral-700 hover:text-blue-500" />
-          </a>
+            <a href="https://github.com/janlavicka" title="GitHub">
+              <RiGithubLine className="w-6 h-6 transition duration-200 text-neutral-700 hover:text-blue-500" />
+            </a>
 
-          <a href="https://www.linkedin.com/in/janlavicka/" title="LinkedIn">
-            <RiLinkedinBoxLine className="w-6 h-6 transition duration-200 text-neutral-700 hover:text-blue-500" />
-          </a>
+            <a href="https://www.linkedin.com/in/janlavicka/" title="LinkedIn">
+              <RiLinkedinBoxLine className="w-6 h-6 transition duration-200 text-neutral-700 hover:text-blue-500" />
+            </a>
+          </div>
         </div>
-      </div>
-    </Layout>
+      </Layout>
+    </PageContext.Provider>
   );
 }

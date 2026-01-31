@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import { Item, Layout, List } from "@/components";
+import { PageContext } from "@/contexts";
 import { Post } from "@/models/post.server";
 import type { Route } from "./+types/blog";
 
@@ -84,23 +85,25 @@ export async function loader() {
 
 export default function Page({ loaderData }: Route.ComponentProps) {
   return (
-    <Layout>
-      <div className="space-y-6 md:space-y-8">
-        <h1 className="text-2xl font-bold md:text-3xl">Blog</h1>
+    <PageContext.Provider value={{ routeFile: "blog.tsx" }}>
+      <Layout>
+        <div className="space-y-6 md:space-y-8">
+          <h1 className="text-2xl font-bold md:text-3xl">Blog</h1>
 
-        <List>
-          {loaderData.posts.map((post) => (
-            <Item key={post.slug}>
-              <p className="leading-normal">
-                <Link to={`/blog/${post.slug}`} className="font-bold underline text-neutral-900 hover:text-blue-500">
-                  {post.title}
-                </Link>
-              </p>
-              <p className="leading-normal">{post.description}</p>
-            </Item>
-          ))}
-        </List>
-      </div>
-    </Layout>
+          <List>
+            {loaderData.posts.map((post) => (
+              <Item key={post.slug}>
+                <p className="leading-normal">
+                  <Link to={`/blog/${post.slug}`} className="font-bold underline text-neutral-900 hover:text-blue-500">
+                    {post.title}
+                  </Link>
+                </p>
+                <p className="leading-normal">{post.description}</p>
+              </Item>
+            ))}
+          </List>
+        </div>
+      </Layout>
+    </PageContext.Provider>
   );
 }

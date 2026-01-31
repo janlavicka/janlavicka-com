@@ -1,5 +1,6 @@
 import invariant from "tiny-invariant";
 import { Layout, Text } from "@/components";
+import { PageContext } from "@/contexts";
 import { Post } from "@/models/post.server";
 import type { Route } from "./+types/blog_.$slug";
 
@@ -93,17 +94,19 @@ export async function loader({ params }: Route.LoaderArgs) {
 
 export default function Page({ loaderData }: Route.ComponentProps) {
   return (
-    <Layout>
-      <div className="space-y-6 md:space-y-8">
-        <h1 className="text-2xl font-bold md:text-3xl">{loaderData.post.title}</h1>
+    <PageContext.Provider value={{ routeFile: "blog_.$slug.tsx" }}>
+      <Layout>
+        <div className="space-y-6 md:space-y-8">
+          <h1 className="text-2xl font-bold md:text-3xl">{loaderData.post.title}</h1>
 
-        <div className="prose">
-          <Text>
-            {/* biome-ignore lint/security/noDangerouslySetInnerHtml: parsed markdown */}
-            <div dangerouslySetInnerHTML={{ __html: loaderData.post.content }} />
-          </Text>
+          <div className="prose">
+            <Text>
+              {/* biome-ignore lint/security/noDangerouslySetInnerHtml: parsed markdown */}
+              <div dangerouslySetInnerHTML={{ __html: loaderData.post.content }} />
+            </Text>
+          </div>
         </div>
-      </div>
-    </Layout>
+      </Layout>
+    </PageContext.Provider>
   );
 }

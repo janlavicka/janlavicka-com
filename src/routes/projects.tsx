@@ -1,4 +1,5 @@
 import { Layout, Text } from "@/components";
+import { PageContext } from "@/contexts";
 
 export function meta() {
   return [
@@ -75,103 +76,105 @@ export function meta() {
 
 export default function Page() {
   return (
-    <Layout>
-      <div className="space-y-6 md:space-y-8">
-        <h1 className="text-2xl font-bold md:text-3xl">Projects</h1>
+    <PageContext.Provider value={{ routeFile: "projects.tsx" }}>
+      <Layout>
+        <div className="space-y-6 md:space-y-8">
+          <h1 className="text-2xl font-bold md:text-3xl">Projects</h1>
 
-        <Text>
-          <p>Those are projects I am actively working on or I worked on in the past.</p>
-        </Text>
+          <Text>
+            <p>Those are projects I am actively working on or I worked on in the past.</p>
+          </Text>
 
-        <h2 className="text-lg font-bold text-neutral-900 hover:text-blue-500 hover:underline">
-          <a href="https://jobsfordevelopers.com">Jobs for Developers - jobs for software engineers</a>
-        </h2>
+          <h2 className="text-lg font-bold text-neutral-900 hover:text-blue-500 hover:underline">
+            <a href="https://jobsfordevelopers.com">Jobs for Developers - jobs for software engineers</a>
+          </h2>
 
-        <Text>
-          <p>
-            Jobs for Developers is a job board strictly focusing on remove jobs offering remote work. I found it hard to
-            search for such a job myself and I have created this job board for this reason.
-          </p>
-        </Text>
+          <Text>
+            <p>
+              Jobs for Developers is a job board strictly focusing on remove jobs offering remote work. I found it hard
+              to search for such a job myself and I have created this job board for this reason.
+            </p>
+          </Text>
 
-        <a
-          href="https://jobsfordevelopers.com"
-          target="_blank"
-          rel="noreferrer"
-          className="block overflow-hidden border-2 border-white rounded-md shadow-default"
-        >
-          <div className="-mb-2">
-            <img src="/images/jobsfordevelopers-com.jpg" alt="Jobs for Developers" />
-          </div>
-        </a>
+          <a
+            href="https://jobsfordevelopers.com"
+            target="_blank"
+            rel="noreferrer"
+            className="block overflow-hidden border-2 border-white rounded-md shadow-default"
+          >
+            <div className="-mb-2">
+              <img src="/images/jobsfordevelopers-com.jpg" alt="Jobs for Developers" />
+            </div>
+          </a>
 
-        <h2 className="text-lg font-bold text-neutral-900 hover:text-blue-500 hover:underline">
-          <a href="https://refer.is">refer.is - link shortener, branded links, QR codes, and link tracking</a>
-        </h2>
+          <h2 className="text-lg font-bold text-neutral-900 hover:text-blue-500 hover:underline">
+            <a href="https://refer.is">refer.is - link shortener, branded links, QR codes, and link tracking</a>
+          </h2>
 
-        <Text>
-          <p>
-            Refer.is a link management tool that provides URL shortening, branded link creation, QR code generation, and
-            link tracking analytics. It also includes a browser extension for convenient link access and management.
-          </p>
-        </Text>
+          <Text>
+            <p>
+              Refer.is a link management tool that provides URL shortening, branded link creation, QR code generation,
+              and link tracking analytics. It also includes a browser extension for convenient link access and
+              management.
+            </p>
+          </Text>
 
-        <a
-          href="https://refer.is"
-          target="_blank"
-          rel="noreferrer"
-          className="block overflow-hidden border-2 border-white rounded-md shadow-default"
-        >
-          <div className="-mb-2">
-            <img src="/images/refer-is.jpg" alt="refer.is" />
-          </div>
-        </a>
+          <a
+            href="https://refer.is"
+            target="_blank"
+            rel="noreferrer"
+            className="block overflow-hidden border-2 border-white rounded-md shadow-default"
+          >
+            <div className="-mb-2">
+              <img src="/images/refer-is.jpg" alt="refer.is" />
+            </div>
+          </a>
 
-        <h2 className="text-lg font-bold text-neutral-900 hover:text-blue-500 hover:underline">
-          <a href="https://toplistly.com">Toplistly - discover products and tools for your business</a>
-        </h2>
+          <h2 className="text-lg font-bold text-neutral-900 hover:text-blue-500 hover:underline">
+            <a href="https://toplistly.com">Toplistly - discover products and tools for your business</a>
+          </h2>
 
-        <Text>
-          <p>
-            Toplistly is a directory of top-rated tools and software for businesses. It helps you discover products to
-            streamline your workflow, boost productivity, and stay competitive in your industry.
-          </p>
-        </Text>
+          <Text>
+            <p>
+              Toplistly is a directory of top-rated tools and software for businesses. It helps you discover products to
+              streamline your workflow, boost productivity, and stay competitive in your industry.
+            </p>
+          </Text>
 
-        <a
-          href="https://toplistly.com"
-          target="_blank"
-          rel="noreferrer"
-          className="block overflow-hidden border-2 border-white rounded-md shadow-default"
-        >
-          <div className="-mb-2">
-            <img src="/images/toplistly-com.jpg" alt="Toplistly" />
-          </div>
-        </a>
+          <a
+            href="https://toplistly.com"
+            target="_blank"
+            rel="noreferrer"
+            className="block overflow-hidden border-2 border-white rounded-md shadow-default"
+          >
+            <div className="-mb-2">
+              <img src="/images/toplistly-com.jpg" alt="Toplistly" />
+            </div>
+          </a>
 
-        <h2 className="text-lg font-bold text-neutral-900 hover:text-blue-500 hover:underline">
-          <a href="https://tripcutters.com">Trip Cutters - travel deals for the modern traveler</a>
-        </h2>
+          <h2 className="text-lg font-bold text-neutral-900 hover:text-blue-500 hover:underline">
+            <a href="https://tripcutters.com">Trip Cutters - travel deals for the modern traveler</a>
+          </h2>
 
-        <Text>
-          <p>
-            Get inspired and travel across Europe for cheap while exploring the beauties of the world. Website searches
-            trips (flight + accommodation) for best prices thanks to multiple travel hacking techniques.
-          </p>
-        </Text>
+          <Text>
+            <p>
+              Get inspired and travel across Europe for cheap while exploring the beauties of the world. Website
+              searches trips (flight + accommodation) for best prices thanks to multiple travel hacking techniques.
+            </p>
+          </Text>
 
-        <a
-          href="https://tripcutters.com"
-          target="_blank"
-          rel="noreferrer"
-          className="block overflow-hidden border-2 border-white rounded-md shadow-default"
-        >
-          <div className="-mb-2">
-            <img src="/images/tripcutters-com.jpg" alt="Trip Cutters" />
-          </div>
-        </a>
+          <a
+            href="https://tripcutters.com"
+            target="_blank"
+            rel="noreferrer"
+            className="block overflow-hidden border-2 border-white rounded-md shadow-default"
+          >
+            <div className="-mb-2">
+              <img src="/images/tripcutters-com.jpg" alt="Trip Cutters" />
+            </div>
+          </a>
 
-        {/*<h2 className="text-lg font-bold text-neutral-900 hover:text-blue-500 hover:underline">
+          {/*<h2 className="text-lg font-bold text-neutral-900 hover:text-blue-500 hover:underline">
           <a href="https://filedash.co">Filedash - collect and receive files with upload link</a>
         </h2>
 
@@ -193,7 +196,8 @@ export default function Page() {
             <img src="/images/filedash-co.jpg" alt="FileDash" />
           </div>
         </a>*/}
-      </div>
-    </Layout>
+        </div>
+      </Layout>
+    </PageContext.Provider>
   );
 }
