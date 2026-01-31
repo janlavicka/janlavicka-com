@@ -1,7 +1,8 @@
 import { createContext } from "react";
 
 type PageContextValue = {
-  routeFile: string;
+  fileName: string;
+  isError: boolean;
 };
 
-export const PageContext = createContext<PageContextValue>({ routeFile: "" });
+export const PageContext = createContext<PageContextValue>({ fileName: "", isError: false });

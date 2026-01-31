@@ -85,7 +85,7 @@ export function meta() {
 
 export default function Page() {
   return (
-    <PageContext.Provider value={{ routeFile: "_index.tsx" }}>
+    <PageContext.Provider value={{ fileName: "src/routes/_index.tsx", isError: false }}>
       <Layout className="items-center justify-center">
         <div className="flex items-center flex-col">
           <img src="/images/me.jpg" alt="jan Lavička" loading="lazy" className="rounded-full w-30 mb-4" />

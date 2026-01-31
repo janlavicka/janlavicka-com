@@ -1,5 +1,7 @@
 import { useMemo } from "react";
 import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration, useRouteError } from "react-router";
+import { Layout } from "./components";
+import { PageContext } from "./contexts";
 import styles from "./styles.css?url";
 
 export function links() {
@@ -82,9 +84,13 @@ export function ErrorBoundary() {
         <Links />
       </head>
       <body className="flex min-h-dvh font-sans text-base antialiased text-neutral-900">
-        <h1 className="p-6 text-4xl font-bold text-neutral-900 md:font-extrabold md:text-5xl lg:text-6xl">
-          {description}
-        </h1>
+        <PageContext.Provider value={{ fileName: "src/root.tsx", isError: true }}>
+          <Layout className="items-center justify-center">
+            <h1 className="text-4xl font-bold text-neutral-900 md:font-extrabold md:text-5xl lg:text-6xl">
+              {description}
+            </h1>
+          </Layout>
+        </PageContext.Provider>
         <Scripts />
       </body>
     </html>

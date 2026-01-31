@@ -85,7 +85,7 @@ export async function loader() {
 
 export default function Page({ loaderData }: Route.ComponentProps) {
   return (
-    <PageContext.Provider value={{ routeFile: "blog.tsx" }}>
+    <PageContext.Provider value={{ fileName: "src/routes/blog.tsx", isError: false }}>
       <Layout>
         <div className="space-y-6 md:space-y-8">
           <h1 className="text-2xl font-bold md:text-3xl">Blog</h1>

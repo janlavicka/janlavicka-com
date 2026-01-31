@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import { NavLink } from "react-router";
 import { twMerge } from "tailwind-merge";
+import { PageContext } from "@/contexts";
 
 export function Header() {
+  const page = useContext(PageContext);
+
   const renderItem = (to: string, label: string, hide = false) => {
     return (
       <NavLink
@@ -9,7 +13,7 @@ export function Header() {
         className={({ isActive }) =>
           twMerge(
             "px-3 py-1 rounded-lg font-medium hover:bg-neutral-100",
-            isActive ? "text-neutral-900" : "text-neutral-500",
+            isActive && !page.isError ? "text-neutral-900" : "text-neutral-500",
             hide ? "hidden md:inline-block" : "inline-block",
           )
         }

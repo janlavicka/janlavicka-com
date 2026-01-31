@@ -7,7 +7,7 @@ export function Footer() {
   return (
     <div className="flex flex-col md:flex-row justify-center md:justify-between items-center gap-2 py-8 text-sm text-neutral-700">
       <a
-        href={`https://github.com/janlavicka/janlavicka-com/edit/main/src/routes/${page.routeFile}`}
+        href={`https://github.com/janlavicka/janlavicka-com/edit/main/${page.fileName}`}
         target="_blank"
         rel="noopener noreferrer"
         className="hover:text-neutral-900"

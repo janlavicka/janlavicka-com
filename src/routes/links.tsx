@@ -76,7 +76,7 @@ export function meta() {
 
 export default function Page() {
   return (
-    <PageContext.Provider value={{ routeFile: "links.tsx" }}>
+    <PageContext.Provider value={{ fileName: "src/routes/links.tsx", isError: false }}>
       <Layout>
         <div className="space-y-6 md:space-y-8">
           <h1 className="text-2xl font-bold md:text-3xl">Links</h1>
