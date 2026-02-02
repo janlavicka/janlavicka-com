@@ -1,10 +1,54 @@
+import type { BlogPosting, BreadcrumbList, WithContext } from "schema-dts";
 import invariant from "tiny-invariant";
 import { Layout, Text } from "@/components";
 import { PageContext } from "@/contexts";
 import { Post } from "@/models/post.server";
+import { jsonLd } from "@/utils";
 import type { Route } from "./+types/blog_.$slug";
 
 export function meta({ loaderData }: Route.MetaArgs) {
+  const blogPosting: WithContext<BlogPosting> = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: loaderData.post.title,
+    description: loaderData.post.description,
+    datePublished: loaderData.post.created,
+    url: `${import.meta.env.VITE_APP_URL}/blog/${loaderData.post.slug}`,
+    author: {
+      "@type": "Person",
+      name: "Jan Lavička",
+      url: import.meta.env.VITE_APP_URL,
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${import.meta.env.VITE_APP_URL}/blog/${loaderData.post.slug}`,
+    },
+  };
+
+  const breadcrumbs: WithContext<BreadcrumbList> = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: import.meta.env.VITE_APP_URL,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Blog",
+        item: `${import.meta.env.VITE_APP_URL}/blog`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: loaderData.post.title,
+      },
+    ],
+  };
+
   return [
     {
       tagName: "link",
@@ -74,6 +118,10 @@ export function meta({ loaderData }: Route.MetaArgs) {
       name: "twitter:image",
       content: `${import.meta.env.VITE_APP_URL}/images/social.jpg`,
     },
+
+    // Structured Data
+    jsonLd(blogPosting),
+    jsonLd(breadcrumbs),
   ];
 }
 

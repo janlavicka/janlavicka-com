@@ -7,10 +7,29 @@ import {
   RiProductHuntLine,
   RiTwitterXLine,
 } from "react-icons/ri";
+import type { Person, WithContext } from "schema-dts";
 import { Layout } from "@/components";
 import { PageContext } from "@/contexts";
+import { jsonLd } from "@/utils";
 
 export function meta() {
+  const person: WithContext<Person> = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Jan Lavička",
+    url: import.meta.env.VITE_APP_URL,
+    image: `${import.meta.env.VITE_APP_URL}/images/me.jpg`,
+    jobTitle: "Full-Stack Software Developer",
+    sameAs: [
+      "https://twitter.com/janlavicka",
+      "https://mastodon.world/@janlavicka",
+      "https://producthunt.com/@janlavicka",
+      "https://bsky.app/profile/janlavicka.com",
+      "https://github.com/janlavicka",
+      "https://www.linkedin.com/in/janlavicka/",
+    ],
+  };
+
   return [
     {
       tagName: "link",
@@ -80,6 +99,9 @@ export function meta() {
       name: "twitter:image",
       content: `${import.meta.env.VITE_APP_URL}/images/social.jpg`,
     },
+
+    // Structured Data
+    jsonLd(person),
   ];
 }
 

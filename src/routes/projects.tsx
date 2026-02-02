@@ -1,7 +1,27 @@
+import type { BreadcrumbList, WithContext } from "schema-dts";
 import { Layout, Text } from "@/components";
 import { PageContext } from "@/contexts";
+import { jsonLd } from "@/utils";
 
 export function meta() {
+  const breadcrumbs: WithContext<BreadcrumbList> = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: import.meta.env.VITE_APP_URL,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Projects",
+      },
+    ],
+  };
+
   return [
     {
       tagName: "link",
@@ -71,6 +91,9 @@ export function meta() {
       name: "twitter:image",
       content: `${import.meta.env.VITE_APP_URL}/images/social.jpg`,
     },
+
+    // Structured Data
+    jsonLd(breadcrumbs),
   ];
 }
 

@@ -1,10 +1,30 @@
 import { Link } from "react-router";
+import type { BreadcrumbList, WithContext } from "schema-dts";
 import { Item, Layout, List } from "@/components";
 import { PageContext } from "@/contexts";
 import { Post } from "@/models/post.server";
+import { jsonLd } from "@/utils";
 import type { Route } from "./+types/blog";
 
 export function meta() {
+  const breadcrumbs: WithContext<BreadcrumbList> = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: import.meta.env.VITE_APP_URL,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Blog",
+      },
+    ],
+  };
+
   return [
     {
       tagName: "link",
@@ -74,6 +94,9 @@ export function meta() {
       name: "twitter:image",
       content: `${import.meta.env.VITE_APP_URL}/images/social.jpg`,
     },
+
+    // Structured Data
+    jsonLd(breadcrumbs),
   ];
 }
 
