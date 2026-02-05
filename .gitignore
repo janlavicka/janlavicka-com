@@ -9,6 +9,9 @@ node_modules
 # react router
 .react-router
 
+# localflare
+.localflare
+
 # cloudflare
 worker-configuration.d.ts
 

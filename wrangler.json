@@ -19,5 +19,19 @@
   ],
   "placement": {
     "mode": "smart"
-  }
+  },
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "CLAP_COUNTER",
+        "class_name": "ClapCounterDurableObject"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_classes": ["ClapCounterDurableObject"]
+    }
+  ]
 }
