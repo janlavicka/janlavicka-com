@@ -9,7 +9,9 @@
     "head_sampling_rate": 1
   },
   "vars": {
-    "VITE_APP_URL": "https://janlavicka.com"
+    "VITE_APP_URL": "https://janlavicka.com",
+    "VITE_POSTHOG_API_KEY": "phc_NZ1qhoMgIUK1c1ZoMmEtkaoq6k2VdXbZmsMW8zdpKQs",
+    "VITE_GA_MEASUREMENT_ID": "G-4EMR9KF69M"
   },
   "routes": [
     {

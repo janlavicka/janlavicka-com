@@ -1,7 +1,9 @@
 import { useMemo } from "react";
 import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration, useRouteError } from "react-router";
-import { Layout } from "./components";
+
+import { Analytics, Layout } from "./components";
 import { PageContext } from "./contexts";
+import { PostHogProvider } from "./providers";
 import styles from "./styles.css?url";
 
 export function links() {
@@ -44,7 +46,10 @@ export default function App() {
         <Links />
       </head>
       <body className="flex min-h-dvh font-sans text-base antialiased text-neutral-900">
-        <Outlet />
+        <PostHogProvider>
+          <Analytics />
+          <Outlet />
+        </PostHogProvider>
         <ScrollRestoration />
         <Scripts />
       </body>
