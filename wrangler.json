@@ -15,8 +15,8 @@
   },
   "routes": [
     {
-      "pattern": "janlavicka.com/*",
-      "zone_name": "janlavicka.com"
+      "pattern": "janlavicka.com",
+      "custom_domain": true
     }
   ],
   "placement": {
