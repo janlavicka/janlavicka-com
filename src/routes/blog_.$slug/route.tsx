@@ -159,7 +159,7 @@ export async function loader(args: Route.LoaderArgs) {
       post: await Post.findBySlug(args.params.slug),
       claps,
     };
-  } catch (_e) {
+  } catch {
     throw new Response(null, {
       status: 404,
       statusText: "Not Found",

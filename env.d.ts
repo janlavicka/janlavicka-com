@@ -1,5 +1,5 @@
-/// <reference types="vite/client" />
-/// <reference path=".react-router/types/+future.ts" />
+import "vite/client";
+import "./.react-router/types/+future";
 
 import type { ClapCounterDurableObject } from "@/durable-objects";
 
