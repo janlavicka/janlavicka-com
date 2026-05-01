@@ -15,6 +15,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["env.d.ts", "declarations.d.ts", "worker-configuration.d.ts", "src"],
+  "include": ["env.d.ts", "declarations.d.ts", "worker-configuration.d.ts", "test", "src"],
   "exclude": ["node_modules", "build"]
 }
