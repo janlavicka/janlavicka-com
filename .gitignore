@@ -20,5 +20,9 @@ build
 temp
 coverage
 
+# playwright
+test-results
+playwright-report
+
 # env variables
 .env
