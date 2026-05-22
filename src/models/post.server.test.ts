@@ -8,6 +8,23 @@ describe("Post.findAll", () => {
     expect(posts.length).toBeGreaterThan(0);
     expect(posts.every((post) => typeof post.slug === "string" && post.slug.length > 0)).toBe(true);
   });
+
+  it("returns posts ordered newest first", () => {
+    const dates = Post.findAll().map((post) => post.created as string);
+
+    expect(dates.length).toBeGreaterThan(1);
+    expect(dates).toEqual([...dates].sort((a, b) => b.localeCompare(a)));
+  });
+});
+
+describe("Post.byCreatedDesc", () => {
+  it("sorts newer created dates before older ones", () => {
+    const posts = [{ created: "2021-06-05" }, { created: "2026-05-22" }, { created: "2024-01-01" }];
+
+    const ordered = [...posts].sort(Post.byCreatedDesc).map((post) => post.created);
+
+    expect(ordered).toEqual(["2026-05-22", "2024-01-01", "2021-06-05"]);
+  });
 });
 
 describe("Post.findBySlug", () => {

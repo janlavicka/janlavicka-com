@@ -1,5 +1,5 @@
 ---
-title: "Dokku: Self-hosted Heroku"
+title: "Self-Host Your Own Heroku With Dokku"
 description: "UX of Heroku application deployment for a better price."
 created: "2021-06-05"
 ---

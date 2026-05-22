@@ -3,6 +3,7 @@
   "extends": ["config:recommended", "group:monorepos"],
   "repositories": ["janlavicka/janlavicka-com"],
   "labels": ["dependencies"],
+  "minimumReleaseAge": "7 days",
   "automerge": false,
   "dependencyDashboard": false,
   "lockFileMaintenance": {
