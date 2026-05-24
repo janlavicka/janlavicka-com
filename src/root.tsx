@@ -17,6 +17,12 @@ export function links() {
       href: "https://rsms.me/inter/inter.css",
     },
     {
+      rel: "alternate",
+      type: "application/rss+xml",
+      title: "Jan Lavička",
+      href: "/feed.xml",
+    },
+    {
       rel: "icon",
       href: "/images/favicon.png",
     },
