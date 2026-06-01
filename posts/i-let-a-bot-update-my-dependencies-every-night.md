@@ -37,8 +37,9 @@ jobs:
       - name: Self-hosted Renovate
         uses: renovatebot/github-action@v46.1.14
         with:
-          configurationFile: renovate.json
           token: ${{ secrets.RENOVATE_TOKEN }}
+        env:
+          RENOVATE_REPOSITORIES: ${{ github.repository }}
 ```
 
 It runs once a day, and `workflow_dispatch` lets me kick it off by hand whenever I want.
@@ -57,7 +58,6 @@ Finally, `renovate.json` ties it together:
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended", "group:monorepos"],
-  "repositories": ["janlavicka/janlavicka-com"],
   "labels": ["dependencies"],
   "automerge": false,
   "dependencyDashboard": false,

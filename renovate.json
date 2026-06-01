@@ -1,10 +1,11 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended", "group:monorepos"],
-  "repositories": ["janlavicka/janlavicka-com"],
   "labels": ["dependencies"],
   "minimumReleaseAge": "7 days",
   "automerge": false,
+  "prConcurrentLimit": 0,
+  "prHourlyLimit": 0,
   "dependencyDashboard": false,
   "lockFileMaintenance": {
     "enabled": true
