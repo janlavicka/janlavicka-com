@@ -9,6 +9,9 @@ export default defineConfig({
   test: {
     environment: "happy-dom",
     setupFiles: ["./test/setup.ts"],
+    env: {
+      VITE_APP_URL: "https://janlavicka.com",
+    },
     exclude: [...defaultExclude, "test/e2e/**"],
     coverage: {
       provider: "v8",
