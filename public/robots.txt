@@ -2,5 +2,5 @@ Sitemap: https://janlavicka.com/sitemap.xml
 
 User-agent: *
 Content-Signal: search=yes, ai-train=yes, ai-input=yes
-Allow: *
+Allow: /
 Disallow: /cdn-cgi/
