@@ -1,0 +1,67 @@
+name: Deploy website
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Restore node_modules cache
+        id: cache
+        uses: actions/cache@v6
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+
+      - name: Install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Export build variables
+        run: |
+          node -e '
+            const vars = require("./wrangler.json").vars ?? {};
+            for (const [key, value] of Object.entries(vars)) {
+              if (key.startsWith("VITE_")) console.log(key + "=" + value);
+            }
+          ' >> "$GITHUB_ENV"
+
+      - name: Build
+        run: npm run build
+
+      - name: Upload client source maps
+        uses: PostHog/upload-source-maps@v2
+        with:
+          directory: build/client/assets
+          project-id: 124032
+          api-key: ${{ secrets.POSTHOG_API_KEY }}
+          host: https://eu.posthog.com
+          release-name: janlavicka-com
+          release-version: ${{ github.sha }}
+          delete-after-upload: true
+
+      - name: Upload server source maps
+        uses: PostHog/upload-source-maps@v2
+        with:
+          directory: build/server
+          project-id: 124032
+          api-key: ${{ secrets.POSTHOG_API_KEY }}
+          host: https://eu.posthog.com
+          release-name: janlavicka-com
+          release-version: ${{ github.sha }}
+
+      - name: Deploy worker
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: npx wrangler deploy
