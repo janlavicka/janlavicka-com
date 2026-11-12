@@ -22,7 +22,7 @@
     "typegen": "wrangler types && react-router typegen"
   },
   "dependencies": {
-    "@cloudflare/vite-plugin": "^1.13.18",
+    "@cloudflare/vite-plugin": "^1.67.0",
     "@react-router/fs-routes": "^8.0.0",
     "@react-router/node": "^8.0.0",
     "@react-router/serve": "^8.0.0",
